@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="qr-code16" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code15" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code14" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code13" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code12" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code11" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code10" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code9" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code8" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code7" size="500.000000 500.000000" />
     <ImageTarget name="qr-code6" size="500.000000 500.000000" />
     <ImageTarget name="qr-code5" size="500.000000 500.000000" />
     <ImageTarget name="qr-code4" size="500.000000 500.000000" />
