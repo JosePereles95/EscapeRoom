@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="firebase_database_url" translatable="false">https://escaperoom-b425b.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">185432732679</string>
+  <string name="google_storage_bucket" translatable="false">escaperoom-b425b.appspot.com</string>
+  <string name="project_id" translatable="false">escaperoom-b425b</string>
+  <string name="google_api_key" translatable="false">AIzaSyDzpKWqNrFE7FCUJ4dxcyU0YPZhYuxcUYk</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDzpKWqNrFE7FCUJ4dxcyU0YPZhYuxcUYk</string>
+  <string name="google_app_id" translatable="false">1:185432732679:android:fd4a6c9fbe3571d5</string>
+  <string name="default_web_client_id" translatable="false">185432732679-q9cet481pk2re3im5vh290udbcnd82ij.apps.googleusercontent.com</string>
+</resources>

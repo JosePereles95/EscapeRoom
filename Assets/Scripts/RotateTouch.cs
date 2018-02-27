@@ -13,22 +13,27 @@ public class RotateTouch : MonoBehaviour
 
 	void OnMouseDrag()
 	{
-		float rotX = Input.GetAxis("Mouse X")*rotSpeed*Mathf.Deg2Rad;
-		transform.RotateAround(Vector3.up, -rotX);
-
-		/*float rotY = Input.GetAxis("Mouse Y")*rotSpeed*Mathf.Deg2Rad;
-		transform.RotateAround(Vector3.right, rotY);*/
+		if (pressed) {
+			float rotX = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
+			transform.RotateAround (Vector3.up, -rotX);
+		}
+		else {
+			float rotZ = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
+			transform.RotateAround (Vector3.back, rotZ);
+		}
 	}
 
 	public void ResetRotation(){
 		this.transform.transform.rotation = defaultRotation;
+		pressed = true;
 	}
 
 	public void Relocate(){
+		this.transform.transform.rotation = defaultRotation;
+
 		if (pressed)
 			transform.RotateAround (transform.position, transform.right, 90f);
-		else
-			transform.RotateAround (transform.position, transform.right, -90);
+		
 		pressed = !pressed;
 	}
 }
