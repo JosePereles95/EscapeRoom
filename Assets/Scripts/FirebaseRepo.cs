@@ -1,0 +1,19 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+using System.Threading.Tasks;
+
+[CreateAssetMenu(menuName = "Firebase/Repository")]
+public class FirebaseRepo : ScriptableObject {
+
+	public FirebasePath Path;
+
+	public Task Push(object item){
+
+		return Path.GetReferenceFromRoot(Firebase.Database.FirebaseDatabase.DefaultInstance.RootReference)
+			.Push().SetRawJsonValueAsync(JsonUtility.ToJson(item));
+
+		return Task.FromResult (new object ());
+	}
+}
