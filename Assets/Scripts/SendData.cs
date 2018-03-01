@@ -17,7 +17,7 @@ public class SendData : MonoBehaviour {
 	private Firebase.Database.DataSnapshot mDataSnapshot;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 
-	private bool questionChecked = false;
+	private string questionChecked = "false";
 	private string newDato;
 	private string newQ1;
 
@@ -28,7 +28,7 @@ public class SendData : MonoBehaviour {
 
 	void Update(){
 
-		Firebase.Database.FirebaseDatabase.DefaultInstance.GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
+		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		consolaAndroid.text = check.ToString();
 
@@ -43,6 +43,7 @@ public class SendData : MonoBehaviour {
 				readData.image.color = Color.green;
 		
 			if (mDataSnapshot.Child ("question1").GetValue (true) != null) {
+				newQ1 = mDataSnapshot.Child ("question1").GetValue (true).ToString ();
 				if (newQ1 == "true")
 					q1Data.image.color = Color.yellow;
 				else
@@ -56,7 +57,7 @@ public class SendData : MonoBehaviour {
 	}
 
 	public void CheckButtonPressed(){
-		questionChecked = true;
+		questionChecked = "true";
 		mDatabase.Child ("question1").SetValueAsync (questionChecked);
 	}
 
@@ -65,6 +66,7 @@ public class SendData : MonoBehaviour {
 
 		if (args.DatabaseError != null) {
 			Debug.LogError(args.DatabaseError.Message);
+			consolaAndroid.text = "ERROR";
 			return;
 		}
 		mDataSnapshot = args.Snapshot;
