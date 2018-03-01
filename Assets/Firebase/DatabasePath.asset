@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9bbf2c0b82d9c43a9da1b2b51168ae, type: 3}
   m_Name: DatabasePath
   m_EditorClassIdentifier: 
-  BasePath: DatabasePath
+  BasePath: EscapeRoom
   DbVersion: Test1
   ObjectTypeName: Prueba
   IsPlural: 1
