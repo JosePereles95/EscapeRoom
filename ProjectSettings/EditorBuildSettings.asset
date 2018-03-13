@@ -9,5 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/LogIn.unity
     guid: e355b7f2960464147b56308fba9e3c6f
   - enabled: 1
-    path: Assets/Scenes/Test.unity
+    path: Assets/Scenes/WaitingTeacher.unity
+    guid: 5a9fb28385987734d9162b6c328a709d
+  - enabled: 1
+    path: Assets/Scenes/SelectGroup.unity
+    guid: 211b9a132630d324d88e3840348ea306
+  - enabled: 1
+    path: Assets/Scenes/Vuforia.unity
     guid: 47dd5327bc8f07b499dd492f86682a87

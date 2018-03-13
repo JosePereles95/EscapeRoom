@@ -29,6 +29,7 @@ public class SendData : MonoBehaviour {
 	const string glyphs= "abcdefghijklmnopqrstuvwxyz0123456789";
 	public string userID;
 	private bool grupoValido = false;
+	private int questions = 5;
 
 	void Start(){
 		int charAmount = Random.Range(20, 35); //set those to the minimum and maximum length of your string
@@ -38,31 +39,15 @@ public class SendData : MonoBehaviour {
 		}
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
-		mDatabase.Child (userID).Child ("Questions").Child ("question1").SetValueAsync (questionChecked);
+		for (int i = 1; i <= questions; i++)
+			mDatabase.Child (userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
 	}
 
 	void Update(){
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
-		//consolaAndroid.text = check.ToString();
-
 		if (mDataSnapshot != null) {
-			/*consolaAndroid.image.color = Color.green;
-			if (mDataSnapshot.Child(userID).Child ("data").GetValue (true) != null) {
-				newDato = mDataSnapshot.Child(userID).Child ("data").GetValue (true).ToString ();
-				readData.text = newDato;
-			}
 
-			if (newDato == "hola")
-				readData.image.color = Color.green;*/
-		
-			if (mDataSnapshot.Child(userID).Child ("Questions").Child ("question1").GetValue (true) != null) {
-				newQ1 = mDataSnapshot.Child(userID).Child ("Questions").Child ("question1").GetValue (true).ToString ();
-				if (newQ1 == "true")
-					q1Data.image.color = Color.yellow;
-				else
-					q1Data.image.color = Color.red;
-			}
 		}
 
 		if (grupoElegido != "") {
@@ -72,6 +57,7 @@ public class SendData : MonoBehaviour {
 			}
 			else {
 				gInput.image.color = Color.red;
+				gInput.text = "Grupo inválido";
 				grupoElegido = "";
 			}
 		}
