@@ -20,7 +20,8 @@ public class WaitingTeacher : MonoBehaviour {
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
-			numGrupos = int.Parse (mDataSnapshot.Child ("Num Grupos").GetValue (true).ToString ());
+			if(mDataSnapshot.Child ("Num Grupos").GetValue (true) != null)
+				numGrupos = int.Parse (mDataSnapshot.Child ("Num Grupos").GetValue (true).ToString ());
 		}
 
 		if (numGrupos != 0) {

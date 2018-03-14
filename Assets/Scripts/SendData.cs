@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Firebase;
+using UnityEngine.SceneManagement;
 
 public class SendData : MonoBehaviour {
 
@@ -22,14 +23,13 @@ public class SendData : MonoBehaviour {
 	private Firebase.Database.DataSnapshot mDataSnapshot;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 
-	private string questionChecked = "false";
 	//private string newDato;
 	private string newQ1;
 
 	const string glyphs= "abcdefghijklmnopqrstuvwxyz0123456789";
-	public string userID;
+	public static string userID;
 	private bool grupoValido = false;
-	private int questions = 5;
+
 
 	void Start(){
 		int charAmount = Random.Range(20, 35); //set those to the minimum and maximum length of your string
@@ -39,15 +39,15 @@ public class SendData : MonoBehaviour {
 		}
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
-		for (int i = 1; i <= questions; i++)
-			mDatabase.Child (userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
 	}
 
 	void Update(){
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
-
+			Debug.Log (mDataSnapshot.Child ("All Confirmed").GetValue (true).ToString ());
+			if (mDataSnapshot.Child ("All Confirmed").GetValue (true).ToString() == "True")
+				SceneManager.LoadScene ("Vuforia");
 		}
 
 		if (grupoElegido != "") {
@@ -63,21 +63,13 @@ public class SendData : MonoBehaviour {
 		}
 	}
 
-	/*public void SendButtonPressed(){
-		mDatabase.Child(userID).Child ("data").SetValueAsync (data.text);
-	}
-
-	public void CheckButtonPressed(){
-		questionChecked = "true";
-		mDatabase.Child(userID).Child ("Questions").Child ("question1").SetValueAsync (questionChecked);
-	}*/
-
 	public void CheckGrupo(){
 		if (grupoElegido == "") {
-			grupoElegido = EventSystem.current.currentSelectedGameObject.name;
+			grupoElegido = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text;
 
 			if(mDataSnapshot.Child ("Grupos").Child (grupoElegido).GetValue(true) == null){
 				grupoValido = true;
+				Debug.Log (grupoElegido + " ; " + userID);
 				mDatabase.Child(userID).Child("mi Grupo").SetValueAsync (grupoElegido);
 				mDatabase.Child ("Grupos").Child (grupoElegido).Child ("userID").SetValueAsync (userID);
 			}
