@@ -3,9 +3,9 @@ using System.Collections;
 
 public class RotateTouch : MonoBehaviour 
 {
-	float rotSpeed = 2;
-	Quaternion defaultRotation;
-	bool pressed = true;
+	private float rotSpeed = 2;
+	private Quaternion defaultRotation;
+	private bool pressed = true;
 
 	void Awake(){
 		defaultRotation = this.transform.localRotation;

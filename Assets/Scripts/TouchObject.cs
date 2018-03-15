@@ -20,8 +20,6 @@ public class TouchObject : MonoBehaviour {
 	}
 
 	void Update(){
-		/*GameObject obj = GetComponentInParent<GameObject> ();
-		obj.transform.Rotate (new Vector3 (0, Time.deltaTime * speed, 0));*/
 		transform.RotateAround (transform.parent.position, transform.parent.up, Time.deltaTime * speed);
 	}
 }

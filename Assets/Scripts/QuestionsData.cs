@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Vuforia;
 
 public class QuestionsData : MonoBehaviour {
 
@@ -16,16 +17,16 @@ public class QuestionsData : MonoBehaviour {
 
 	[SerializeField] private GameObject questionCanvas;
 
-	// Use this for initialization
 	void Start () {
+		VuforiaBehaviour.Instance.enabled = true;
+
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 
 		for (int i = 1; i <= questions; i++) {
 			mDatabase.Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
 		}
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
@@ -49,14 +50,13 @@ public class QuestionsData : MonoBehaviour {
 
 	public void OpenQuestions(){
 		questionCanvas.SetActive (!questionCanvas.activeSelf);
+		VuforiaBehaviour.Instance.enabled = !VuforiaBehaviour.Instance.enabled;
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){
-		//check++;
 
 		if (args.DatabaseError != null) {
 			Debug.LogError(args.DatabaseError.Message);
-			//consolaAndroid.text = "ERROR";
 			return;
 		}
 		mDataSnapshot = args.Snapshot;

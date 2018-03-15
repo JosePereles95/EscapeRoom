@@ -5,14 +5,14 @@ using UnityEngine;
 public class RotateItem : MonoBehaviour {
 
 	public float speed = 0.05f;
-	float i;
-	// Update is called once per frame
+	private float i;
+
 	void Start(){
 		
 		i = Random.Range (0.0f, 1.0f);
-		//print (i);
 
 	}
+
 	void Update () {
 		if(i <= 0.5f)
 			transform.Rotate(new Vector3(0,Time.deltaTime*speed,0));
@@ -20,5 +20,4 @@ public class RotateItem : MonoBehaviour {
 			transform.Rotate(new Vector3(0,-(Time.deltaTime*speed),0));
 		
 	}
-		
 }
