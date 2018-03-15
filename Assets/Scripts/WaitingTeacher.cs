@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Vuforia;
+using UnityEngine.UI;
 
 public class WaitingTeacher : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class WaitingTeacher : MonoBehaviour {
 	//private Firebase.Database.DatabaseReference mDatabase;
 	private Firebase.Database.DataSnapshot mDataSnapshot;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
+
+	[SerializeField] private Button okButton;
 
 	void Start(){
 		VuforiaBehaviour.Instance.enabled = false;
@@ -26,7 +29,7 @@ public class WaitingTeacher : MonoBehaviour {
 		}
 
 		if (numGrupos != 0) {
-			SceneManager.LoadScene ("SelectGroup");
+			okButton.gameObject.SetActive (true);	
 		}
 	}
 
@@ -37,5 +40,9 @@ public class WaitingTeacher : MonoBehaviour {
 			return;
 		}
 		mDataSnapshot = args.Snapshot;
+	}
+
+	public void NextScene(){
+		SceneManager.LoadScene ("SelectGroup");
 	}
 }
