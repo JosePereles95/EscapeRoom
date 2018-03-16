@@ -18,7 +18,6 @@ public class QuestionsData : MonoBehaviour {
 	[SerializeField] private GameObject questionCanvas;
 
 	void Start () {
-		VuforiaBehaviour.Instance.enabled = true;
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 
@@ -50,7 +49,13 @@ public class QuestionsData : MonoBehaviour {
 
 	public void OpenQuestions(){
 		questionCanvas.SetActive (!questionCanvas.activeSelf);
-		VuforiaBehaviour.Instance.enabled = !VuforiaBehaviour.Instance.enabled;
+
+		if (!WindowsManager.penalized) {
+			if (questionCanvas.activeSelf)
+				VuforiaBehaviour.Instance.enabled = false;
+			else
+				VuforiaBehaviour.Instance.enabled = true;
+		}
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){

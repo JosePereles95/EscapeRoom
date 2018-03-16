@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour{
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 
 	[SerializeField] private float tiempo = 0.0f;
-	private int tiempoTotal = 0;
+	private float tiempoTotal = 0;
 	private bool asignado = false;
 	[SerializeField] private Text textTiempo;
 
@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour{
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
-			tiempoTotal = int.Parse (mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
+			tiempoTotal = float.Parse (mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
 		}
 
 		if (tiempoTotal != 0 && !asignado) {
@@ -39,9 +39,9 @@ public class Timer : MonoBehaviour{
 			textTiempo.text = horas.ToString () + ":" + minutos.ToString ("D2");
 		else {
 			if(minutos > 0)
-				textTiempo.text = minutos.ToString ("D2") + ":" + segundos.ToString ("D2");
+				textTiempo.text = minutos.ToString () + ":" + segundos.ToString ("D2");
 			else
-				textTiempo.text = segundos.ToString ("D2");
+				textTiempo.text = segundos.ToString ();
 		}
 
 		if (horas == 0 && minutos == 0 && segundos == 0)
