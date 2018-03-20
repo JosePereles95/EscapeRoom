@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour{
-	
+
 	[SerializeField] private float tiempo = 0.0f;
 	private bool asignado = false;
 	[SerializeField] private Text textTiempo;

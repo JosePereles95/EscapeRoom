@@ -44,7 +44,8 @@ public class SendData : MonoBehaviour {
 		if (mDataSnapshot != null) {
 			if (mDataSnapshot.Child ("All Confirmed").GetValue (true).ToString() == "True")
 				SceneManager.LoadScene ("Vuforia");
-			minsJuego = float.Parse(mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
+			if(mDataSnapshot.Child ("Tiempo").GetValue (true) != null)
+				minsJuego = float.Parse(mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
 		}
 
 		if (grupoElegido != "") {

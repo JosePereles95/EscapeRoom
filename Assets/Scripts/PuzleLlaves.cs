@@ -16,13 +16,13 @@ public class PuzleLlaves : MonoBehaviour {
 		VuforiaBehaviour.Instance.enabled = false;
 	}
 
-	public void Tocado(string tagObject){
+	public void Tocado(GameObject obj){
 		
 		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
-			if (tagObject == "correct") {
+			if (obj.tag == "correct") {
 				StartCoroutine (ShowCorrectText ());
 			}
-			else if (tagObject == "wrong") {
+			else if (obj.tag == "wrong") {
 				this.GetComponent<RestarVidas> ().Resta ();
 
 				if(this.GetComponent<RestarVidas> ().vidas > 0)
