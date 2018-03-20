@@ -5,11 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour{
 	
-	private Firebase.Database.DataSnapshot mDataSnapshot;
-	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
-
 	[SerializeField] private float tiempo = 0.0f;
-	private float tiempoTotal = 0;
 	private bool asignado = false;
 	[SerializeField] private Text textTiempo;
 
@@ -18,14 +14,9 @@ public class Timer : MonoBehaviour{
 	}
 
 	void Update(){
-		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
-		if (mDataSnapshot != null) {
-			tiempoTotal = float.Parse (mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
-		}
-
-		if (tiempoTotal != 0 && !asignado) {
-			tiempo = tiempoTotal * 60;
+		if (!asignado) {
+			tiempo = SendData.minsJuego;
 			asignado = true;
 		}
 
@@ -46,15 +37,6 @@ public class Timer : MonoBehaviour{
 
 		if (horas == 0 && minutos == 0 && segundos == 0)
 			TiempoAgotado ();
-	}
-
-	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){
-
-		if (args.DatabaseError != null) {
-			Debug.LogError(args.DatabaseError.Message);
-			return;
-		}
-		mDataSnapshot = args.Snapshot;
 	}
 
 	void TiempoAgotado(){

@@ -18,12 +18,10 @@ public class WindowsManager : MonoBehaviour {
 	private bool accessOn = false;
 	private bool accessOff = true;
 
-	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (penalized) {
 			if(accessOff)

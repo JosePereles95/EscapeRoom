@@ -9,6 +9,8 @@ using Vuforia;
 
 public class SendData : MonoBehaviour {
 
+	public static float minsJuego;
+
 	public InputField gInput;
 
 	private string grupoElegido = "";
@@ -42,6 +44,7 @@ public class SendData : MonoBehaviour {
 		if (mDataSnapshot != null) {
 			if (mDataSnapshot.Child ("All Confirmed").GetValue (true).ToString() == "True")
 				SceneManager.LoadScene ("Vuforia");
+			minsJuego = float.Parse(mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
 		}
 
 		if (grupoElegido != "") {
