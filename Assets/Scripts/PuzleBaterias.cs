@@ -12,14 +12,12 @@ public class PuzleBaterias : MonoBehaviour {
 	[SerializeField] private Text noVidasText;
 	[SerializeField] private Text porcentajeText;
 
-	[SerializeField] private int sumaActual = 0;
+	private int sumaActual = 0;
 	[SerializeField] private GameObject objBase;
-	[SerializeField] private List<GameObject> objsApilados;
-	[SerializeField] private List<Vector3> defaultPosObjsApilados;
-
-	private int sumaCorrecta = 38;
-
-
+	[SerializeField] private List<GameObject> allBaterias;
+	private List<GameObject> objsApilados;
+	[SerializeField] private List<Button> numsBaterias;
+	private List<Vector3> defaultPosObjsApilados;
 
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
@@ -33,12 +31,14 @@ public class PuzleBaterias : MonoBehaviour {
 
 			Apilar (obj);
 
-			sumaActual += int.Parse (obj.name);
+			int index = allBaterias.FindIndex(a => a.gameObject == obj);
+
+			sumaActual += int.Parse (numsBaterias[index].GetComponentInChildren<Text>().text);
 			porcentajeText.text = sumaActual + " %";
 
-			if (sumaActual == sumaCorrecta) {
+			if (sumaActual == AleatorioLlaves.sumaTotal) {
 				StartCoroutine (ShowCorrectText ());
-			} else if (sumaActual > sumaCorrecta) {
+			} else if (sumaActual > AleatorioLlaves.sumaTotal) {
 				this.GetComponent<RestarVidas> ().Resta ();
 
 				if (this.GetComponent<RestarVidas> ().vidas > 0)

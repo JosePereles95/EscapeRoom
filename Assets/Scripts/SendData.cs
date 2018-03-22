@@ -55,7 +55,7 @@ public class SendData : MonoBehaviour {
 			}
 			else {
 				gInput.image.color = Color.red;
-				gInput.text = "Grupo inválido";
+				gInput.text = "Ocupado";
 				grupoElegido = "";
 			}
 		}

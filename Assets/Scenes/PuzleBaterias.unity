@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2977197}
   - component: {fileID: 2977196}
   m_Layer: 0
-  m_Name: 10
+  m_Name: Bateria4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &2977196
 MeshCollider:
@@ -278,7 +278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &104732069
 GameObject:
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 229634453}
   - component: {fileID: 229634452}
   m_Layer: 0
-  m_Name: 17
+  m_Name: Bateria1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -417,7 +417,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &229634452
 MeshCollider:
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 237732254}
   - component: {fileID: 237732253}
   m_Layer: 0
-  m_Name: 15
+  m_Name: Bateria2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -474,7 +474,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &237732253
 MeshCollider:
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 373758933}
   - component: {fileID: 373758932}
   m_Layer: 0
-  m_Name: 1
+  m_Name: Bateria7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -652,7 +652,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &373758932
 MeshCollider:
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 511081478}
   - component: {fileID: 511081477}
   m_Layer: 0
-  m_Name: 17
+  m_Name: Valor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 580682040}
   - component: {fileID: 580682039}
   m_Layer: 0
-  m_Name: 13
+  m_Name: Valor3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1025,7 +1025,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637709710
 GameObject:
@@ -1094,7 +1094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 15
+  m_Text: 
 --- !u!222 &637709713
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1113,7 +1113,7 @@ GameObject:
   - component: {fileID: 669505694}
   - component: {fileID: 669505693}
   m_Layer: 0
-  m_Name: 3
+  m_Name: Valor6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 773484537}
   - component: {fileID: 773484536}
   m_Layer: 0
-  m_Name: 13
+  m_Name: Bateria3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1246,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &773484536
 MeshCollider:
@@ -1385,7 +1385,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 13
+  m_Text: 
 --- !u!222 &783156172
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ GameObject:
   - component: {fileID: 985881175}
   - component: {fileID: 985881174}
   m_Layer: 0
-  m_Name: 3
+  m_Name: Bateria6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1572,7 +1572,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &985881174
 MeshCollider:
@@ -1656,7 +1656,7 @@ GameObject:
   - component: {fileID: 1039542531}
   - component: {fileID: 1039542530}
   m_Layer: 0
-  m_Name: 6
+  m_Name: Valor5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 
 --- !u!222 &1041806524
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1841,7 +1841,7 @@ GameObject:
   - component: {fileID: 1044115890}
   - component: {fileID: 1044115889}
   m_Layer: 0
-  m_Name: 1
+  m_Name: Valor7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1950,6 +1950,7 @@ GameObject:
   - component: {fileID: 1085567649}
   - component: {fileID: 1085567647}
   - component: {fileID: 1085567648}
+  - component: {fileID: 1085567650}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: GameLogic
@@ -1969,7 +1970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidas: 3
-  vidasText: {fileID: 0}
+  vidasText: {fileID: 1861418906}
 --- !u!114 &1085567648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1985,10 +1986,23 @@ MonoBehaviour:
   wrongText: {fileID: 358241000}
   noVidasText: {fileID: 901140366}
   porcentajeText: {fileID: 1186536244}
-  sumaActual: 0
   objBase: {fileID: 679384950}
-  objsApilados: []
-  defaultPosObjsApilados: []
+  allBaterias:
+  - {fileID: 229634448}
+  - {fileID: 237732251}
+  - {fileID: 773484534}
+  - {fileID: 2977194}
+  - {fileID: 1393530886}
+  - {fileID: 985881172}
+  - {fileID: 373758930}
+  numsBaterias:
+  - {fileID: 511081477}
+  - {fileID: 1787935669}
+  - {fileID: 580682039}
+  - {fileID: 2050415906}
+  - {fileID: 1039542530}
+  - {fileID: 669505693}
+  - {fileID: 1044115889}
 --- !u!4 &1085567649
 Transform:
   m_ObjectHideFlags: 0
@@ -2002,6 +2016,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085567650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1085567646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8f905da9f67bb499aa03987482c98e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listNumbers:
+  - {fileID: 511081477}
+  - {fileID: 1787935669}
+  - {fileID: 580682039}
+  - {fileID: 2050415906}
+  - {fileID: 1039542530}
+  - {fileID: 669505693}
+  - {fileID: 1044115889}
+  listRandom: 
+  textTotal: {fileID: 1353032468}
 --- !u!1 &1186536242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2218,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 38 %
+  m_Text: 
 --- !u!222 &1353032469
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2203,7 +2238,7 @@ GameObject:
   - component: {fileID: 1393530889}
   - component: {fileID: 1393530888}
   m_Layer: 0
-  m_Name: 6
+  m_Name: Bateria5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2220,7 +2255,7 @@ Transform:
   m_LocalScale: {x: 38.815163, y: 38.815125, z: 38.815163}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1393530888
 MeshCollider:
@@ -2359,7 +2394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 
 --- !u!222 &1516275855
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2433,7 +2468,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 6
+  m_Text: 
 --- !u!222 &1545674149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2477,7 +2512,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a355822ae13a0154d8d7fbe95ef7376f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a355822ae13a0154d8d7fbe95ef7376f, type: 3}
       propertyPath: m_LocalScale.x
@@ -2573,7 +2608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 17
+  m_Text: 
 --- !u!222 &1654726563
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2647,7 +2682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 
 --- !u!222 &1661788893
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2666,7 +2701,7 @@ GameObject:
   - component: {fileID: 1787935670}
   - component: {fileID: 1787935669}
   m_Layer: 0
-  m_Name: 15
+  m_Name: Valor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2858,7 +2893,7 @@ RectTransform:
   - {fileID: 1186536243}
   - {fileID: 1353032467}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2951,7 +2986,7 @@ GameObject:
   - component: {fileID: 2050415907}
   - component: {fileID: 2050415906}
   m_Layer: 0
-  m_Name: 10
+  m_Name: Valor4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
