@@ -36,9 +36,9 @@ public class PuzleBaterias : MonoBehaviour {
 			sumaActual += int.Parse (numsBaterias[index].GetComponentInChildren<Text>().text);
 			porcentajeText.text = sumaActual + " %";
 
-			if (sumaActual == AleatorioLlaves.sumaTotal) {
+			if (sumaActual == AleatorioBaterias.sumaTotal) {
 				StartCoroutine (ShowCorrectText ());
-			} else if (sumaActual > AleatorioLlaves.sumaTotal) {
+			} else if (sumaActual > AleatorioBaterias.sumaTotal) {
 				this.GetComponent<RestarVidas> ().Resta ();
 
 				if (this.GetComponent<RestarVidas> ().vidas > 0)
