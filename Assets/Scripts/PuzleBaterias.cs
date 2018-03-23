@@ -38,7 +38,8 @@ public class PuzleBaterias : MonoBehaviour {
 
 			if (sumaActual == AleatorioBaterias.sumaTotal) {
 				StartCoroutine (ShowCorrectText ());
-			} else if (sumaActual > AleatorioBaterias.sumaTotal) {
+			}
+			else if (sumaActual > AleatorioBaterias.sumaTotal) {
 				this.GetComponent<RestarVidas> ().Resta ();
 
 				if (this.GetComponent<RestarVidas> ().vidas > 0)

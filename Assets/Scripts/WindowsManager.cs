@@ -62,6 +62,10 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleBaterias");
 	}
 
+	public void Laberinto(){
+		SceneManager.LoadScene ("PuzleLaberinto");
+	}
+
 	void TurnOnVuforia(){
 		accessOff = true;
 		VuforiaBehaviour.Instance.enabled = true;

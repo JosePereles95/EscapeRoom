@@ -123,9 +123,11 @@ GameObject:
   - component: {fileID: 11399880}
   - component: {fileID: 11399882}
   - component: {fileID: 11399881}
+  - component: {fileID: 11399883}
+  - component: {fileID: 11399884}
   m_Layer: 0
   m_Name: Cerradura1
-  m_TagString: Untagged
+  m_TagString: correct
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +188,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 11399879}
   m_Mesh: {fileID: 4300008, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!64 &11399883
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11399879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300008, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!114 &11399884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 11399879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452446916472f1b4e819ef753d446ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &215496484
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,9 +706,11 @@ GameObject:
   - component: {fileID: 639086346}
   - component: {fileID: 639086348}
   - component: {fileID: 639086347}
+  - component: {fileID: 639086349}
+  - component: {fileID: 639086350}
   m_Layer: 0
   m_Name: Cerradura6
-  m_TagString: Untagged
+  m_TagString: wrong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -742,6 +771,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 639086345}
   m_Mesh: {fileID: 4300010, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!64 &639086349
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 639086345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300010, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!114 &639086350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 639086345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452446916472f1b4e819ef753d446ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &641644814
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,9 +806,11 @@ GameObject:
   - component: {fileID: 641644815}
   - component: {fileID: 641644817}
   - component: {fileID: 641644816}
+  - component: {fileID: 641644818}
+  - component: {fileID: 641644819}
   m_Layer: 0
   m_Name: Cerradura5
-  m_TagString: Untagged
+  m_TagString: wrong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,6 +871,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 641644814}
   m_Mesh: {fileID: 4300000, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!64 &641644818
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 641644814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!114 &641644819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 641644814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452446916472f1b4e819ef753d446ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736206336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,9 +1244,11 @@ GameObject:
   - component: {fileID: 1216104065}
   - component: {fileID: 1216104067}
   - component: {fileID: 1216104066}
+  - component: {fileID: 1216104068}
+  - component: {fileID: 1216104069}
   m_Layer: 0
   m_Name: Cerradura3
-  m_TagString: Untagged
+  m_TagString: wrong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,6 +1309,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216104064}
   m_Mesh: {fileID: 4300004, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!64 &1216104068
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1216104064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!114 &1216104069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1216104064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452446916472f1b4e819ef753d446ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1319618228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,9 +1344,11 @@ GameObject:
   - component: {fileID: 1319618229}
   - component: {fileID: 1319618231}
   - component: {fileID: 1319618230}
+  - component: {fileID: 1319618232}
+  - component: {fileID: 1319618233}
   m_Layer: 0
   m_Name: Cerradura4
-  m_TagString: Untagged
+  m_TagString: wrong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1299,6 +1409,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1319618228}
   m_Mesh: {fileID: 4300002, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!64 &1319618232
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1319618228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300002, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!114 &1319618233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1319618228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452446916472f1b4e819ef753d446ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1393084257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,9 +1444,11 @@ GameObject:
   - component: {fileID: 1393084258}
   - component: {fileID: 1393084260}
   - component: {fileID: 1393084259}
+  - component: {fileID: 1393084261}
+  - component: {fileID: 1393084262}
   m_Layer: 0
   m_Name: Cerradura2
-  m_TagString: Untagged
+  m_TagString: wrong
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1372,6 +1509,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1393084257}
   m_Mesh: {fileID: 4300006, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!64 &1393084261
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393084257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300006, guid: 84a6ce639721e884b9aacb3b93f7e6e9, type: 3}
+--- !u!114 &1393084262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1393084257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452446916472f1b4e819ef753d446ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1434435052
 GameObject:
   m_ObjectHideFlags: 0
