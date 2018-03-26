@@ -1,14 +1,14 @@
 ﻿Shader "Toon/Lit StencilMask" {
 	Properties {
 		_Color ("Main Color", Color) = (0.5,0.5,0.5,1)
-		_MainTex ("Base (RGB)", 2D) = "white" {}
+		_MainTex ("Color (RGB) Alpha (A)", 2D) = "white" {}
 		_Ramp ("Toon Ramp (RGB)", 2D) = "gray" {} 
 		_ID("Mask ID", Int) = 1
 
 	}
 
 	SubShader {
-		Tags { "RenderType"="Opaque" "Queue" = "Geometry+2"}
+		Tags { "Queue"="Transparent" "RenderType"="Transparent" }
 		LOD 200
 		
 		Stencil {
@@ -18,7 +18,7 @@
 
 		
 CGPROGRAM
-#pragma surface surf ToonRamp
+#pragma surface surf Lambert alpha
 
 sampler2D _Ramp;
 
@@ -51,7 +51,7 @@ struct Input {
 void surf (Input IN, inout SurfaceOutput o) {
 	half4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 	o.Albedo = c.rgb;
-	o.Alpha = c.a;
+	o.Alpha = tex2D (_MainTex, IN.uv_MainTex).a;
 }
 ENDCG
 

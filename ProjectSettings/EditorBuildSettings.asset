@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzleLaberinto.unity
     guid: 48fc39f3bf0eb7f42bc2d4077d635785
+  - enabled: 1
+    path: Assets/Scenes/PuzleCristales.unity
+    guid: 885a792910c1e7242b6d6534fc7c6ad9
