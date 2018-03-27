@@ -15,7 +15,7 @@ public class PuzleLaberinto : MonoBehaviour {
 	[SerializeField] private List<InputField> listLetras;
 	private List<int> actualPos;
 	private string letras = "DHJLPWX";
-	private string solucion = "LXDJ";
+	private string solucion;
 
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
@@ -24,6 +24,8 @@ public class PuzleLaberinto : MonoBehaviour {
 		for (int i = 0; i < listLetras.Count; i++) {
 			actualPos.Add (-1);
 		}
+
+		solucion = AleatorioLaberinto.solucion;
 	}
 
 	void Update () {
@@ -63,16 +65,13 @@ public class PuzleLaberinto : MonoBehaviour {
 	}
 
 	void ChangePosLetras(int nLetra, int direction){
-		Debug.Log ("Change: " + direction);
 		if (direction == 1) {
 			actualPos[nLetra] = actualPos[nLetra] + 1;
-			Debug.Log ("NewPos - change = 1: " + actualPos[nLetra]);
 			if (actualPos[nLetra] > letras.Length - 1)
 				actualPos[nLetra] = 0;
 		}
 		else {
 			actualPos[nLetra] = actualPos[nLetra] - 1;
-			Debug.Log ("NewPos - change = 0: " + actualPos[nLetra]);
 			if (actualPos[nLetra] < 0)
 				actualPos[nLetra] = letras.Length - 1;
 		}

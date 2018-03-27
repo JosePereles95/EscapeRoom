@@ -13,9 +13,17 @@ public class PuzleCristales : MonoBehaviour {
 	[SerializeField] private Text noVidasText;
 
 	[SerializeField] private InputField sumaRespuesta;
+	[SerializeField] private List<GameObject> listReferencia;
+
+	private int totalColores = 10;
 
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
+
+		for (int i = 0; i < totalColores; i++) {
+			int j = Random.Range (1, 99);
+			listReferencia [i].GetComponentInChildren<Text> ().text = j.ToString();
+		}
 	}
 
 	void Update () {
@@ -24,10 +32,16 @@ public class PuzleCristales : MonoBehaviour {
 
 	public void CheckAnswer(){
 		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
-			int sumaCorrecta = 0 + 0 * 0 - 0 - 0 * 0 + 0;
+			if (sumaRespuesta.text != "") {
+				int sumaCorrecta = int.Parse (listReferencia [AleatorioCristales.listPosColores [0]].GetComponentInChildren<Text> ().text) +
+				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [1]].GetComponentInChildren<Text> ().text) *
+				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [2]].GetComponentInChildren<Text> ().text) -
+				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [3]].GetComponentInChildren<Text> ().text) -
+				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [4]].GetComponentInChildren<Text> ().text) *
+				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [5]].GetComponentInChildren<Text> ().text) +
+				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [6]].GetComponentInChildren<Text> ().text);
 
-			if (sumaRespuesta.GetComponentInChildren<Text> ().text != "") {
-				if (int.Parse (sumaRespuesta.GetComponentInChildren<Text> ().text) == sumaCorrecta)
+				if (int.Parse (sumaRespuesta.text) == sumaCorrecta)
 					StartCoroutine (ShowCorrectText ());
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
@@ -37,6 +51,7 @@ public class PuzleCristales : MonoBehaviour {
 					else
 						StartCoroutine (ShowNoVidasText ());
 				}
+			
 			}
 		}
 	}
