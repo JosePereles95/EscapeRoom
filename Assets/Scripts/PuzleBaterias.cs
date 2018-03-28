@@ -52,6 +52,7 @@ public class PuzleBaterias : MonoBehaviour {
 
 	void Apilar (GameObject objApilado){
 		objsApilados.Add (objApilado);
+		objApilado.GetComponent<Collider> ().enabled = false;
 		defaultPosObjsApilados.Add (objApilado.transform.position);
 
 		objApilado.transform.position = new Vector3(objBase.transform.position.x, objBase.transform.position.y + (objsApilados.Count - 1) * 0.38f, objBase.transform.position.z);
@@ -61,8 +62,8 @@ public class PuzleBaterias : MonoBehaviour {
 		int numObjs = objsApilados.Count;
 		int i = 0;
 		while (i < numObjs) {
-			Debug.Log (objsApilados.Count);
 			objsApilados [0].transform.position = defaultPosObjsApilados [0];
+			objsApilados [0].GetComponent<Collider> ().enabled = true;
 			objsApilados.Remove (objsApilados [0]);
 			defaultPosObjsApilados.Remove (defaultPosObjsApilados [0]);
 			i++;
