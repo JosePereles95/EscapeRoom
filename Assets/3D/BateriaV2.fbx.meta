@@ -1,19 +1,24 @@
 fileFormatVersion: 2
-guid: a355822ae13a0154d8d7fbe95ef7376f
-timeCreated: 1522233652
+guid: 1dd343c5d5043c1448d898b0cdc3914a
+timeCreated: 1522232622
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cube.007
+    100004: Cube.008
     400000: //RootNode
+    400002: Cube.007
+    400004: Cube.008
     2100000: Material.001
-    2100002: brillante
-    2100004: placas
-    2100006: tornillos
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube.006
+    2100002: Textura
+    2300000: Cube.007
+    2300002: Cube.008
+    3300000: Cube.007
+    3300002: Cube.008
+    4300000: Cube.008
+    4300002: Cube.007
   externalObjects: {}
   materials:
     importMaterials: 1
