@@ -24,8 +24,6 @@ public class PuzleLaberinto : MonoBehaviour {
 		for (int i = 0; i < listLetras.Count; i++) {
 			actualPos.Add (-1);
 		}
-
-		solucion = AleatorioLaberinto.solucion;
 	}
 
 	void Update () {
@@ -45,12 +43,13 @@ public class PuzleLaberinto : MonoBehaviour {
 	}
 
 	public void CheckAnswer(){
+		solucion = AleatorioLaberinto.solucion;
 		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
 			string respuesta = "";
 			for (int i = 0; i < listLetras.Count; i++) {
 				respuesta += listLetras [i].GetComponentInChildren<Text> ().text;
 			}
-
+			Debug.Log (solucion);
 			if (respuesta == solucion)
 				StartCoroutine (ShowCorrectText ());
 			else {

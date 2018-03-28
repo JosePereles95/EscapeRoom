@@ -32,7 +32,7 @@ public class PuzleCristales : MonoBehaviour {
 
 	public void CheckAnswer(){
 		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
-			if (sumaRespuesta.text != "") {
+			if (sumaRespuesta.text != "" && !sumaRespuesta.text.Contains(".")) {
 				int sumaCorrecta = int.Parse (listReferencia [AleatorioCristales.listPosColores [0]].GetComponentInChildren<Text> ().text) +
 				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [1]].GetComponentInChildren<Text> ().text) *
 				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [2]].GetComponentInChildren<Text> ().text) -
