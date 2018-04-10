@@ -8,6 +8,7 @@ TagManager:
   - correct
   - wrong
   - plano
+  - pieza
   layers:
   - Default
   - TransparentFX

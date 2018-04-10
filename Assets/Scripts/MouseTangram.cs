@@ -1,10 +1,12 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MouseMove : MonoBehaviour {
+public class MouseTangram : MonoBehaviour {
 
-	private GameObject gObj = null; 
-	private Vector3 mO;
+	GameObject gObj = null; 
+	Vector3 mO;
+	private Vector3 defaultPosition;
 
 	Ray GenerateMouseRay()
 	{
@@ -25,9 +27,10 @@ public class MouseMove : MonoBehaviour {
 			Ray mouseRay = GenerateMouseRay();
 			RaycastHit hit;
 
-			if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit) && hit.collider.tag == "plano")
+			if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit) && hit.collider.tag == "pieza")
 			{
 				gObj = hit.transform.gameObject;
+				defaultPosition = gObj.transform.position;
 				mO = hit.transform.position - hit.point;
 			}
 		}
@@ -40,6 +43,7 @@ public class MouseMove : MonoBehaviour {
 
 		else if(Input.GetMouseButtonUp(0) && gObj)
 		{
+			PuzleTangram.CheckBounds (gObj, gObj.transform.position, defaultPosition);
 			gObj = null;
 		}
 	}

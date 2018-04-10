@@ -70,6 +70,10 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleCristales");
 	}
 
+	public void Tangram(){
+		SceneManager.LoadScene ("PuzleTangram");
+	}
+
 	void TurnOnVuforia(){
 		accessOff = true;
 		VuforiaBehaviour.Instance.enabled = true;
