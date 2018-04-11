@@ -9,6 +9,11 @@ TagManager:
   - wrong
   - plano
   - pieza
+  - destornillador
+  - clip
+  - stopDest
+  - stopClip1
+  - stopClip2
   layers:
   - Default
   - TransparentFX

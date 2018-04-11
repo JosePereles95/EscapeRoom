@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzleTangram.unity
     guid: 1e9f958dbd81f6c4097a1d33d47c8e26
+  - enabled: 1
+    path: Assets/Scenes/PuzleCerradura.unity
+    guid: 6447d5389e77c3141b2dfad2950a3a2f
