@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detected: 0
 --- !u!23 &38947960
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1347,6 +1348,10 @@ MonoBehaviour:
   vuforiaCanvas: {fileID: 439199888}
   textTiempo: {fileID: 353694497}
   tiempo: 0
+  button: {fileID: 230575414}
+  esfera: {fileID: 1704301923}
+  button2: {fileID: 313964978}
+  cubo: {fileID: 38947957}
 --- !u!1 &396400269
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,6 +2080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detected: 0
 --- !u!114 &672051166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4365,6 +4371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detected: 0
 --- !u!114 &1303877982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4482,6 +4489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detected: 0
 --- !u!114 &1382521946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4855,6 +4863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detected: 0
 --- !u!114 &1516556020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5633,6 +5642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a917f0af64a6423093132dab321c15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detected: 0
 --- !u!114 &1704301928
 MonoBehaviour:
   m_ObjectHideFlags: 0

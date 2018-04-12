@@ -16,7 +16,6 @@ public class InteractBehaviour : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("STOP ACTIVE");
 		if (other.tag == "stopDest") {
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().stopMoveDest = true;
 		}
@@ -26,10 +25,12 @@ public class InteractBehaviour : MonoBehaviour {
 		else if (other.tag == "stopClip2") {
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().stopMoveClip2 = true;
 		}
+		/*else if (other.tag == "position") {
+			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().tocando = true;
+		}*/
 	}
 
 	void OnTriggerExit(Collider other){
-		Debug.Log ("STOP NOT ACTIVE");
 		if (other.tag == "stopDest") {
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().stopMoveDest = false;
 		}
@@ -39,5 +40,13 @@ public class InteractBehaviour : MonoBehaviour {
 		else if (other.tag == "stopClip2") {
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().stopMoveClip2 = false;
 		}
+		/*else if (other.tag == "position") {
+			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().tocando = false;
+		}*/
+	}
+
+	void OnTriggerStay(Collider other){
+		if (other.tag == "position")
+			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleCerradura> ().TocaPosition (other.name);
 	}
 }

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class AleatorioCerradura : MonoBehaviour {
 
+	public static int correctPos;
+
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		int rnd = Random.Range (1, 6);
+
+		correctPos = rnd;
 	}
 }

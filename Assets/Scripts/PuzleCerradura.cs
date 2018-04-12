@@ -19,12 +19,19 @@ public class PuzleCerradura : MonoBehaviour {
 
 	[SerializeField] private GameObject objAll;
 	[SerializeField] private GameObject objClip;
+	//[SerializeField] private
 
 	private GameObject objToRotate;
 	private bool enableRotation = false;
 	private string objTag;
 	private float speed = 10.0f;
-	private float speedRotation = 0.1f;
+	private float speedRotation = 0.5f;
+
+	private int posiblePositions = 6;
+	private int correctPosition;
+	private int numPos = 0;
+	public bool tocando = false;
+	private int diferenciaPosition;
 
 	public bool stopMoveDest = false;
 	public bool stopMoveClip1 = false;
@@ -34,6 +41,7 @@ public class PuzleCerradura : MonoBehaviour {
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
 		defaultPos = objAll.transform.rotation;
+		correctPosition = AleatorioCerradura.correctPos;
 	}
 
 	// Update is called once per frame
@@ -57,14 +65,17 @@ public class PuzleCerradura : MonoBehaviour {
 	}
 
 	void RotateObj(){
-		if (Input.GetButtonDown (0))
-			f_lastX = 0.0f;
+		if (Input.GetMouseButtonDown (0)) {
+			f_difX = 0.0f;
+			diferenciaPosition = Mathf.Abs (numPos - correctPosition);
+		}
 		else if (Input.GetMouseButton (0)) {
 			f_difX = Mathf.Abs (f_lastX - Input.GetAxis ("Mouse X")) * speedRotation;
 
 			if (f_lastX > Input.GetAxis ("Mouse X")) {
-				if(objTag == "destornillador" && !stopMoveDest)
+				if (objTag == "destornillador" && !stopMoveDest) {
 					objToRotate.transform.Rotate (Vector3.forward, f_difX);
+				}
 				else if(objTag == "clip" && !stopMoveClip2)
 					objToRotate.transform.Rotate (Vector3.forward, -f_difX);
 			}
@@ -81,6 +92,17 @@ public class PuzleCerradura : MonoBehaviour {
 			enableRotation = false;
 		}
 			
+	}
+
+	void Shake(float seconds) {
+		iTween.ShakePosition (objClip, new Vector3 (0.1f, 0.1f, 0.0f), seconds);
+	}
+
+	public void TocaPosition(string namePosition){
+		if (!enableRotation) {
+			numPos = int.Parse (namePosition [10].ToString ());
+			Debug.Log (numPos);
+		}
 	}
 
 	IEnumerator ShowWrongText(){
