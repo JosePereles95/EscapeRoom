@@ -19,29 +19,36 @@ public class PuzleCerradura : MonoBehaviour {
 
 	[SerializeField] private GameObject objAll;
 	[SerializeField] private GameObject objClip;
-	//[SerializeField] private
 
 	private GameObject objToRotate;
 	private bool enableRotation = false;
 	private string objTag;
 	private float speed = 10.0f;
-	private float speedRotation = 0.5f;
+	private float speedRotation = 0.45f;
 
 	private int posiblePositions = 6;
-	private int correctPosition;
+	[SerializeField] private int correctPosition;
 	private int numPos = 0;
 	public bool tocando = false;
 	private int diferenciaPosition;
+	private float tiempo;
+	private bool clipRoto = false;
+	private Vector3 defaultClipPos;
 
 	public bool stopMoveDest = false;
 	public bool stopMoveClip1 = false;
 	public bool stopMoveClip2 = false;
+
+	[SerializeField] private List<GameObject> listStopDest;
 
 	// Use this for initialization
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
 		defaultPos = objAll.transform.rotation;
 		correctPosition = AleatorioCerradura.correctPos;
+		for (int i = 0; i < listStopDest.Count; i++)
+			listStopDest [i].SetActive (false);
+		defaultClipPos = objClip.transform.position;
 	}
 
 	// Update is called once per frame
@@ -50,6 +57,7 @@ public class PuzleCerradura : MonoBehaviour {
 			RotateObj ();
 		else if(objTag == "destornillador"){
 			objAll.transform.rotation = Quaternion.Lerp (objAll.transform.rotation, defaultPos, Time.deltaTime * speed);
+			objClip.transform.position = defaultClipPos;
 		}
 	}
 
@@ -67,7 +75,10 @@ public class PuzleCerradura : MonoBehaviour {
 	void RotateObj(){
 		if (Input.GetMouseButtonDown (0)) {
 			f_difX = 0.0f;
-			diferenciaPosition = Mathf.Abs (numPos - correctPosition);
+			diferenciaPosition = (listStopDest.Count-1) - Mathf.Abs (numPos - correctPosition);
+			if (objTag == "destornillador") {
+				listStopDest [diferenciaPosition].SetActive (true);
+			}
 		}
 		else if (Input.GetMouseButton (0)) {
 			f_difX = Mathf.Abs (f_lastX - Input.GetAxis ("Mouse X")) * speedRotation;
@@ -87,11 +98,45 @@ public class PuzleCerradura : MonoBehaviour {
 			}
 
 			f_lastX = -Input.GetAxis ("Mouse X");
+
+			if (stopMoveDest && !clipRoto) {
+				if (diferenciaPosition == 5) {
+					Debug.Log ("Correcto");
+					StartCoroutine (ShowCorrectText ());
+				}
+				else {
+					if (tiempo > 0.4f) {
+						RomperClip ();
+					}
+					else {
+						if(tiempo == 0.0f)
+							Shake (0.4f);
+						tiempo += Time.deltaTime;
+					}
+				}
+			}
 		}
-		else {
-			enableRotation = false;
+		else if(Input.GetMouseButtonUp(0)) {
+			tiempo = 0.0f;
+			StartCoroutine (DisableStopDest ());
+			if (clipRoto) {
+				clipRoto = false;
+				if(this.GetComponent<RestarVidas> ().vidas > 0)
+					objClip.SetActive (true);
+			}
 		}
 			
+	}
+
+	void RomperClip(){
+		clipRoto = true;
+		objClip.SetActive (false);
+		this.GetComponent<RestarVidas> ().Resta ();
+
+		if (this.GetComponent<RestarVidas> ().vidas > 0)
+			StartCoroutine (ShowWrongText ());
+		else
+			StartCoroutine (ShowNoVidasText ());
 	}
 
 	void Shake(float seconds) {
@@ -99,9 +144,8 @@ public class PuzleCerradura : MonoBehaviour {
 	}
 
 	public void TocaPosition(string namePosition){
-		if (!enableRotation) {
+		if (!listStopDest [diferenciaPosition].activeSelf) {
 			numPos = int.Parse (namePosition [10].ToString ());
-			Debug.Log (numPos);
 		}
 	}
 
@@ -122,5 +166,12 @@ public class PuzleCerradura : MonoBehaviour {
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
 		SceneManager.LoadScene ("Vuforia");
+	}
+
+	IEnumerator DisableStopDest(){
+		yield return new WaitForSeconds (0.5f);
+		stopMoveDest = false;
+		enableRotation = false;
+		listStopDest [diferenciaPosition].SetActive (false);
 	}
 }
