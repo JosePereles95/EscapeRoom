@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateIcosaedro : MonoBehaviour {
 
-	private float rotSpeed = 10;
+	private float rotSpeed = 2;
 
 	void OnMouseDrag(){
 		float rotX = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;

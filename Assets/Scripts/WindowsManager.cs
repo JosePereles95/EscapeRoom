@@ -78,6 +78,10 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleCerradura");
 	}
 
+	public void IAGirar(){
+		SceneManager.LoadScene ("PuzleIAGirar");
+	}
+
 	void TurnOnVuforia(){
 		accessOff = true;
 		VuforiaBehaviour.Instance.enabled = true;

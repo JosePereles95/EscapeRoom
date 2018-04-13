@@ -26,7 +26,6 @@ public class PuzleCerradura : MonoBehaviour {
 	private float speed = 10.0f;
 	private float speedRotation = 0.45f;
 
-	private int posiblePositions = 6;
 	[SerializeField] private int correctPosition;
 	private int numPos = 0;
 	public bool tocando = false;
