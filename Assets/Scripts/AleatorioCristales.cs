@@ -15,8 +15,8 @@ public class AleatorioCristales : MonoBehaviour {
 		listPosColores = new List<int> ();
 
 		for (int i = 0; i < allPositions.Count; i++) {
-			int j = Random.Range (0, allNormalColores.Count - 1);
-			int k = Random.Range (0, allShaderColores.Count - 1);
+			int j = Random.Range (0, allNormalColores.Count);
+			int k = Random.Range (0, allShaderColores.Count);
 			allNormalColores [j].transform.position = allPositions [i].transform.position;
 			allShaderColores [k].transform.position = allPositions [i].transform.position;
 			int n = int.Parse (allShaderColores [k].name [0].ToString ());

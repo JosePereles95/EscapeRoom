@@ -1,16 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using Vuforia;
 
 public class PuzleIAGirar : MonoBehaviour {
+
+	[SerializeField] private Text correctText;
+	[SerializeField] private Text wrongText;
+	[SerializeField] private Text noVidasText;
 
 	public static List<string> listComandos;
 	private List<int> listUserOrder;
 	private List<int> listCorrectOrder;
 
+	[SerializeField] private GameObject commandsScroll;
+	[SerializeField] private Button checkButton;
+	[SerializeField] private Button resetButton;
+
 	void Start(){
+		VuforiaBehaviour.Instance.enabled = false;
+
 		listComandos = new List<string> ();
-		listUserOrder = new List<string> ();
+		listUserOrder = new List<int> ();
 
 		/* 0 */ listComandos.Add ("cd [IA_system]");
 		/* 1 */ listComandos.Add ("ls -lh");
@@ -41,16 +55,69 @@ public class PuzleIAGirar : MonoBehaviour {
 	}
 
 	public void PressButton(){
-		/*string buttonCommand = 
+		GameObject buttonCommand = EventSystem.current.currentSelectedGameObject;
+		if (!(buttonCommand.GetComponent<Button> ().image.color == Color.green)) {
+			buttonCommand.GetComponent<Button> ().image.color = Color.green;
 
-		int index = allBaterias.FindIndex(a => a.gameObject == obj);*/
+			string buttonCommandName = buttonCommand.GetComponentInChildren<Text> ().text;
+			int index = listComandos.FindIndex (a => a == buttonCommandName);
+			listUserOrder.Add (index);
+		}
 	}
 
 	public void ResetList(){
 		listUserOrder.Clear ();
+
+		for (int i = 0; i < ButtonListComandos.listButtonComandos.Count; i++)
+			ButtonListComandos.listButtonComandos [i].GetComponent<Button> ().image.color = Color.white;
 	}
 
 	public void CheckAnswer(){
+		bool correcto = false;
+		if (listUserOrder.Count == AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution].Count) {
+			correcto = true;
+			for (int i = 0; i < AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution].Count; i++) {
+				if (!(listUserOrder [i] == AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution] [i])) {
+					correcto = false;
+					break;
+				}
+			}
+		}
 
+		if(correcto)
+			StartCoroutine (ShowCorrectText ());
+		else {
+			this.GetComponent<RestarVidas> ().Resta ();
+
+			if (this.GetComponent<RestarVidas> ().vidas > 0)
+				StartCoroutine (ShowWrongText ());
+			else
+				StartCoroutine (ShowNoVidasText ());
+		}
+	}
+
+	public void OpenComands(){
+		commandsScroll.SetActive (!commandsScroll.activeSelf);
+		checkButton.gameObject.SetActive (!checkButton.gameObject.activeSelf);
+		resetButton.gameObject.SetActive (!resetButton.gameObject.activeSelf);
+	}
+
+	IEnumerator ShowWrongText(){
+		wrongText.gameObject.SetActive (true);
+		yield return new WaitForSeconds (3.0f);
+		wrongText.gameObject.SetActive (false);
+	}
+
+	IEnumerator ShowCorrectText(){
+		correctText.gameObject.SetActive (true);
+		yield return new WaitForSeconds (3.0f);
+		SceneManager.LoadScene ("Vuforia");
+	}
+
+	IEnumerator ShowNoVidasText(){
+		noVidasText.gameObject.SetActive (true);
+		yield return new WaitForSeconds (3.0f);
+		WindowsManager.penalized = true;
+		SceneManager.LoadScene ("Vuforia");
 	}
 }

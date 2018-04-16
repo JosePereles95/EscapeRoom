@@ -11,7 +11,7 @@ public class AleatorioLlaves : MonoBehaviour {
 	void Start () {
 
 		for (int i = 0; i < allCerraduras.Count; i++) {
-			int j = Random.Range (0, allPositions.Count - 1);
+			int j = Random.Range (0, allPositions.Count);
 			allCerraduras [i].transform.position = allPositions [j].transform.position;
 			allPositions.Remove (allPositions [j]);
 		}

@@ -8,7 +8,7 @@ public class AleatorioCerradura : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int rnd = Random.Range (0, 5);
+		int rnd = Random.Range (0, 6);
 
 		correctPos = rnd;
 	}

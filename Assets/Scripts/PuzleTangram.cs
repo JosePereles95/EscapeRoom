@@ -19,6 +19,8 @@ public class PuzleTangram : MonoBehaviour {
 	private static Vector3 mousePos;
 	private static Vector3 defaultPos;
 
+	private bool insideFigura = false;
+
 	[SerializeField] private int correctos;
 
 	// Use this for initialization
@@ -33,16 +35,20 @@ public class PuzleTangram : MonoBehaviour {
 			if (checkedActive) {
 				mousePos.z = 0.0f;
 				bool colocado = false;
+				insideFigura = false;
 				for (int i = 0; i < invisiblesCollider.Count; i++) {
-					if (invisiblesCollider [i].GetComponent<Collider> ().bounds.Contains (mousePos) && invisiblesCollider [i].name == obj.name) {
-						colocado = true;
-						bool inside = invisiblesCollider [i].GetComponent<Collider> ().bounds.Intersects (obj.GetComponent<Collider> ().bounds);
-						if (inside) {
-							inside = false;
-							correctos++;
-							obj.transform.position = invisiblesCollider [i].transform.position;
-							if (correctos == invisiblesCollider.Count*2) {
-								StartCoroutine(ShowCorrectText());
+					if (invisiblesCollider [i].GetComponent<Collider> ().bounds.Contains (mousePos)) {
+						insideFigura = true;
+						if (invisiblesCollider [i].name == obj.name) {
+							colocado = true;
+							bool inside = invisiblesCollider [i].GetComponent<Collider> ().bounds.Intersects (obj.GetComponent<Collider> ().bounds);
+							if (inside) {
+								inside = false;
+								correctos++;
+								obj.transform.position = invisiblesCollider [i].transform.position;
+								if (correctos == invisiblesCollider.Count * 2) {
+									StartCoroutine (ShowCorrectText ());
+								}
 							}
 						}
 					}
@@ -50,12 +56,14 @@ public class PuzleTangram : MonoBehaviour {
 
 				if (!colocado) {
 					obj.transform.position = defaultPos;
-					this.GetComponent<RestarVidas> ().Resta ();
+					if (insideFigura) {
+						this.GetComponent<RestarVidas> ().Resta ();
 
-					if (this.GetComponent<RestarVidas> ().vidas > 0)
-						StartCoroutine (ShowWrongText ());
-					else
-						StartCoroutine (ShowNoVidasText ());
+						if (this.GetComponent<RestarVidas> ().vidas > 0)
+							StartCoroutine (ShowWrongText ());
+						else
+							StartCoroutine (ShowNoVidasText ());
+					}
 				}
 			}
 		}

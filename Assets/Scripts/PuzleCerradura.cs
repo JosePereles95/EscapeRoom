@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 using Vuforia;
 
 public class PuzleCerradura : MonoBehaviour {
@@ -24,7 +23,7 @@ public class PuzleCerradura : MonoBehaviour {
 	private bool enableRotation = false;
 	private string objTag;
 	private float speed = 10.0f;
-	private float speedRotation = 0.45f;
+	private float speedRotation = 0.48f;
 
 	[SerializeField] private int correctPosition;
 	private int numPos = 0;

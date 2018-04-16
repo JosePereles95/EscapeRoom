@@ -15,6 +15,7 @@ TagManager:
   - stopClip1
   - stopClip2
   - position
+  - inside
   layers:
   - Default
   - TransparentFX

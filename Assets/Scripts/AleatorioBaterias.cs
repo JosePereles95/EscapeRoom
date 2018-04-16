@@ -28,10 +28,10 @@ public class AleatorioBaterias : MonoBehaviour {
 	void GenerarRespuesta(){
 		
 		for (int i = 0; i < listNumbers.Count; i++) {
-			int num = Random.Range (1, 25);
+			int num = Random.Range (1, 26);
 			while (listRandom.Contains (num)) {
 				Debug.Log ("Recalcula " + num);
-				num = Random.Range (1, 25);
+				num = Random.Range (1, 26);
 			}
 			listRandom.Add (num);
 			listNumbers [i].GetComponentInChildren<Text> ().text = listRandom [i].ToString();

@@ -9,7 +9,7 @@ public class AleatorioLaberinto : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		int i = Random.Range (0, listLaberintos.Count - 1);
+		int i = Random.Range (0, listLaberintos.Count);
 
 		listLaberintos [i].SetActive (true);
 		solucion = listLaberintos [i].name;
