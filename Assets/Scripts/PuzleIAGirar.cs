@@ -56,12 +56,18 @@ public class PuzleIAGirar : MonoBehaviour {
 
 	public void PressButton(){
 		GameObject buttonCommand = EventSystem.current.currentSelectedGameObject;
+
+		string buttonCommandName = buttonCommand.GetComponentInChildren<Text> ().text;
+		int index = listComandos.FindIndex (a => a == buttonCommandName);
+
 		if (!(buttonCommand.GetComponent<Button> ().image.color == Color.green)) {
 			buttonCommand.GetComponent<Button> ().image.color = Color.green;
 
-			string buttonCommandName = buttonCommand.GetComponentInChildren<Text> ().text;
-			int index = listComandos.FindIndex (a => a == buttonCommandName);
 			listUserOrder.Add (index);
+		}
+		else if(listUserOrder[listUserOrder.Count-1] == index){
+			buttonCommand.GetComponent<Button> ().image.color = Color.white;
+			listUserOrder.RemoveAt (listUserOrder.Count - 1);
 		}
 	}
 

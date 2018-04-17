@@ -973,6 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c2810e9db569d449896214e0a1599c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandsUI: {fileID: 1105778923}
 --- !u!64 &673157470
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1080,6 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c2810e9db569d449896214e0a1599c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandsUI: {fileID: 1105778923}
 --- !u!64 &819462923
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1515,6 +1517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c2810e9db569d449896214e0a1599c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandsUI: {fileID: 1105778923}
 --- !u!1 &1204057267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c2810e9db569d449896214e0a1599c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandsUI: {fileID: 1105778923}
 --- !u!64 &1929212704
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2613,6 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c2810e9db569d449896214e0a1599c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commandsUI: {fileID: 1105778923}
 --- !u!64 &2002685340
 MeshCollider:
   m_ObjectHideFlags: 0

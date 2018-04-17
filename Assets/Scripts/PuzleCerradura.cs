@@ -11,19 +11,15 @@ public class PuzleCerradura : MonoBehaviour {
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;
 
-	private float f_lastX = 0.0f;
-	private float f_difX = 0.5f;
-
 	private Quaternion defaultPos;
 
 	[SerializeField] private GameObject objAll;
 	[SerializeField] private GameObject objClip;
+	[SerializeField] private GameObject objClipRoto;
 
 	private GameObject objToRotate;
-	private bool enableRotation = false;
 	private string objTag;
-	private float speed = 10.0f;
-	private float speedRotation = 0.48f;
+	private float speed = 8.0f;
 
 	[SerializeField] private int correctPosition;
 	private int numPos = 0;
@@ -31,7 +27,11 @@ public class PuzleCerradura : MonoBehaviour {
 	private int diferenciaPosition;
 	private float tiempo;
 	private bool clipRoto = false;
+	private bool parado = false;
 	private Vector3 defaultClipPos;
+	private float sliderDestValue = 0.0f;
+	private float sliderDestStop = 0.0f;
+	private float sliderClipValue = 0.0f;
 
 	public bool stopMoveDest = false;
 	public bool stopMoveClip1 = false;
@@ -39,7 +39,9 @@ public class PuzleCerradura : MonoBehaviour {
 
 	[SerializeField] private List<GameObject> listStopDest;
 
-	// Use this for initialization
+	[SerializeField] private Slider sliderDest;
+	[SerializeField] private Slider sliderClip;
+
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
 		defaultPos = objAll.transform.rotation;
@@ -48,58 +50,16 @@ public class PuzleCerradura : MonoBehaviour {
 			listStopDest [i].SetActive (false);
 		defaultClipPos = objClip.transform.position;
 	}
-
-	// Update is called once per frame
-	void Update () {
-		if (enableRotation)
-			RotateObj ();
-		else if(objTag == "destornillador"){
-			objAll.transform.rotation = Quaternion.Lerp (objAll.transform.rotation, defaultPos, Time.deltaTime * speed);
-			objClip.transform.position = defaultClipPos;
-		}
-	}
-
-	public void Tocado(GameObject obj){
-		objTag = obj.tag;
-
-		if (objTag == "clip")
-			objToRotate = objClip;
-		else if (objTag == "destornillador")
-			objToRotate = objAll;
 		
-		enableRotation = true;
-	}
-
-	void RotateObj(){
+	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			f_difX = 0.0f;
-			diferenciaPosition = (listStopDest.Count-1) - Mathf.Abs (numPos - correctPosition);
-			if (objTag == "destornillador") {
-				listStopDest [diferenciaPosition].SetActive (true);
-			}
+			parado = false;
+			diferenciaPosition = (listStopDest.Count - 1) - Mathf.Abs (numPos - correctPosition);
+			sliderDestStop = (float) diferenciaPosition / (float) (listStopDest.Count - 1);
 		}
 		else if (Input.GetMouseButton (0)) {
-			f_difX = Mathf.Abs (f_lastX - Input.GetAxis ("Mouse X")) * speedRotation;
-
-			if (f_lastX > Input.GetAxis ("Mouse X")) {
-				if (objTag == "destornillador" && !stopMoveDest) {
-					objToRotate.transform.Rotate (Vector3.forward, f_difX);
-				}
-				else if(objTag == "clip" && !stopMoveClip2)
-					objToRotate.transform.Rotate (Vector3.forward, -f_difX);
-			}
-			if (f_lastX < Input.GetAxis ("Mouse X")) {
-				if(objTag == "destornillador" && !stopMoveDest)
-					objToRotate.transform.Rotate (Vector3.forward, -f_difX);
-				else if(objTag == "clip" && !stopMoveClip1)
-					objToRotate.transform.Rotate (Vector3.forward, f_difX);
-			}
-
-			f_lastX = -Input.GetAxis ("Mouse X");
-
-			if (stopMoveDest && !clipRoto) {
+			if (parado && !clipRoto) {
 				if (diferenciaPosition == 5) {
-					Debug.Log ("Correcto");
 					StartCoroutine (ShowCorrectText ());
 				}
 				else {
@@ -114,20 +74,45 @@ public class PuzleCerradura : MonoBehaviour {
 				}
 			}
 		}
-		else if(Input.GetMouseButtonUp(0)) {
+		else {
+			objAll.transform.rotation = Quaternion.Lerp (objAll.transform.rotation, defaultPos, Time.deltaTime * speed);
+
+			sliderDest.value = Mathf.Lerp (sliderDest.value, 0.0f, Time.deltaTime * speed);
+
 			tiempo = 0.0f;
-			StartCoroutine (DisableStopDest ());
 			if (clipRoto) {
 				clipRoto = false;
-				if(this.GetComponent<RestarVidas> ().vidas > 0)
+				parado = false;
+				if (this.GetComponent<RestarVidas> ().vidas > 0) {
+					objClipRoto.SetActive (false);
 					objClip.SetActive (true);
+					objClip.transform.position = defaultClipPos;
+				}
 			}
 		}
-			
+	}
+
+	public void RotateDest(){
+		
+		if (!(sliderDest.value >= sliderDestStop)) {
+			sliderDestValue = sliderDest.value;
+			objAll.transform.rotation = Quaternion.Euler (180, 0, 180 + sliderDestValue * 90);
+		}
+		else {
+			parado = true;
+			sliderDest.value = sliderDestValue;
+		}
+	}
+
+	public void RotateClip(){
+
+		sliderClipValue = sliderClip.value;
+		objClip.transform.rotation = Quaternion.Euler (0, 180, sliderClipValue);
 	}
 
 	void RomperClip(){
 		clipRoto = true;
+		objClipRoto.SetActive (true);
 		objClip.SetActive (false);
 		this.GetComponent<RestarVidas> ().Resta ();
 
@@ -164,12 +149,5 @@ public class PuzleCerradura : MonoBehaviour {
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
 		SceneManager.LoadScene ("Vuforia");
-	}
-
-	IEnumerator DisableStopDest(){
-		yield return new WaitForSeconds (0.5f);
-		stopMoveDest = false;
-		enableRotation = false;
-		listStopDest [diferenciaPosition].SetActive (false);
 	}
 }

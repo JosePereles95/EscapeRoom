@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RotateTouch : MonoBehaviour 
 {
-	private float rotSpeed = 2;
+	private float rotSpeed = 100;
 	private Quaternion defaultRotation;
 	private bool pressed = true;
 
@@ -15,11 +15,11 @@ public class RotateTouch : MonoBehaviour
 	{
 		if (pressed) {
 			float rotX = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
-			transform.RotateAround (Vector3.up, -rotX);
+			transform.Rotate (Vector3.up, -rotX, Space.Self);
 		}
 		else {
 			float rotZ = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
-			transform.RotateAround (Vector3.back, rotZ);
+			transform.Rotate (Vector3.back, rotZ, Space.Self);
 		}
 	}
 
