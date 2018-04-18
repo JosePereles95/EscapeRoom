@@ -3,45 +3,38 @@ using System.Collections;
 
 public class Piece : MonoBehaviour {
 
-
 	public int[] values;
 	public float speed;
-	float realRotation;
-
+	private float realRotation;
 
 	public GameManager gm;
 
-
-	// Use this for initialization
 	void Start () {
 		gm = GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameManager> ();
 	}
-
-	// Update is called once per frame
+		
 	void Update () {
-
 
 		if (transform.root.eulerAngles.x != realRotation) {
 			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (realRotation, -90, 90), speed);
 		}
-
 	}
 
+	void OnMouseDown(){
 
-
-	void OnMouseDown()
-	{
+		int difference = -gm.QuickSweep((int)transform.position.x,(int)transform.position.y);
 
 		RotatePiece ();
 
-		gm.puzzle.curValue= gm.Sweep ();
+		difference += gm.QuickSweep((int)transform.position.x,(int)transform.position.y);
 
+		gm.puzzle.curValue += difference;
 
-
+		if (gm.puzzle.curValue == gm.puzzle.winValue)
+			gm.Win ();
 	}
 
-	public void RotatePiece()
-	{
+	public void RotatePiece(){
 		realRotation += 90;
 
 		if (realRotation == 360)
@@ -50,11 +43,7 @@ public class Piece : MonoBehaviour {
 		RotateValues ();
 	}
 
-
-
-	public void RotateValues()
-	{
-
+	public void RotateValues(){
 		int aux = values [0];
 
 		for (int i = 0; i < values.Length-1; i++) {

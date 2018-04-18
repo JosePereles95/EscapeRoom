@@ -11,28 +11,24 @@ public class RotateTouch : MonoBehaviour
 		defaultRotation = this.transform.localRotation;
 	}
 
-	void OnMouseDrag()
-	{
-		if (pressed) {
+	void OnMouseDrag(){
 			float rotX = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
-			transform.Rotate (Vector3.up, -rotX, Space.Self);
-		}
-		else {
-			float rotZ = Input.GetAxis ("Mouse X") * rotSpeed * Mathf.Deg2Rad;
-			transform.Rotate (Vector3.back, rotZ, Space.Self);
-		}
+			this.transform.Rotate (Vector3.up, -rotX, Space.Self);
 	}
 
 	public void ResetRotation(){
-		this.transform.transform.rotation = defaultRotation;
+		this.transform.rotation = defaultRotation;
 		pressed = true;
 	}
 
 	public void Relocate(){
-		this.transform.transform.rotation = defaultRotation;
+		Debug.Log ("Recolocate: " + pressed);
+		this.transform.rotation = defaultRotation;
 
-		if (pressed)
-			transform.RotateAround (transform.position, transform.right, 90f);
+		if (pressed) {
+			this.transform.Rotate (Vector3.right, 90f, Space.Self);
+			Debug.Log ("Inside pressed");
+		}
 		
 		pressed = !pressed;
 	}

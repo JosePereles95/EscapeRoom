@@ -7,7 +7,6 @@ using Vuforia;
 
 public class PuzleLlaves : MonoBehaviour {
 
-	//[SerializeField] private GameObject vidasScript;
 	[SerializeField] private Text correctText;
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;

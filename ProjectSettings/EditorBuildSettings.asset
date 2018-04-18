@@ -35,3 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzleIAGirar.unity
     guid: ff882753a26b09d488b070feaba52910
+  - enabled: 1
+    path: Assets/Scenes/PuzleIALoops.unity
+    guid: f7424c23f602ff944987a2fb682646d0
