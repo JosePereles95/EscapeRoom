@@ -9,6 +9,8 @@ public class WindowsManager : MonoBehaviour {
 
 	public static bool penalized = false;
 
+	[SerializeField] private GameObject puzlesButtons;
+
 	[SerializeField] private GameObject vuforiaCanvas;
 	[SerializeField] private Text textTiempo;
 	[SerializeField] private float tiempo = 0.0f;
@@ -52,6 +54,10 @@ public class WindowsManager : MonoBehaviour {
 				TurnOnVuforia ();
 		}
 			
+	}
+
+	public void OpenPuzles(){
+		puzlesButtons.SetActive (!puzlesButtons.activeSelf);
 	}
 
 	public void Llaves(){

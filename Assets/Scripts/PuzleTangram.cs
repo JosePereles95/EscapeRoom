@@ -12,7 +12,13 @@ public class PuzleTangram : MonoBehaviour {
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;
 
-	public List<GameObject> invisiblesCollider;
+	[SerializeField] private List<GameObject> invisiblesColliderGato;
+	[SerializeField] private List<GameObject> invisiblesColliderElefante;
+	[SerializeField] private List<GameObject> invisiblesColliderPerro;
+	[SerializeField] private List<GameObject> invisiblesColliderLagartija;
+
+	private List<GameObject> invisiblesCollider;
+	private List<List<GameObject>> listaInvisibles;
 
 	private static bool checkedActive = false;
 	private static GameObject obj;
@@ -23,13 +29,34 @@ public class PuzleTangram : MonoBehaviour {
 
 	[SerializeField] private int correctos;
 
-	// Use this for initialization
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
 		correctos = 0;
+		listaInvisibles = new List<List<GameObject>> ();
+
+		listaInvisibles.Add (new List<GameObject> ());
+		listaInvisibles.Add (new List<GameObject> ());
+		listaInvisibles.Add (new List<GameObject> ());
+		listaInvisibles.Add (new List<GameObject> ());
+
+		for (int i = 0; i < invisiblesColliderGato.Count; i++) {
+			listaInvisibles [0].Add (invisiblesColliderGato[i]);
+		}
+
+		for (int i = 0; i < invisiblesColliderElefante.Count; i++) {
+			listaInvisibles [1].Add (invisiblesColliderElefante[i]);
+		}
+
+		for (int i = 0; i < invisiblesColliderPerro.Count; i++) {
+			listaInvisibles [2].Add (invisiblesColliderPerro[i]);
+		}
+
+		for (int i = 0; i < invisiblesColliderLagartija.Count; i++) {
+			listaInvisibles [3].Add (invisiblesColliderLagartija[i]);
+		}
+		invisiblesCollider = listaInvisibles [AleatorioTangram.randomTangram];
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
 			if (checkedActive) {
@@ -46,7 +73,7 @@ public class PuzleTangram : MonoBehaviour {
 								inside = false;
 								correctos++;
 								obj.transform.position = invisiblesCollider [i].transform.position;
-								if (correctos == invisiblesCollider.Count * 2) {
+								if (correctos == invisiblesCollider.Count) {
 									StartCoroutine (ShowCorrectText ());
 								}
 							}
@@ -67,7 +94,7 @@ public class PuzleTangram : MonoBehaviour {
 				}
 			}
 		}
-		else if(correctos != invisiblesCollider.Count*2)
+		else if(correctos != invisiblesCollider.Count)
 			obj.transform.position = defaultPos;
 		
 		checkedActive = false;
