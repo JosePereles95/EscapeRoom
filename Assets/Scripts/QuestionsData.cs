@@ -15,7 +15,10 @@ public class QuestionsData : MonoBehaviour {
 
 	[SerializeField]private List<InputField> questionsInput;
 
-	[SerializeField] private GameObject questionCanvas;
+	[SerializeField] private Sprite preguntaRojo;
+	[SerializeField] private Sprite preguntaVerde;
+	[SerializeField] private Sprite rombosRojo;
+	[SerializeField] private Sprite rombosVerde;
 
 	void Start () {
 
@@ -39,22 +42,15 @@ public class QuestionsData : MonoBehaviour {
 		for (int i = 1; i <= questions; i++) {
 			if (mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true) != null) {
 				stateQuestion = mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true).ToString ();
-				if (stateQuestion == "False")
-					questionsInput [i - 1].image.color = Color.red;
-				else
-					questionsInput [i - 1].image.color = Color.green;
+				if (stateQuestion == "False") {
+					//questionsInput [i - 1].image.color = Color.red;
+					questionsInput [i - 1].image.sprite = preguntaRojo;
+				}
+				else{
+					//questionsInput [i - 1].image.color = Color.green;
+					questionsInput [i - 1].image.sprite = preguntaVerde;
+				}
 			}
-		}
-	}
-
-	public void OpenQuestions(){
-		questionCanvas.SetActive (!questionCanvas.activeSelf);
-
-		if (!WindowsManager.penalized) {
-			if (questionCanvas.activeSelf)
-				VuforiaBehaviour.Instance.enabled = false;
-			else
-				VuforiaBehaviour.Instance.enabled = true;
 		}
 	}
 

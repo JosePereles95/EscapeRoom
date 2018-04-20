@@ -117,6 +117,7 @@ public class PuzleIAGirar : MonoBehaviour {
 	IEnumerator ShowCorrectText(){
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
+		Timer.ChangeCanvas (false);
 		SceneManager.LoadScene ("Vuforia");
 	}
 
@@ -124,6 +125,7 @@ public class PuzleIAGirar : MonoBehaviour {
 		noVidasText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
+		Timer.ChangeCanvas (false);
 		SceneManager.LoadScene ("Vuforia");
 	}
 }

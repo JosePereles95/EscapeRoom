@@ -219,6 +219,7 @@ public class GameManager : MonoBehaviour {
 	IEnumerator ShowCorrectText(){
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
+		Timer.ChangeCanvas (false);
 		SceneManager.LoadScene ("Vuforia");
 	}
 }
