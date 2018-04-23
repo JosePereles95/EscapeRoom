@@ -44,7 +44,9 @@ public class PuzleLaberinto : MonoBehaviour {
 
 	public void CheckAnswer(){
 		solucion = AleatorioLaberinto.solucion;
-		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
+		if (!wrongText.gameObject.activeSelf &&
+			!correctText.gameObject.activeSelf &&
+			!noVidasText.gameObject.activeSelf) {
 			string respuesta = "";
 			for (int i = 0; i < listLetras.Count; i++) {
 				respuesta += listLetras [i].GetComponentInChildren<Text> ().text;

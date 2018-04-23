@@ -17,6 +17,8 @@ public class QuestionsData : MonoBehaviour {
 
 	[SerializeField] private Sprite preguntaRojo;
 	[SerializeField] private Sprite preguntaVerde;
+
+	[SerializeField] private UnityEngine.UI.Image rombos;
 	[SerializeField] private Sprite rombosRojo;
 	[SerializeField] private Sprite rombosVerde;
 
@@ -52,6 +54,18 @@ public class QuestionsData : MonoBehaviour {
 				}
 			}
 		}
+
+		if (questionsInput [0].image.sprite == preguntaVerde &&
+		    questionsInput [1].image.sprite == preguntaVerde &&
+		    questionsInput [2].image.sprite == preguntaVerde &&
+		    questionsInput [3].image.sprite == preguntaVerde &&
+		    questionsInput [4].image.sprite == preguntaVerde) {
+			rombos.sprite = rombosVerde;
+		}
+		else {
+			rombos.sprite = rombosRojo;
+		}
+
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){

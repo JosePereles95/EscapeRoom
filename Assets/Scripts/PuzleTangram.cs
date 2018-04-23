@@ -58,7 +58,9 @@ public class PuzleTangram : MonoBehaviour {
 	}
 
 	void Update () {
-		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
+		if (!wrongText.gameObject.activeSelf &&
+			!correctText.gameObject.activeSelf &&
+			!noVidasText.gameObject.activeSelf) {
 			if (checkedActive) {
 				mousePos.z = 0.0f;
 				bool colocado = false;

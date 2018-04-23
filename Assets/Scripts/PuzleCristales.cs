@@ -31,7 +31,9 @@ public class PuzleCristales : MonoBehaviour {
 	}
 
 	public void CheckAnswer(){
-		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
+		if (!wrongText.gameObject.activeSelf &&
+			!correctText.gameObject.activeSelf &&
+			!noVidasText.gameObject.activeSelf) {
 			if (sumaRespuesta.text != "" && !sumaRespuesta.text.Contains(".")) {
 				int sumaCorrecta = int.Parse (listReferencia [AleatorioCristales.listPosColores [0]].GetComponentInChildren<Text> ().text) +
 				                   int.Parse (listReferencia [AleatorioCristales.listPosColores [1]].GetComponentInChildren<Text> ().text) *
@@ -46,10 +48,12 @@ public class PuzleCristales : MonoBehaviour {
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
 
-					if (this.GetComponent<RestarVidas> ().vidas > 0)
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
-					else
+					}
+					else {
 						StartCoroutine (ShowNoVidasText ());
+					}
 				}
 			
 			}
@@ -60,6 +64,7 @@ public class PuzleCristales : MonoBehaviour {
 		wrongText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		wrongText.gameObject.SetActive (false);
+		sumaRespuesta.text = "";
 	}
 
 	IEnumerator ShowCorrectText(){

@@ -17,7 +17,9 @@ public class PuzleLlaves : MonoBehaviour {
 
 	public void Tocado(GameObject obj){
 		
-		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
+		if (!wrongText.gameObject.activeSelf &&
+			!correctText.gameObject.activeSelf &&
+			!noVidasText.gameObject.activeSelf) {
 			if (obj.tag == "correct") {
 				StartCoroutine (ShowCorrectText ());
 			}

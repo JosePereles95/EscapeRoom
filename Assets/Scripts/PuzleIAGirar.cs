@@ -79,26 +79,30 @@ public class PuzleIAGirar : MonoBehaviour {
 	}
 
 	public void CheckAnswer(){
-		bool correcto = false;
-		if (listUserOrder.Count == AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution].Count) {
-			correcto = true;
-			for (int i = 0; i < AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution].Count; i++) {
-				if (!(listUserOrder [i] == AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution] [i])) {
-					correcto = false;
-					break;
+		if (!wrongText.gameObject.activeSelf &&
+		    !correctText.gameObject.activeSelf &&
+		    !noVidasText.gameObject.activeSelf) {
+			bool correcto = false;
+			if (listUserOrder.Count == AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution].Count) {
+				correcto = true;
+				for (int i = 0; i < AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution].Count; i++) {
+					if (!(listUserOrder [i] == AleatorioIAGirar.listSoluciones [AleatorioIAGirar.randomSolution] [i])) {
+						correcto = false;
+						break;
+					}
 				}
 			}
-		}
 
-		if(correcto)
-			StartCoroutine (ShowCorrectText ());
-		else {
-			this.GetComponent<RestarVidas> ().Resta ();
+			if (correcto)
+				StartCoroutine (ShowCorrectText ());
+			else {
+				this.GetComponent<RestarVidas> ().Resta ();
 
-			if (this.GetComponent<RestarVidas> ().vidas > 0)
-				StartCoroutine (ShowWrongText ());
-			else
-				StartCoroutine (ShowNoVidasText ());
+				if (this.GetComponent<RestarVidas> ().vidas > 0)
+					StartCoroutine (ShowWrongText ());
+				else
+					StartCoroutine (ShowNoVidasText ());
+			}
 		}
 	}
 

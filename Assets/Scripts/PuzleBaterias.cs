@@ -27,7 +27,9 @@ public class PuzleBaterias : MonoBehaviour {
 
 	public void Tocado(GameObject obj){
 
-		if (!wrongText.gameObject.activeSelf && !correctText.gameObject.activeSelf) {
+		if (!wrongText.gameObject.activeSelf &&
+			!correctText.gameObject.activeSelf &&
+			!noVidasText.gameObject.activeSelf) {
 
 			Apilar (obj);
 
