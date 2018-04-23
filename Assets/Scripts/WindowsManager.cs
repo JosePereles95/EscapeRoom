@@ -98,46 +98,6 @@ public class WindowsManager : MonoBehaviour {
 	public void OpenPuzles(){
 		puzlesButtons.SetActive (!puzlesButtons.activeSelf);
 	}
-	/*
-	public static void Llaves(){
-		SceneManager.LoadScene ("PuzleLlaves");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void Baterias(){
-		SceneManager.LoadScene ("PuzleBaterias");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void Laberinto(){
-		SceneManager.LoadScene ("PuzleLaberinto");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void Cristales(){
-		SceneManager.LoadScene ("PuzleCristales");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void Tangram(){
-		SceneManager.LoadScene ("PuzleTangram");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void Cerradura(){
-		SceneManager.LoadScene ("PuzleCerradura");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void IAGirar(){
-		SceneManager.LoadScene ("PuzleIAGirar");
-		Timer.ChangeCanvas (true);
-	}
-
-	public static void IALoops(){
-		SceneManager.LoadScene ("PuzleIALoops");
-		Timer.ChangeCanvas (true);
-	}*/
 
 	public void Llaves(){
 		Timer.ChangeCanvas (true);
@@ -176,6 +136,16 @@ public class WindowsManager : MonoBehaviour {
 
 	public void IALoops(){
 		SceneManager.LoadScene ("PuzleIALoops");
+		Timer.ChangeCanvas (true);
+	}
+
+	public void IAPlaca(){
+		SceneManager.LoadScene ("PuzleIAPlaca");
+		Timer.ChangeCanvas (true);
+	}
+
+	public void IAWords(){
+		SceneManager.LoadScene ("PuzleIAWords");
 		Timer.ChangeCanvas (true);
 	}
 
