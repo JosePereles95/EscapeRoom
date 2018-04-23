@@ -10,6 +10,8 @@ public class InteractBehaviour : MonoBehaviour {
 		
 		else if(GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleBaterias> () != null)
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleBaterias> ().Tocado (this.gameObject);
+		else if(GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleIAPlaca> () != null)
+			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleIAPlaca> ().Tocado (this.gameObject);
 	}
 
 	void OnTriggerStay(Collider other){
