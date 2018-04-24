@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class WindowsManager : MonoBehaviour {
 
-	public static bool penalized = true;
+	public static bool penalized = false;
 
 	[SerializeField] private GameObject puzlesButtons;
 
@@ -109,6 +109,13 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleBaterias");
 	}
 
+	//
+	public static void BateriasStatic(){
+		Timer.ChangeCanvas (true);
+		SceneManager.LoadScene ("PuzleBaterias");
+	}
+	//
+
 	public void Laberinto(){
 		Timer.ChangeCanvas (true);
 		SceneManager.LoadScene ("PuzleLaberinto");
@@ -128,6 +135,13 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleCerradura");
 		Timer.ChangeCanvas (true);
 	}
+
+	//
+	public static void CerraduraStatic(){
+		Timer.ChangeCanvas (true);
+		SceneManager.LoadScene ("PuzleCerradura");
+	}
+	//
 
 	public void IAGirar(){
 		SceneManager.LoadScene ("PuzleIAGirar");

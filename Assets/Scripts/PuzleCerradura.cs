@@ -134,6 +134,7 @@ public class PuzleCerradura : MonoBehaviour {
 
 	IEnumerator ShowWrongText(){
 		wrongText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		wrongText.gameObject.SetActive (false);
 	}
@@ -147,6 +148,7 @@ public class PuzleCerradura : MonoBehaviour {
 
 	IEnumerator ShowNoVidasText(){
 		noVidasText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
 		Timer.ChangeCanvas (false);

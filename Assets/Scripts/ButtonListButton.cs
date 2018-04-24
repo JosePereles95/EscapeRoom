@@ -11,4 +11,8 @@ public class ButtonListButton : MonoBehaviour {
 	public void SetText(string textString){
 		myText.text = textString;
 	}
+
+	public void SetImage(Sprite sprite){
+		this.GetComponent<UnityEngine.UI.Image> ().sprite = sprite;
+	}
 }

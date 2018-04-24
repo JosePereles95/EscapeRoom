@@ -14,18 +14,23 @@ public class PuzleIAPlaca : MonoBehaviour {
 
 	[SerializeField] private Text observaText;
 
-	[SerializeField] private List<GameObject> listaPlacas;
-	private GameObject modeladoPlaca;
+	[SerializeField] private List<GameObject> listaBases;
+	[SerializeField] private List<GameObject> listaCilindros;
+	[SerializeField] private List<GameObject> listaChips;
+	[SerializeField] private List<GameObject> listaCPUs;
+	[SerializeField] private List<GameObject> listaCubos;
+	[SerializeField] private List<GameObject> listaRejillas;
+	[SerializeField] private List<GameObject> listaConexiones;
+	[SerializeField] private List<GameObject> listaTarjetas;
+	[SerializeField] private List<GameObject> listaCajitas;
+	[SerializeField] private List<GameObject> listaCuadraditos;
+
+	[SerializeField] private GameObject canvasBotones;
 
 	private bool finalIntro = false;
 
 	void Start () {
-		modeladoPlaca = listaPlacas [AleatorioIAPlaca.randomPlaca];
-		modeladoPlaca.SetActive (false);
-
 		StartCoroutine (IntroPuzle ());
-
-
 	}
 
 	void Update () {
@@ -34,12 +39,13 @@ public class PuzleIAPlaca : MonoBehaviour {
 
 	public void Tocado(GameObject obj){
 		if (finalIntro) {
-
+			
 		}
 	}
 
 	IEnumerator ShowWrongText(){
 		wrongText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		wrongText.gameObject.SetActive (false);
 	}
@@ -53,6 +59,7 @@ public class PuzleIAPlaca : MonoBehaviour {
 
 	IEnumerator ShowNoVidasText(){
 		noVidasText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
 		Timer.ChangeCanvas (false);
@@ -60,14 +67,39 @@ public class PuzleIAPlaca : MonoBehaviour {
 	}
 
 	IEnumerator IntroPuzle(){
-		yield return new WaitForSeconds (3.0f);
+		observaText.gameObject.SetActive (true);
+		yield return new WaitForSeconds (3.5f);
 		observaText.gameObject.SetActive (false);
-		yield return new WaitForSeconds (0.5f);
-		modeladoPlaca.SetActive (true);
-		yield return new WaitForSeconds (3.0f);
-		modeladoPlaca.SetActive (false);
-		finalIntro = true;
 		yield return new WaitForSeconds (1.0f);
-		//Mostrar el puzle
+
+		listaBases [AleatorioIAPlaca.randomBase].SetActive (true);
+		listaCilindros [AleatorioIAPlaca.randomCilindro].SetActive (true);
+		listaChips [AleatorioIAPlaca.randomChip].SetActive (true);
+		listaCPUs [AleatorioIAPlaca.randomCPU].SetActive (true);
+		listaCubos [AleatorioIAPlaca.randomCubo].SetActive (true);
+		listaRejillas [AleatorioIAPlaca.randomRejilla].SetActive (true);
+		listaConexiones [AleatorioIAPlaca.randomConexion].SetActive (true);
+		listaTarjetas [AleatorioIAPlaca.randomTarjeta].SetActive (true);
+		listaCajitas [AleatorioIAPlaca.randomCajita].SetActive (true);
+		listaCuadraditos [AleatorioIAPlaca.randomCuadradito].SetActive (true);
+
+		yield return new WaitForSeconds (5.0f);
+
+		listaBases [AleatorioIAPlaca.randomBase].SetActive (false);
+		listaCilindros [AleatorioIAPlaca.randomCilindro].SetActive (false);
+		listaChips [AleatorioIAPlaca.randomChip].SetActive (false);
+		listaCPUs [AleatorioIAPlaca.randomCPU].SetActive (false);
+		listaCubos [AleatorioIAPlaca.randomCubo].SetActive (false);
+		listaRejillas [AleatorioIAPlaca.randomRejilla].SetActive (false);
+		listaConexiones [AleatorioIAPlaca.randomConexion].SetActive (false);
+		listaTarjetas [AleatorioIAPlaca.randomTarjeta].SetActive (false);
+		listaCajitas [AleatorioIAPlaca.randomCajita].SetActive (false);
+		listaCuadraditos [AleatorioIAPlaca.randomCuadradito].SetActive (false);
+
+		yield return new WaitForSeconds (1.5f);
+
+		listaBases [AleatorioIAPlaca.randomBase].SetActive (true);
+		canvasBotones.SetActive (true);
+		finalIntro = true;
 	}
 }

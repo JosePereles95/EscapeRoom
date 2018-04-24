@@ -17,6 +17,9 @@ public class TouchVuforia : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		//WindowsManager.Cerradura ();
+		if(this.name == "Cerradura")
+			WindowsManager.CerraduraStatic ();
+		if(this.name == "Bateria")
+			WindowsManager.BateriasStatic ();
 	}
 }

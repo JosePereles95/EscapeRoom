@@ -62,6 +62,7 @@ public class PuzleCristales : MonoBehaviour {
 
 	IEnumerator ShowWrongText(){
 		wrongText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		wrongText.gameObject.SetActive (false);
 		sumaRespuesta.text = "";
@@ -76,6 +77,7 @@ public class PuzleCristales : MonoBehaviour {
 
 	IEnumerator ShowNoVidasText(){
 		noVidasText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
 		Timer.ChangeCanvas (false);

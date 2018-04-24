@@ -5,13 +5,10 @@ using UnityEngine;
 public class InteractBehaviour : MonoBehaviour {
 
 	void OnMouseDown(){
-		if(GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleLlaves> () != null)
+		if (GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleLlaves> () != null)
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleLlaves> ().Tocado (this.gameObject);
-		
-		else if(GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleBaterias> () != null)
+		else if (GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleBaterias> () != null)
 			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleBaterias> ().Tocado (this.gameObject);
-		else if(GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleIAPlaca> () != null)
-			GameObject.FindGameObjectWithTag ("GameLogic").GetComponent<PuzleIAPlaca> ().Tocado (this.gameObject);
 	}
 
 	void OnTriggerStay(Collider other){
