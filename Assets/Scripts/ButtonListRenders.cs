@@ -13,10 +13,11 @@ public class ButtonListRenders : MonoBehaviour {
 
 	void Start() {
 		listButtonRenders = new List<GameObject> ();
+		CreateButtons ();
 	}
 
 	void Update() {
-		CreateButtons ();
+		
 	}
 
 	void CreateButtons(){
