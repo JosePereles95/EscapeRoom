@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 3affc5fdb511ca74e852b75ad8792399
+timeCreated: 1524650293
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: base
+    100002: chips
+    100004: chipsGrandes
+    100006: cilindros
+    100008: conexiones
+    100010: conexionLarga
+    100012: cpu
+    100014: cubos
+    100016: "cubosPeque\xF1os"
+    100018: //RootNode
+    100020: tarjetas
+    400000: base
+    400002: chips
+    400004: chipsGrandes
+    400006: cilindros
+    400008: conexiones
+    400010: conexionLarga
+    400012: cpu
+    400014: cubos
+    400016: "cubosPeque\xF1os"
+    400018: //RootNode
+    400020: tarjetas
+    2100000: azul
+    2100002: amarillo
+    2100004: rojo
+    2100006: unicoColor
+    2100008: verde
+    2300000: base
+    2300002: chips
+    2300004: chipsGrandes
+    2300006: cilindros
+    2300008: conexiones
+    2300010: conexionLarga
+    2300012: cpu
+    2300014: cubos
+    2300016: "cubosPeque\xF1os"
+    2300018: tarjetas
+    3300000: base
+    3300002: chips
+    3300004: chipsGrandes
+    3300006: cilindros
+    3300008: conexiones
+    3300010: conexionLarga
+    3300012: cpu
+    3300014: cubos
+    3300016: "cubosPeque\xF1os"
+    3300018: tarjetas
+    4300000: cpu
+    4300002: conexionLarga
+    4300004: cubos
+    4300006: chipsGrandes
+    4300008: base
+    4300010: chips
+    4300012: "cubosPeque\xF1os"
+    4300014: conexiones
+    4300016: cilindros
+    4300018: tarjetas
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

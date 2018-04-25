@@ -26,7 +26,7 @@ public class ButtonListRenders : MonoBehaviour {
 			GameObject button = Instantiate (buttonTemplate) as GameObject;
 			button.SetActive (true);
 
-			//button.GetComponent<ButtonListButton> ().SetImage(rendersObjs[i]);
+			button.GetComponent<ButtonListButton> ().SetImage(rendersObjs[i]);
 
 			button.transform.SetParent (buttonTemplate.transform.parent, false);
 
