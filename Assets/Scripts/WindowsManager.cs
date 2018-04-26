@@ -239,22 +239,23 @@ public class WindowsManager : MonoBehaviour {
 
 	public void OpenInventario(){
 		progresoButton.image.sprite = progresoNormal;
-		camaraButton.image.sprite = camaraNormal;
-		fondo.SetActive (true);
+		//camaraButton.image.sprite = camaraNormal;
+		//fondo.SetActive (true);
 		questionCanvas.SetActive (false);
 		inventarioCanvas.SetActive (!inventarioCanvas.activeSelf);
 
 		if (!inventarioCanvas.activeSelf) {
-			tiempoContador.SetActive (true);
 			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = inventarioNormal;
+			if(!vuforiaCanvas.activeSelf)
+				tiempoContador.SetActive (true);
 		}
 		else {
 			tiempoContador.SetActive (false);
 			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = inventarioPulsado;
 		}
 
-		textTiempoPenalized.gameObject.SetActive (false);
-		vuforiaCanvas.SetActive (false);
-		VuforiaBehaviour.Instance.enabled = false;
+		//textTiempoPenalized.gameObject.SetActive (false);
+		//vuforiaCanvas.SetActive (false);
+		//VuforiaBehaviour.Instance.enabled = false;
 	}
 }
