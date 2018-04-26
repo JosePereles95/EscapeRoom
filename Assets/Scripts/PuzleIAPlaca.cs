@@ -30,6 +30,7 @@ public class PuzleIAPlaca : MonoBehaviour {
 	private bool finalIntro = false;
 
 	void Start () {
+		VuforiaBehaviour.Instance.enabled = false;
 		StartCoroutine (IntroPuzle ());
 	}
 
