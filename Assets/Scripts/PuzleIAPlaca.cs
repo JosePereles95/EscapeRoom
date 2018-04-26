@@ -49,56 +49,128 @@ public class PuzleIAPlaca : MonoBehaviour {
 			if (index >= 0 && index <= 4) {
 				if (index == AleatorioIAPlaca.randomCilindro)
 					listaCilindros [AleatorioIAPlaca.randomCilindro].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 5 && index <= 9) {
 				if ((index - 5) == AleatorioIAPlaca.randomChip)
 					listaChips [AleatorioIAPlaca.randomChip].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 10 && index <= 14) {
 				if ((index - 10) == AleatorioIAPlaca.randomCPU)
 					listaCPUs [AleatorioIAPlaca.randomCPU].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 15 && index <= 19) {
 				if ((index - 15) == AleatorioIAPlaca.randomCubo)
 					listaCubos [AleatorioIAPlaca.randomCubo].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 20 && index <= 24) {
 				if ((index - 20) == AleatorioIAPlaca.randomRejilla)
 					listaRejillas [AleatorioIAPlaca.randomRejilla].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 25 && index <= 29) {
 				if ((index - 25) == AleatorioIAPlaca.randomConexion)
 					listaConexiones [AleatorioIAPlaca.randomConexion].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 30 && index <= 34) {
 				if ((index - 30) == AleatorioIAPlaca.randomTarjeta)
 					listaTarjetas [AleatorioIAPlaca.randomTarjeta].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 35 && index <= 39) {
 				if ((index - 35) == AleatorioIAPlaca.randomCajita)
 					listaCajitas [AleatorioIAPlaca.randomCajita].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 			else if (index >= 40 && index <= 44) {
 				if ((index - 40) == AleatorioIAPlaca.randomCuadradito)
 					listaCuadraditos [AleatorioIAPlaca.randomCuadradito].SetActive (true);
-				else
-					StartCoroutine (ShowWrongText ());
+				else {
+					this.GetComponent<RestarVidas> ().Resta ();
+
+					if (this.GetComponent<RestarVidas> ().vidas > 0) {
+						StartCoroutine (ShowWrongText ());
+					}
+					else {
+						StartCoroutine (ShowNoVidasText ());
+					}
+				}
 			}
 
 			if (listaCilindros [AleatorioIAPlaca.randomCilindro].activeSelf &&

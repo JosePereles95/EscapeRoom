@@ -668,9 +668,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'El orden es
-
-    incorrecto'
+  m_Text: "El objeto no est\xE1\nen la placa"
 --- !u!1 &212161807
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,7 +715,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 55c4e6267dba476478493a7ba53abe48, type: 2}
-  - {fileID: 2100000, guid: e2b10abee43361b4a8ea57578f94c44c, type: 2}
+  - {fileID: 2100000, guid: 4c01a6c636c5c8a41b55a90bc1cb9544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -864,7 +862,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: d23f730292baa9949af6a8f78d2d212f, type: 2}
-  - {fileID: 2100000, guid: 287009ade17cec74488f1f3c23b56759, type: 2}
+  - {fileID: 2100000, guid: 4c01a6c636c5c8a41b55a90bc1cb9544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2306,6 +2304,41 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 559757bdf8c66064c91b6df9662a1737, type: 3}
   - {fileID: 21300000, guid: bc66f8850d66aae4394dac925b8503fe, type: 3}
   - {fileID: 21300000, guid: b7774f8abb2e1464fbd9bdbd30a17b2e, type: 3}
+  - {fileID: 21300000, guid: 18586c9999f4a6142a78f7773d9f2c40, type: 3}
+  - {fileID: 21300000, guid: efe6c47057d682d4e99378aa6f9879ef, type: 3}
+  - {fileID: 21300000, guid: 8bb274a4488bf1b4ea2d29d90b7e79a6, type: 3}
+  - {fileID: 21300000, guid: 2558e72118937f848bb1972335f92d3f, type: 3}
+  - {fileID: 21300000, guid: e3bf4802d0d736c4cbf1cddd18faee60, type: 3}
+  - {fileID: 21300000, guid: 11ddae206bbf7b442a0e10b669fd2a8c, type: 3}
+  - {fileID: 21300000, guid: 3dc07578e0d15cf499b823a864aeb9d4, type: 3}
+  - {fileID: 21300000, guid: 5e8cd125db78f2740afc461def967a28, type: 3}
+  - {fileID: 21300000, guid: 790c632d918ccde4faef74c752448328, type: 3}
+  - {fileID: 21300000, guid: c934e145c72882f49bb8fb1c420b959a, type: 3}
+  - {fileID: 21300000, guid: 44deaab414f23e14b87e003b6b85475d, type: 3}
+  - {fileID: 21300000, guid: 7a43abe572a87c146a19f41775d1e263, type: 3}
+  - {fileID: 21300000, guid: 2d4a8b9d686337849bd2d20313103e9a, type: 3}
+  - {fileID: 21300000, guid: e8c861b591f224b45a6beef9aa0a0909, type: 3}
+  - {fileID: 21300000, guid: 2e75875af55ad914db83ccc1b6fe32cc, type: 3}
+  - {fileID: 21300000, guid: c57fcd009a093a349902518b7610836a, type: 3}
+  - {fileID: 21300000, guid: c3a99c4c5fdf1fd41abbb99b0035534e, type: 3}
+  - {fileID: 21300000, guid: 2d57a4d696ba087459756aad2175e798, type: 3}
+  - {fileID: 21300000, guid: 02eb8468b3ab8d74ca1811948d0a7723, type: 3}
+  - {fileID: 21300000, guid: 3eca9b05781d1bb478c1eae034bdac2d, type: 3}
+  - {fileID: 21300000, guid: 1a4b69e743b4be941a4d3a3dea1e7a23, type: 3}
+  - {fileID: 21300000, guid: 3778e2fc3591d5a40a42a1998aa6b083, type: 3}
+  - {fileID: 21300000, guid: fd358101a2cb7164f9fd20ccf66f82f0, type: 3}
+  - {fileID: 21300000, guid: 69f9fb169dbd49145a0a2d8841960204, type: 3}
+  - {fileID: 21300000, guid: 4fafea7deb978a24298599f06e6adb34, type: 3}
+  - {fileID: 21300000, guid: c9d85f759caadc9418cfc4eb7914ceb9, type: 3}
+  - {fileID: 21300000, guid: f33d94b9cc5272249b46886329b6acc4, type: 3}
+  - {fileID: 21300000, guid: cfc2b8cadf6b7944fb5f2dfc3ffa97c7, type: 3}
+  - {fileID: 21300000, guid: 3e2b3ae5efa3db84eb93e827d3c5ef38, type: 3}
+  - {fileID: 21300000, guid: 08a79b1e7489a3c4587ddc44f6629714, type: 3}
+  - {fileID: 21300000, guid: c1711866b83010e45884f42c5fafffb2, type: 3}
+  - {fileID: 21300000, guid: bb5c5221aca459241a2e10d0422f4666, type: 3}
+  - {fileID: 21300000, guid: 857fc481cc16f384b82ec70c892bda9f, type: 3}
+  - {fileID: 21300000, guid: e00b70b343c78fd4bb51b0e9dcca6246, type: 3}
+  - {fileID: 21300000, guid: 00930517cd616c54ea81de6fe5c182a9, type: 3}
 --- !u!114 &646615629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2638,7 +2671,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 2f2e8c18ea0f3394f92072b5eb32e7b5, type: 2}
-  - {fileID: 2100000, guid: 8d89d61c7440b8a4dbba218dccc616c7, type: 2}
+  - {fileID: 2100000, guid: 4c01a6c636c5c8a41b55a90bc1cb9544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3964,7 +3997,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 8659fc17bf9234142a43260215759868, type: 2}
-  - {fileID: 2100000, guid: 1d8f6fa71e8d4e64e8661fdbc425f77c, type: 2}
+  - {fileID: 2100000, guid: 4c01a6c636c5c8a41b55a90bc1cb9544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4038,7 +4071,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 9139b2e8eac4e6b499bf5ab859e817c1, type: 2}
-  - {fileID: 2100000, guid: 2181d0aefb91e684c8d06270c76de5f4, type: 2}
+  - {fileID: 2100000, guid: 4c01a6c636c5c8a41b55a90bc1cb9544, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4913,7 +4946,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1El orden\nes correcto!"
+  m_Text: "\xA1La placa\nest\xE1 completa!"
 --- !u!1 &1795573801
 GameObject:
   m_ObjectHideFlags: 0
