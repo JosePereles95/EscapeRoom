@@ -22,9 +22,19 @@ public class PuzleIAWords : MonoBehaviour {
 	[SerializeField] private Text texto2;
 	[SerializeField] private Text texto3;
 
+	[SerializeField] private Text num1;
+	[SerializeField] private Text num2;
+	[SerializeField] private Text num3;
+
+	[SerializeField] private Sprite notaNormal;
+	[SerializeField] private Sprite notaPulsado;
+
+	private List<string> soluciones;
+
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
 		nota.SetActive (false);
+		soluciones = new List<string> ();
 	}
 
 	void Update () {
@@ -32,6 +42,11 @@ public class PuzleIAWords : MonoBehaviour {
 			texto1.text = AleatorioIAWords.listWords [0];
 			texto2.text = AleatorioIAWords.listWords [1];
 			texto3.text = AleatorioIAWords.listWords [2];
+
+			num1.text = "+ " + AleatorioIAWords.listNums [0];
+			num2.text = "- " + AleatorioIAWords.listNums [1];
+			num3.text = "+ " + AleatorioIAWords.listNums [2];
+
 			AleatorioIAWords.ready = false;
 		}
 
@@ -48,9 +63,90 @@ public class PuzleIAWords : MonoBehaviour {
 
 	public void OpenHelp(){
 		nota.SetActive (!nota.activeSelf);
+
+		if(!nota.activeSelf)
+			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = notaNormal;
+		else
+			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = notaPulsado;
 	}
 
 	public void CheckWords(){
-		
+		Cifrado ();
+	}
+
+	private void Cifrado(){
+		if (!wrongText.gameObject.activeSelf &&
+		    !correctText.gameObject.activeSelf &&
+		    !noVidasText.gameObject.activeSelf &&
+			word1.text != "" &&
+			word2.text != "" &&
+			word3.text != "") {
+			int caesar = 3;
+			for (int i = 0; i < AleatorioIAWords.listWords.Count; i++) {
+				string solucion = "";
+				int j = 0;
+				foreach (char x in AleatorioIAWords.listWords[i]) {
+					if (i % 2 == 0) {
+						int position = AleatorioIAWords.listPositions [i] [j] + caesar + AleatorioIAWords.listNums [i];
+						if (position > 26)
+							position -= 26;
+						solucion += AleatorioIAWords.letras [position];
+					}
+					else {
+						int position = AleatorioIAWords.listPositions [i] [j] + caesar - AleatorioIAWords.listNums [i];
+						if (position < 0)
+							position += 26;
+						solucion += AleatorioIAWords.letras [position];
+					}
+					j++;
+				}
+				Debug.Log (solucion);
+				soluciones.Add (solucion);
+			}
+
+			//Check if correct
+			if (word1.text == soluciones [0] &&
+			   word2.text == soluciones [1] &&
+			   word3.text == soluciones [2]) {
+				StartCoroutine (ShowCorrectText ());
+			}
+			else {
+				word1.text = "";
+				word2.text = "";
+				word3.text = "";
+
+				this.GetComponent<RestarVidas> ().Resta ();
+
+				if (this.GetComponent<RestarVidas> ().vidas > 0) {
+					StartCoroutine (ShowWrongText ());
+				}
+				else {
+					StartCoroutine (ShowNoVidasText ());
+				}
+			}
+		}
+	}
+
+	IEnumerator ShowWrongText(){
+		wrongText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
+		yield return new WaitForSeconds (3.0f);
+		wrongText.gameObject.SetActive (false);
+	}
+
+	IEnumerator ShowCorrectText(){
+		correctText.gameObject.SetActive (true);
+		yield return new WaitForSeconds (3.0f);
+		Timer.ChangeCanvas (false);
+		SceneManager.LoadScene ("Vuforia");
+	}
+
+	IEnumerator ShowNoVidasText(){
+		noVidasText.gameObject.SetActive (true);
+		Handheld.Vibrate ();
+		yield return new WaitForSeconds (3.0f);
+		WindowsManager.penalized = true;
+		Timer.ChangeCanvas (false);
+		SceneManager.LoadScene ("Vuforia");
 	}
 }
