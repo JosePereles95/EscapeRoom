@@ -15,9 +15,9 @@ public class RotateItem : MonoBehaviour {
 
 	void Update () {
 		if (i <= 0.5f)
-			transform.Rotate (new Vector3 (0, 0, Time.deltaTime * speed));
+			transform.Rotate (new Vector3 (0, Time.deltaTime * speed, 0), Space.World);
 		else
-			transform.Rotate (new Vector3 (0, 0, -(Time.deltaTime * speed)));
+			transform.Rotate (new Vector3 (0, -(Time.deltaTime * speed), 0), Space.World);
 		
 	}
 }
