@@ -11,6 +11,7 @@ public class PuzleIAGirar : MonoBehaviour {
 	[SerializeField] private Text correctText;
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;
+	[SerializeField] private GameObject panel;
 
 	public static List<string> listComandos;
 	private List<int> listUserOrder;
@@ -113,13 +114,16 @@ public class PuzleIAGirar : MonoBehaviour {
 	}
 
 	IEnumerator ShowWrongText(){
+		panel.SetActive (true);
 		wrongText.gameObject.SetActive (true);
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
+		panel.SetActive (false);
 		wrongText.gameObject.SetActive (false);
 	}
 
 	IEnumerator ShowCorrectText(){
+		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);
@@ -127,6 +131,7 @@ public class PuzleIAGirar : MonoBehaviour {
 	}
 
 	IEnumerator ShowNoVidasText(){
+		panel.SetActive (true);
 		noVidasText.gameObject.SetActive (true);
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);

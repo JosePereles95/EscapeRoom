@@ -6,12 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class TouchVuforia : MonoBehaviour {
 
-	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 	}
@@ -21,5 +19,7 @@ public class TouchVuforia : MonoBehaviour {
 			WindowsManager.CerraduraStatic ();
 		if(this.name == "Bateria")
 			WindowsManager.BateriasStatic ();
+		if(this.name == "Tangram")
+			WindowsManager.TangramStatic ();
 	}
 }

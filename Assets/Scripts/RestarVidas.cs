@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class RestarVidas : MonoBehaviour {
 
 	public int vidas = 3;
-	[SerializeField] private Text vidasText;
+	//[SerializeField] private Text vidasText;
+	[SerializeField] private List<GameObject> listVidas;
 
 	void Update () {
-		vidasText.text = "Quedan " + vidas + " vidas";
+		//vidasText.text = "Quedan " + vidas + " vidas";
 	}
 
 	public void Resta(){
 		vidas--;
+		listVidas [vidas].SetActive (false);
 	}
 }

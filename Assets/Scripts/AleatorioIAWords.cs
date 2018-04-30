@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AleatorioIAWords : MonoBehaviour {
 
-	public static string letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGH";
+	public static string letras = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZABCDEFGH";
 
 	public static List<string> listWords;
 	public static List<int> listNums;
@@ -25,7 +25,7 @@ public class AleatorioIAWords : MonoBehaviour {
 			listPositions.Add (new List<int> ());
 			string cadena = "";
 			for (int j = 0; j < charAmount; j++) {
-				int pos = Random.Range(0, 26);
+				int pos = Random.Range(0, 27);
 				cadena += letras[pos].ToString();
 				listPositions [i].Add (pos);
 			}

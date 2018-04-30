@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject[] piecePrefabs;
 
 	[SerializeField] private Text correctText;
+	[SerializeField] private GameObject panel;
 
 	[System.Serializable]
 	public class Puzzle{
@@ -217,6 +218,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	IEnumerator ShowCorrectText(){
+		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);

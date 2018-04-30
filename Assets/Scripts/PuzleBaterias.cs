@@ -11,6 +11,7 @@ public class PuzleBaterias : MonoBehaviour {
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;
 	[SerializeField] private Text porcentajeText;
+	[SerializeField] private GameObject panel;
 
 	private int sumaActual = 0;
 	[SerializeField] private GameObject objBase;
@@ -80,14 +81,17 @@ public class PuzleBaterias : MonoBehaviour {
 	}
 
 	IEnumerator ShowWrongText(){
+		panel.SetActive (true);
 		wrongText.gameObject.SetActive (true);
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
+		panel.SetActive (false);
 		wrongText.gameObject.SetActive (false);
 		Desapilar ();
 	}
 
 	IEnumerator ShowCorrectText(){
+		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);
@@ -95,6 +99,7 @@ public class PuzleBaterias : MonoBehaviour {
 	}
 
 	IEnumerator ShowNoVidasText(){
+		panel.SetActive (true);
 		noVidasText.gameObject.SetActive (true);
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);

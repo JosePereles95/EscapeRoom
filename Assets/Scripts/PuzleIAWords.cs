@@ -11,6 +11,7 @@ public class PuzleIAWords : MonoBehaviour {
 	[SerializeField] private Text correctText;
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;
+	[SerializeField] private GameObject panel;
 
 	[SerializeField] private GameObject nota;
 
@@ -81,21 +82,20 @@ public class PuzleIAWords : MonoBehaviour {
 			word1.text != "" &&
 			word2.text != "" &&
 			word3.text != "") {
-			int caesar = 3;
 			for (int i = 0; i < AleatorioIAWords.listWords.Count; i++) {
 				string solucion = "";
 				int j = 0;
 				foreach (char x in AleatorioIAWords.listWords[i]) {
 					if (i % 2 == 0) {
-						int position = AleatorioIAWords.listPositions [i] [j] + caesar + AleatorioIAWords.listNums [i];
-						if (position > 26)
-							position -= 26;
+						int position = AleatorioIAWords.listPositions [i] [j] + AleatorioIAWords.listNums [i];
+						if (position > 27)
+							position -= 27;
 						solucion += AleatorioIAWords.letras [position];
 					}
 					else {
-						int position = AleatorioIAWords.listPositions [i] [j] + caesar - AleatorioIAWords.listNums [i];
+						int position = AleatorioIAWords.listPositions [i] [j] - AleatorioIAWords.listNums [i];
 						if (position < 0)
-							position += 26;
+							position += 27;
 						solucion += AleatorioIAWords.letras [position];
 					}
 					j++;
@@ -128,13 +128,16 @@ public class PuzleIAWords : MonoBehaviour {
 	}
 
 	IEnumerator ShowWrongText(){
+		panel.SetActive (true);
 		wrongText.gameObject.SetActive (true);
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
+		panel.SetActive (false);
 		wrongText.gameObject.SetActive (false);
 	}
 
 	IEnumerator ShowCorrectText(){
+		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);
@@ -142,6 +145,7 @@ public class PuzleIAWords : MonoBehaviour {
 	}
 
 	IEnumerator ShowNoVidasText(){
+		panel.SetActive (true);
 		noVidasText.gameObject.SetActive (true);
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);

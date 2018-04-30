@@ -46,15 +46,15 @@ public class Timer : MonoBehaviour{
 		int segundos = (int) tiempo - (horas * 3600 + minutos * 60);
 
 		if (horas > 0)
-			textTiempo.text = horas.ToString () + " :" + minutos.ToString ("D2");
+			textTiempo.text = horas.ToString () + ":" + minutos.ToString ("D2");
 		else {
 			if(minutos > 0)
-				textTiempo.text = minutos.ToString () + " :" + segundos.ToString ("D2");
+				textTiempo.text = minutos.ToString () + ":" + segundos.ToString ("D2");
 			else
 				textTiempo.text = segundos.ToString ();
 		}
 
-		textTiempoMenu.text = horas.ToString () + " :" + minutos.ToString ("D2") + " :" + segundos.ToString ("D2");
+		textTiempoMenu.text = horas.ToString () + ":" + minutos.ToString ("D2") + ":" + segundos.ToString ("D2");
 
 		if (horas == 0 && minutos == 0 && segundos == 0)
 			TiempoAgotado ();
