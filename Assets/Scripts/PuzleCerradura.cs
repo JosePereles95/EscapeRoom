@@ -147,6 +147,7 @@ public class PuzleCerradura : MonoBehaviour {
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);
+		LevelStructure.completados [8] = true;
 		SceneManager.LoadScene ("Vuforia");
 	}
 

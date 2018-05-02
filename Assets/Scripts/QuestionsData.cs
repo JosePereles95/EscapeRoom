@@ -45,12 +45,32 @@ public class QuestionsData : MonoBehaviour {
 			if (mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true) != null) {
 				stateQuestion = mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true).ToString ();
 				if (stateQuestion == "False") {
-					//questionsInput [i - 1].image.color = Color.red;
 					questionsInput [i - 1].image.sprite = preguntaRojo;
+
+					if ((i - 1) == 0)
+						LevelStructure.completados [0] = false;
+					else if ((i - 1) == 1)
+						LevelStructure.completados [5] = false;
+					else if ((i - 1) == 2)
+						LevelStructure.completados [6] = false;
+					else if ((i - 1) == 3)
+						LevelStructure.completados [12] = false;
+					else if ((i - 1) == 4)
+						LevelStructure.completados [14] = false;
 				}
 				else{
-					//questionsInput [i - 1].image.color = Color.green;
 					questionsInput [i - 1].image.sprite = preguntaVerde;
+
+					if ((i - 1) == 0)
+						LevelStructure.completados [0] = true;
+					else if ((i - 1) == 1)
+						LevelStructure.completados [5] = true;
+					else if ((i - 1) == 2)
+						LevelStructure.completados [6] = true;
+					else if ((i - 1) == 3)
+						LevelStructure.completados [12] = true;
+					else if ((i - 1) == 4)
+						LevelStructure.completados [14] = true;
 				}
 			}
 		}

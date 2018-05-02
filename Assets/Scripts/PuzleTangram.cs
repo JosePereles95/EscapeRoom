@@ -124,6 +124,7 @@ public class PuzleTangram : MonoBehaviour {
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);
+		LevelStructure.completados [3] = true;
 		SceneManager.LoadScene ("Vuforia");
 	}
 

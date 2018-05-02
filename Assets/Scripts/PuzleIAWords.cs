@@ -30,12 +30,9 @@ public class PuzleIAWords : MonoBehaviour {
 	[SerializeField] private Sprite notaNormal;
 	[SerializeField] private Sprite notaPulsado;
 
-	private List<string> soluciones;
-
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
 		nota.SetActive (false);
-		soluciones = new List<string> ();
 	}
 
 	void Update () {
@@ -82,35 +79,17 @@ public class PuzleIAWords : MonoBehaviour {
 			word1.text != "" &&
 			word2.text != "" &&
 			word3.text != "") {
-			for (int i = 0; i < AleatorioIAWords.listWords.Count; i++) {
-				string solucion = "";
-				int j = 0;
-				foreach (char x in AleatorioIAWords.listWords[i]) {
-					if (i % 2 == 0) {
-						int position = AleatorioIAWords.listPositions [i] [j] + AleatorioIAWords.listNums [i];
-						if (position > 27)
-							position -= 27;
-						solucion += AleatorioIAWords.letras [position];
-					}
-					else {
-						int position = AleatorioIAWords.listPositions [i] [j] - AleatorioIAWords.listNums [i];
-						if (position < 0)
-							position += 27;
-						solucion += AleatorioIAWords.letras [position];
-					}
-					j++;
-				}
-				Debug.Log (solucion);
-				soluciones.Add (solucion);
-			}
 
 			//Check if correct
-			if (word1.text == soluciones [0] &&
-			   word2.text == soluciones [1] &&
-			   word3.text == soluciones [2]) {
+			if (word1.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[0]] &&
+				word2.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[1]] &&
+				word3.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[2]]) {
 				StartCoroutine (ShowCorrectText ());
 			}
 			else {
+				Debug.Log (AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[0]]);
+				Debug.Log (AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[1]]);
+				Debug.Log (AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[2]]);
 				word1.text = "";
 				word2.text = "";
 				word3.text = "";
@@ -141,6 +120,7 @@ public class PuzleIAWords : MonoBehaviour {
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false);
+		//Ir a la escena final
 		SceneManager.LoadScene ("Vuforia");
 	}
 

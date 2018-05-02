@@ -512,7 +512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1El bucle est\xE1\ncompletado!"
+  m_Text: "\xA1El bucle se ha\ncompletado!"
 --- !u!222 &881922208
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ Prefab:
     - target: {fileID: 224463748753058770, guid: fa1b0823c3dc5514ca382b48cd770dfe,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -1048
       objectReference: {fileID: 0}
     - target: {fileID: 224463748753058770, guid: fa1b0823c3dc5514ca382b48cd770dfe,
         type: 2}
@@ -804,6 +804,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395570163461678, guid: fa1b0823c3dc5514ca382b48cd770dfe, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa1b0823c3dc5514ca382b48cd770dfe, type: 2}
