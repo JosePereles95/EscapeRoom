@@ -220,7 +220,7 @@ public class PuzleIAPlaca : MonoBehaviour {
 		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
-		Timer.ChangeCanvas (false);
+		//Timer.ChangeCanvas (false);
 		SceneManager.LoadScene ("PuzleIAGirar");
 	}
 

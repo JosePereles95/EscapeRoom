@@ -50,11 +50,6 @@ public class GameManager : MonoBehaviour {
 				puzzle.pieces [(int)piece.transform.position.x, (int)piece.transform.position.y] = piece.GetComponent<Piece> ();
 			}
 		}
-		/*
-		foreach (var item in puzzle.pieces) {
-
-			Debug.Log(item.gameObject.name);
-		}*/
 
 		puzzle.winValue = GetWinValue ();
 
@@ -83,7 +78,6 @@ public class GameManager : MonoBehaviour {
 					auxValues [1] = Random.Range (0, 2);
 
 				//heigth resctrictions
-
 				if (h == 0)
 					auxValues [2] = 0;
 				else
@@ -221,7 +215,7 @@ public class GameManager : MonoBehaviour {
 		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
-		Timer.ChangeCanvas (false);
+		//Timer.ChangeCanvas (false);
 		SceneManager.LoadScene ("PuzleIAWords");
 	}
 }

@@ -2077,7 +2077,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1Los c\xF3digos\nson correctas!"
+  m_Text: "\xA1El cifrado\nes correcto!"
 --- !u!1 &1602868598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,7 +2261,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Los c\xF3digos\nson incorrectos"
+  m_Text: 'El cifrado es
+
+    incorrecto'
 --- !u!1 &1678553986
 GameObject:
   m_ObjectHideFlags: 0

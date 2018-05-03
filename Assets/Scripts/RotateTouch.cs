@@ -22,13 +22,10 @@ public class RotateTouch : MonoBehaviour
 	}
 
 	public void Relocate(){
-		Debug.Log ("Recolocate: " + pressed);
 		this.transform.rotation = defaultRotation;
 
-		if (pressed) {
+		if (pressed)
 			this.transform.Rotate (Vector3.right, 90f, Space.Self);
-			Debug.Log ("Inside pressed");
-		}
 		
 		pressed = !pressed;
 	}

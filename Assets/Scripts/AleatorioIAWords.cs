@@ -112,7 +112,7 @@ public class AleatorioIAWords : MonoBehaviour {
 				string cadena = "";
 				for (int j = 0; j < charAmount; j++) {
 					int pos = letras.IndexOf(palabrasRandom[listPositions[i]][j]) + listNums[i];
-					if (pos > 27)
+					if (pos > 26)
 						pos -= 27;
 					cadena += letras[pos].ToString();
 				}

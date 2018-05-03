@@ -26,8 +26,10 @@ public class QuestionsData : MonoBehaviour {
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 
-		for (int i = 1; i <= questions; i++) {
-			mDatabase.Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
+		if (LevelStructure.iniciado != true) {
+			for (int i = 1; i <= questions; i++) {
+				mDatabase.Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
+			}
 		}
 	}
 

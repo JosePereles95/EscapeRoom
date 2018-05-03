@@ -628,7 +628,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 798927741}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2206,7 +2206,7 @@ Prefab:
     - target: {fileID: 224463748753058770, guid: fa1b0823c3dc5514ca382b48cd770dfe,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224463748753058770, guid: fa1b0823c3dc5514ca382b48cd770dfe,
         type: 2}
@@ -2938,11 +2938,11 @@ RectTransform:
   - {fileID: 1587777680}
   - {fileID: 947435729}
   - {fileID: 1238824319}
+  - {fileID: 1258781184}
   - {fileID: 667839488}
   - {fileID: 1635592277}
   - {fileID: 1628227843}
   - {fileID: 276168903}
-  - {fileID: 1258781184}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4485,7 +4485,7 @@ RectTransform:
   - {fileID: 649200124}
   - {fileID: 754986624}
   m_Father: {fileID: 798927741}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5566,7 +5566,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 798927741}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5605,9 +5605,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'La suma es
+  m_Text: 'El resultado
 
-    incorrecta'
+    es incorrecto'
 --- !u!222 &1628227845
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5642,7 +5642,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 798927741}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5681,7 +5681,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1La suma es\nla correcta!"
+  m_Text: "\xA1El resultado\nes correcto!"
 --- !u!222 &1635592279
 CanvasRenderer:
   m_ObjectHideFlags: 0

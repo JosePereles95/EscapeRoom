@@ -22,13 +22,11 @@ public class Timer : MonoBehaviour{
 	void Update(){
 
 		if (canvasActivado && entraCanvas) {
-			Debug.Log ("Disable");
 			textTiempo.gameObject.SetActive (true);
 			tiempoContador.SetActive (false);
 			entraCanvas = false;
 		}
 		else if(entraCanvas) {
-			Debug.Log ("Enable");
 			textTiempo.gameObject.SetActive (false);
 			tiempoContador.SetActive (true);
 			entraCanvas = false;
@@ -65,7 +63,6 @@ public class Timer : MonoBehaviour{
 	}
 
 	public static void ChangeCanvas(bool enabled){
-		Debug.Log ("CanvasChange");
 		canvasActivado = enabled;
 		entraCanvas = true;
 	}

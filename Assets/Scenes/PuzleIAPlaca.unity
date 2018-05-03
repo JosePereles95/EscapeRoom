@@ -830,7 +830,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "El objeto no est\xE1\nen la placa"
+  m_Text: 'El objeto no
+
+    aparece en la placa'
 --- !u!1 &212161807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5464,7 +5466,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\xA1La placa\nest\xE1 completa!"
+  m_Text: "\xA1La placa se\nha completado!"
 --- !u!1 &1799594666
 GameObject:
   m_ObjectHideFlags: 0
