@@ -13,6 +13,8 @@ TagManager:
   - inside
   - Piece
   - tiempoContador
+  - Cajonera
+  - ObjCosas
   layers:
   - Default
   - TransparentFX

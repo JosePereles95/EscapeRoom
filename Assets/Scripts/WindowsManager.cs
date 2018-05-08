@@ -112,10 +112,24 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleLaberinto");
 	}
 
+	//
+	public static void LaberintoStatic(){
+		Timer.ChangeCanvas (true);
+		SceneManager.LoadScene ("PuzleLaberinto");
+	}
+	//
+
 	public void Cristales(){
 		Timer.ChangeCanvas (true);
 		SceneManager.LoadScene ("PuzleCristales");
 	}
+
+	//
+	public static void CristalesStatic(){
+		Timer.ChangeCanvas (true);
+		SceneManager.LoadScene ("PuzleCristales");
+	}
+	//
 
 	public void Tangram(){
 		Timer.ChangeCanvas (true);
