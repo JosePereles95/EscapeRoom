@@ -11,6 +11,12 @@ public class TouchVuforia : MonoBehaviour {
 
 	[SerializeField] private GameObject objCajoneraIn;
 
+	public static bool openQuestion0 = false;
+	public static bool openQuestion5 = false;
+	public static bool openQuestion6 = false;
+	public static bool openQuestion12 = false;
+	public static bool openQuestion14 = false;
+
 	//private bool checking = false;
 
 	void Start () {
@@ -18,7 +24,7 @@ public class TouchVuforia : MonoBehaviour {
 	}
 
 	void Update () {
-		
+		//CheckQuestionModels ();
 	}
 
 	void OnMouseDown(){
@@ -75,16 +81,16 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.name == "Problema0") {
 			if (LevelStructure.completados [0]) {
-				ActivateProblema (this.gameObject, this.objCajoneraIn);
+				ActivateProblema (0, this.gameObject, this.objCajoneraIn);
 			}
 		}
 
-		if (this.name == "Problema2") {
+		if (this.name == "Problema5") {
 
 			if (LevelStructure.completados [2] &&
 				LevelStructure.completados [4]) {
 				if (LevelStructure.completados [5]) {
-					ActivateProblema (this.gameObject, this.objCajoneraIn);
+					ActivateProblema (1, this.gameObject, this.objCajoneraIn);
 				}
 			}
 			else {
@@ -94,7 +100,7 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.name == "Problema6") {
 			if (LevelStructure.completados [6]) {
-				ActivateProblema (this.gameObject, this.objCajoneraIn);
+				ActivateProblema (2, this.gameObject, this.objCajoneraIn);
 			}
 		}
 
@@ -102,7 +108,7 @@ public class TouchVuforia : MonoBehaviour {
 
 			if (LevelStructure.completados [10]) {
 				if (LevelStructure.completados [12]) {
-					ActivateProblema (this.objCajoneraIn, this.gameObject);
+					ActivateProblema (3, this.objCajoneraIn, this.gameObject);
 				}
 			}
 			else {
@@ -139,6 +145,33 @@ public class TouchVuforia : MonoBehaviour {
 		}
 	}
 
+	/*void CheckQuestionModels(){
+		if(this.name == "Problema0" &&
+			!LevelStructure.completados[0]){
+			DisableProblema (0, this.gameObject, this.objCajoneraIn);
+		}
+
+		if(this.name == "Problema5" &&
+			!LevelStructure.completados[5]){
+			DisableProblema (5, this.gameObject, this.objCajoneraIn);
+		}
+
+		if(this.name == "Problema6" &&
+			!LevelStructure.completados[6]){
+			DisableProblema (6, this.gameObject, this.objCajoneraIn);
+		}
+
+		if(this.name == "Problema12" &&
+			!LevelStructure.completados[12]){
+			DisableProblema (12, this.objCajoneraIn, this.gameObject);
+		}
+
+		if(this.name == "Problema14" &&
+			!LevelStructure.completados[14]){
+			DisableProblema ();
+		}
+	}*/
+
 	IEnumerator ShowFaltaText() {
 		textFalta.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
@@ -157,10 +190,17 @@ public class TouchVuforia : MonoBehaviour {
 		objIn.SetActive (true);
 	}
 
-	void ActivateProblema (GameObject objOut, GameObject objIn){
+	void ActivateProblema (int n, GameObject objOut, GameObject objIn){
+		LevelStructure.openQuestions [n] = true;
 		objOut.SetActive (false);
 		objIn.SetActive (true);
 	}
+
+	/*void DisableProblema (int n, GameObject objIn, GameObject objOut){
+		objOut.SetActive (false);
+		objIn.SetActive (true);
+		Debug.Log ("Desactiva problema: " + n);
+	}*/
 
 	void DisableCompleted (){
 		if (this.tag == "Cajonera" &&
@@ -189,12 +229,12 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.tag == "ObjCosas" &&
 			LevelStructure.completados [6]) {
-			ActivateProblema (this.gameObject, this.objCajoneraIn);
+			ActivateProblema (6, this.gameObject, this.objCajoneraIn);
 		}
 
 		if (this.tag == "ObjCosas" &&
 			LevelStructure.completados [12]) {
-			ActivateProblema (this.objCajoneraIn, this.gameObject);
+			ActivateProblema (12, this.objCajoneraIn, this.gameObject);
 		}
 
 		if (this.tag == "ObjCosas" &&
@@ -204,12 +244,12 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.tag == "ObjCosas" &&
 			LevelStructure.completados [5]) {
-			ActivateProblema (this.gameObject, this.objCajoneraIn);
+			ActivateProblema (5, this.gameObject, this.objCajoneraIn);
 		}
 
 		if (this.tag == "ObjCosas" &&
 			LevelStructure.completados [0]) {
-			ActivateProblema (this.gameObject, this.objCajoneraIn);
+			ActivateProblema (0, this.gameObject, this.objCajoneraIn);
 		}
 	}
 }

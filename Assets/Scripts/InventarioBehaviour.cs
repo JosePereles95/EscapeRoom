@@ -78,7 +78,8 @@ public class InventarioBehaviour : MonoBehaviour {
 			buttonsInventario [14].image.sprite = listObjects [14];
 
 		//Question 0 - Pregunta 1
-		if (LevelStructure.completados [0] == true) {
+		if (LevelStructure.completados [0] &&
+			LevelStructure.openQuestions[0]) {
 			buttonsInventario [0].image.sprite = listObjects [0];
 			buttonsInventario [1].image.sprite = listObjects [1];
 		}
@@ -88,7 +89,8 @@ public class InventarioBehaviour : MonoBehaviour {
 		}
 
 		//Question 5 - Pregunta 2
-		if (LevelStructure.completados [5] == true) {
+		if (LevelStructure.completados [5] &&
+			LevelStructure.openQuestions[5]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (1));
@@ -105,7 +107,8 @@ public class InventarioBehaviour : MonoBehaviour {
 		}
 
 		//Question 6 - Pregunta 3
-		if (LevelStructure.completados [6] == true) {
+		if (LevelStructure.completados [6] &&
+			LevelStructure.openQuestions[6]) {
 			buttonsInventario [3].image.sprite = listObjects [3];
 		}
 		else {
@@ -113,7 +116,8 @@ public class InventarioBehaviour : MonoBehaviour {
 		}
 
 		//Question 12 - Pregunta 4
-		if (LevelStructure.completados [12] == true) {
+		if (LevelStructure.completados [12] &&
+			LevelStructure.openQuestions[12]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (2));
@@ -130,7 +134,8 @@ public class InventarioBehaviour : MonoBehaviour {
 		}
 
 		//Question 14 - Pregunta 5
-		if (LevelStructure.completados [14] == true) {
+		if (LevelStructure.completados [14] &&
+			LevelStructure.openQuestions[14]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (3));
