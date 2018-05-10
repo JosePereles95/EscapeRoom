@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Vuforia;
 using UnityEngine.SceneManagement;
 
@@ -8,19 +9,16 @@ public class TouchVuforia : MonoBehaviour {
 
 	[SerializeField] private GameObject textFalta;
 	[SerializeField] private GameObject textCompleted;
+	[SerializeField] private GameObject textPregunta;
 
 	[SerializeField] private GameObject objCajoneraIn;
-
-	public static bool openQuestion0 = false;
-	public static bool openQuestion5 = false;
-	public static bool openQuestion6 = false;
-	public static bool openQuestion12 = false;
-	public static bool openQuestion14 = false;
+	private GameObject obj2;
 
 	//private bool checking = false;
 
 	void Start () {
 		DisableCompleted ();
+		obj2 = GameObject.FindGameObjectWithTag ("delete");
 	}
 
 	void Update () {
@@ -83,6 +81,9 @@ public class TouchVuforia : MonoBehaviour {
 			if (LevelStructure.completados [0]) {
 				ActivateProblema (0, this.gameObject, this.objCajoneraIn);
 			}
+			else {
+				StartCoroutine (ShowQuestionText (1));
+			}
 		}
 
 		if (this.name == "Problema5") {
@@ -92,15 +93,22 @@ public class TouchVuforia : MonoBehaviour {
 				if (LevelStructure.completados [5]) {
 					ActivateProblema (1, this.gameObject, this.objCajoneraIn);
 				}
+				else {
+					StartCoroutine (ShowQuestionText (2));
+				}
 			}
 			else {
 				StartCoroutine (ShowFaltaText ());
 			}
+
 		}
 
 		if (this.name == "Problema6") {
 			if (LevelStructure.completados [6]) {
 				ActivateProblema (2, this.gameObject, this.objCajoneraIn);
+			}
+			else {
+				StartCoroutine (ShowQuestionText (3));
 			}
 		}
 
@@ -108,19 +116,43 @@ public class TouchVuforia : MonoBehaviour {
 
 			if (LevelStructure.completados [10]) {
 				if (LevelStructure.completados [12]) {
-					ActivateProblema (3, this.objCajoneraIn, this.gameObject);
+					ActivateProblema (4, this.objCajoneraIn, this.gameObject);
+				}
+				else {
+					StartCoroutine (ShowQuestionText (5));
 				}
 			}
 			else {
 				StartCoroutine (ShowFaltaText ());
 			}
+
+		}
+
+		if (this.name == "Problema14") {
+
+			if (LevelStructure.completados [11]) {
+				if (LevelStructure.completados [14]) {
+					ActivateProblema (3, this.gameObject, this.objCajoneraIn);
+				}
+				else {
+					StartCoroutine (ShowQuestionText (4));
+				}
+			}
+			else {
+				StartCoroutine (ShowFaltaText ());
+			}
+
 		}
 
 		if (this.name == "Cajonera2") {
 			if (LevelStructure.completados [2])
 				StartCoroutine (ShowCompletedText ());
-			else
-				ActivateCajonera (2, this.gameObject, this.objCajoneraIn);
+			else if(LevelStructure.completados[0]){
+				ActivateCajonera (2, obj2, this.objCajoneraIn);
+			}
+			else {
+				StartCoroutine (ShowFaltaText ());
+			}
 		}
 
 		if (this.name == "Cajonera7") {
@@ -133,44 +165,25 @@ public class TouchVuforia : MonoBehaviour {
 		if (this.name == "Cajonera9") {
 			if (LevelStructure.completados [9])
 				StartCoroutine (ShowCompletedText ());
-			else
+			else if(LevelStructure.completados[8]){
 				ActivateCajonera (9, this.gameObject, this.objCajoneraIn);
+			}
+			else {
+				StartCoroutine (ShowFaltaText ());
+			}
 		}
 
 		if (this.name == "Cajonera11") {
 			if (LevelStructure.completados [11])
 				StartCoroutine (ShowCompletedText ());
-			else
-				ActivateCajonera (11, this.gameObject, this.objCajoneraIn);
+			else if (LevelStructure.completados [10]) {
+				ActivateCajonera (11, this.objCajoneraIn, this.gameObject);
+			}
+			else {
+				StartCoroutine (ShowFaltaText ());
+			}
 		}
 	}
-
-	/*void CheckQuestionModels(){
-		if(this.name == "Problema0" &&
-			!LevelStructure.completados[0]){
-			DisableProblema (0, this.gameObject, this.objCajoneraIn);
-		}
-
-		if(this.name == "Problema5" &&
-			!LevelStructure.completados[5]){
-			DisableProblema (5, this.gameObject, this.objCajoneraIn);
-		}
-
-		if(this.name == "Problema6" &&
-			!LevelStructure.completados[6]){
-			DisableProblema (6, this.gameObject, this.objCajoneraIn);
-		}
-
-		if(this.name == "Problema12" &&
-			!LevelStructure.completados[12]){
-			DisableProblema (12, this.objCajoneraIn, this.gameObject);
-		}
-
-		if(this.name == "Problema14" &&
-			!LevelStructure.completados[14]){
-			DisableProblema ();
-		}
-	}*/
 
 	IEnumerator ShowFaltaText() {
 		textFalta.SetActive (true);
@@ -182,6 +195,14 @@ public class TouchVuforia : MonoBehaviour {
 		textCompleted.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		textCompleted.SetActive (false);
+	}
+
+	IEnumerator ShowQuestionText(int n) {
+		string cadena = "Ve al buscar la\npregunta nº "  + n.ToString ();
+		textPregunta.GetComponentInChildren<Text> ().text = cadena;
+		textPregunta.SetActive (true);
+		yield return new WaitForSeconds (3.0f);
+		textPregunta.SetActive (false);
 	}
 
 	void ActivateCajonera (int n, GameObject objOut, GameObject objIn){
@@ -203,53 +224,59 @@ public class TouchVuforia : MonoBehaviour {
 	}*/
 
 	void DisableCompleted (){
-		if (this.tag == "Cajonera" &&
+		if (this.name == "Cajonera2" &&
 			LevelStructure.completados [2]) {
-			this.gameObject.SetActive (false);
+			obj2.SetActive (false);
 			this.objCajoneraIn.SetActive (true);
 		}
 
-		if (this.tag == "Cajonera" &&
+		if (this.name == "Cajonera7" &&
 			LevelStructure.completados [7]) {
 			this.gameObject.SetActive (false);
 			this.objCajoneraIn.SetActive (true);
 		}
 
-		if (this.tag == "Cajonera" &&
+		if (this.name == "Cajonera9" &&
 			LevelStructure.completados [9]) {
 			this.gameObject.SetActive (false);
 			this.objCajoneraIn.SetActive (true);
 		}
 
-		if (this.tag == "Cajonera" &&
+		if (this.name == "Cajonera11" &&
 			LevelStructure.completados [11]) {
-			this.gameObject.SetActive (false);
-			this.objCajoneraIn.SetActive (true);
-		}
-
-		if (this.tag == "ObjCosas" &&
-			LevelStructure.completados [6]) {
-			ActivateProblema (6, this.gameObject, this.objCajoneraIn);
-		}
-
-		if (this.tag == "ObjCosas" &&
-			LevelStructure.completados [12]) {
-			ActivateProblema (12, this.objCajoneraIn, this.gameObject);
-		}
-
-		if (this.tag == "ObjCosas" &&
-			LevelStructure.completados [10]) {
+			this.gameObject.SetActive (true);
 			this.objCajoneraIn.SetActive (false);
 		}
 
-		if (this.tag == "ObjCosas" &&
+		if (this.name == "Pregunta0" &&
+			LevelStructure.completados [0]) {
+			ActivateProblema (0, this.gameObject, this.objCajoneraIn);
+		}
+
+		if (this.name == "Pregunta5" &&
 			LevelStructure.completados [5]) {
 			ActivateProblema (5, this.gameObject, this.objCajoneraIn);
 		}
 
-		if (this.tag == "ObjCosas" &&
-			LevelStructure.completados [0]) {
-			ActivateProblema (0, this.gameObject, this.objCajoneraIn);
+		if (this.name == "Pregunta6" &&
+			LevelStructure.completados [6]) {
+			ActivateProblema (6, this.gameObject, this.objCajoneraIn);
 		}
+
+		if (this.name == "Pregunta12" &&
+			LevelStructure.completados [12]) {
+			ActivateProblema (12, this.objCajoneraIn, this.gameObject);
+		}
+
+		if (this.name == "Pregunta14" &&
+			LevelStructure.completados [14]) {
+			ActivateProblema (14, this.gameObject, this.objCajoneraIn);
+		}
+
+		if (this.name == "Laberinto" &&
+			LevelStructure.completados [10]) {
+			this.objCajoneraIn.SetActive (false);
+		}
+
 	}
 }

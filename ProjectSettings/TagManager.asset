@@ -15,6 +15,7 @@ TagManager:
   - tiempoContador
   - Cajonera
   - ObjCosas
+  - delete
   layers:
   - Default
   - TransparentFX
