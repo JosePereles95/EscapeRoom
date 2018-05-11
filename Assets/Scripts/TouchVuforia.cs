@@ -144,7 +144,7 @@ public class TouchVuforia : MonoBehaviour {
 		if (this.name == "Problema12") {
 
 			if (LevelStructure.completados [10]) {
-				if (LevelStructure.completados [12]) {
+				if (LevelStructure.completados [14]) {
 					ActivateProblema (4, this.objCajoneraIn, this.gameObject);
 				}
 				else {
@@ -160,7 +160,7 @@ public class TouchVuforia : MonoBehaviour {
 		if (this.name == "Problema14") {
 
 			if (LevelStructure.completados [11]) {
-				if (LevelStructure.completados [14]) {
+				if (LevelStructure.completados [12]) {
 					ActivateProblema (3, this.gameObject, this.objCajoneraIn);
 				}
 				else {
@@ -277,27 +277,27 @@ public class TouchVuforia : MonoBehaviour {
 			this.objCajoneraIn.SetActive (false);
 		}
 
-		if (this.name == "Pregunta0" &&
+		if (this.name == "Problema0" &&
 			LevelStructure.completados [0]) {
 			ActivateProblema (0, this.gameObject, this.objCajoneraIn);
 		}
 
-		if (this.name == "Pregunta5" &&
+		if (this.name == "Problema5" &&
 			LevelStructure.completados [5]) {
 			ActivateProblema (5, this.gameObject, this.objCajoneraIn);
 		}
 
-		if (this.name == "Pregunta6" &&
+		if (this.name == "Problema6" &&
 			LevelStructure.completados [6]) {
 			ActivateProblema (6, this.gameObject, this.objCajoneraIn);
 		}
 
-		if (this.name == "Pregunta12" &&
+		if (this.name == "Problema12" &&
 			LevelStructure.completados [12]) {
 			ActivateProblema (12, this.objCajoneraIn, this.gameObject);
 		}
 
-		if (this.name == "Pregunta14" &&
+		if (this.name == "Problema14" &&
 			LevelStructure.completados [14]) {
 			ActivateProblema (14, this.gameObject, this.objCajoneraIn);
 		}
