@@ -284,22 +284,22 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.name == "Problema5" &&
 			LevelStructure.completados [5]) {
-			ActivateProblema (5, this.gameObject, this.objCajoneraIn);
+			ActivateProblema (1, this.gameObject, this.objCajoneraIn);
 		}
 
 		if (this.name == "Problema6" &&
 			LevelStructure.completados [6]) {
-			ActivateProblema (6, this.gameObject, this.objCajoneraIn);
+			ActivateProblema (2, this.gameObject, this.objCajoneraIn);
 		}
 
 		if (this.name == "Problema12" &&
 			LevelStructure.completados [12]) {
-			ActivateProblema (12, this.objCajoneraIn, this.gameObject);
+			ActivateProblema (4, this.objCajoneraIn, this.gameObject);
 		}
 
 		if (this.name == "Problema14" &&
 			LevelStructure.completados [14]) {
-			ActivateProblema (14, this.gameObject, this.objCajoneraIn);
+			ActivateProblema (3, this.gameObject, this.objCajoneraIn);
 		}
 
 		if (this.name == "Laberinto" &&
