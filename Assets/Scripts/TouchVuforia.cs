@@ -26,6 +26,18 @@ public class TouchVuforia : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
+		if (this.name == "Llaves") {
+			if (LevelStructure.completados [0]) {
+				if (LevelStructure.completados [1])
+					StartCoroutine (ShowCompletedText ());
+				else
+					WindowsManager.LlavesStatic ();
+			}
+			else {
+				StartCoroutine (ShowFaltaText ());
+			}
+		}
+
 		if (this.name == "Cerradura") {
 			if (LevelStructure.completados [6] &&
 				LevelStructure.completados [7]) {
@@ -71,6 +83,23 @@ public class TouchVuforia : MonoBehaviour {
 					StartCoroutine (ShowCompletedText ());
 				else
 					WindowsManager.CristalesStatic ();
+			}
+			else {
+				StartCoroutine (ShowFaltaText ());
+			}
+		}
+
+		if (this.name == "IAFinal") {
+			if (LevelStructure.completados [1] &&
+			    LevelStructure.completados [5] &&
+			    LevelStructure.completados [9] &&
+			    LevelStructure.completados [12] &&
+			    LevelStructure.completados [13] &&
+			    LevelStructure.completados [14]) {
+				if (LevelStructure.completados [15])
+					StartCoroutine (ShowCompletedText ());
+				else
+					WindowsManager.IAPlacaStatic ();
 			}
 			else {
 				StartCoroutine (ShowFaltaText ());

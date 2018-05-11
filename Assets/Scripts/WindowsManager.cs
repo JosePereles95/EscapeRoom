@@ -95,6 +95,13 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleLlaves");
 	}
 
+	//
+	public static void LlavesStatic(){
+		Timer.ChangeCanvas (true);
+		SceneManager.LoadScene ("PuzleLlaves");
+	}
+	//
+
 	public void Baterias(){
 		Timer.ChangeCanvas (true);
 		SceneManager.LoadScene ("PuzleBaterias");
@@ -169,6 +176,13 @@ public class WindowsManager : MonoBehaviour {
 		Timer.ChangeCanvas (true);
 		SceneManager.LoadScene ("PuzleIAPlaca");
 	}
+
+	//
+	public static void IAPlacaStatic(){
+		Timer.ChangeCanvas (true);
+		SceneManager.LoadScene ("PuzleIAPlaca");
+	}
+	//
 
 	public void IAWords(){
 		Timer.ChangeCanvas (true);
