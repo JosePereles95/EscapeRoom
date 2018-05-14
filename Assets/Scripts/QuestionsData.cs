@@ -56,9 +56,9 @@ public class QuestionsData : MonoBehaviour {
 					else if ((i - 1) == 2)
 						LevelStructure.completados [6] = false;
 					else if ((i - 1) == 3)
-						LevelStructure.completados [12] = false;
-					else if ((i - 1) == 4)
 						LevelStructure.completados [14] = false;
+					else if ((i - 1) == 4)
+						LevelStructure.completados [12] = false;
 				}
 				else{
 					questionsInput [i - 1].image.sprite = preguntaVerde;
@@ -70,9 +70,9 @@ public class QuestionsData : MonoBehaviour {
 					else if ((i - 1) == 2)
 						LevelStructure.completados [6] = true;
 					else if ((i - 1) == 3)
-						LevelStructure.completados [12] = true;
-					else if ((i - 1) == 4)
 						LevelStructure.completados [14] = true;
+					else if ((i - 1) == 4)
+						LevelStructure.completados [12] = true;
 				}
 			}
 		}

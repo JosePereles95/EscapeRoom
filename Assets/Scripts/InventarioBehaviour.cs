@@ -137,18 +137,18 @@ public class InventarioBehaviour : MonoBehaviour {
 			buttonsInventario [3].image.sprite = cuadradoNormal;
 		}
 
-		//Question 12 - Pregunta 4
-		if (LevelStructure.completados [12] &&
+		//Question 14 - Pregunta 4
+		if (LevelStructure.completados [14] &&
 			LevelStructure.openQuestions[3]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
-			StartCoroutine (GetObject (12, "¡Has obtenido una Update!"));
+			StartCoroutine (GetObject (14, "¡Has obtenido una Update!"));
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (2));
 			string texto = num.ToString () + "/4";
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 		}
 		else {
-			LevelStructure.objMostrado [12] = false;
+			LevelStructure.objMostrado [14] = false;
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (RestaUSB (2));
 			string texto = num.ToString () + "/4";
@@ -157,18 +157,18 @@ public class InventarioBehaviour : MonoBehaviour {
 				buttonsInventario [15].image.sprite = cuadradoNormal;
 		}
 
-		//Question 14 - Pregunta 5
-		if (LevelStructure.completados [14] &&
+		//Question 12 - Pregunta 5
+		if (LevelStructure.completados [12] &&
 			LevelStructure.openQuestions[4]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
-			StartCoroutine (GetObject (14, "¡Has obtenido una Update!"));
+			StartCoroutine (GetObject (12, "¡Has obtenido una Update!"));
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (3));
 			string texto = num.ToString () + "/4";
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 		}
 		else {
-			LevelStructure.objMostrado [14] = false;
+			LevelStructure.objMostrado [12] = false;
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (RestaUSB (3));
 			string texto = num.ToString () + "/4";

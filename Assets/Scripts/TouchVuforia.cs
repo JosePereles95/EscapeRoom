@@ -13,12 +13,14 @@ public class TouchVuforia : MonoBehaviour {
 
 	[SerializeField] private GameObject objCajoneraIn;
 	private GameObject obj2;
+	private GameObject obj8;
 
 	//private bool checking = false;
 
 	void Start () {
-		DisableCompleted ();
 		obj2 = GameObject.FindGameObjectWithTag ("delete");
+		obj8 = GameObject.FindGameObjectWithTag ("delete2");
+		DisableCompleted ();
 	}
 
 	void Update () {
@@ -141,14 +143,14 @@ public class TouchVuforia : MonoBehaviour {
 			}
 		}
 
-		if (this.name == "Problema12") {
+		if (this.name == "Problema14") {
 
-			if (LevelStructure.completados [10]) {
+			if (LevelStructure.completados [11]) {
 				if (LevelStructure.completados [14]) {
-					ActivateProblema (4, this.objCajoneraIn, this.gameObject);
+					ActivateProblema (3, this.gameObject, this.objCajoneraIn);
 				}
 				else {
-					StartCoroutine (ShowQuestionText (5));
+					StartCoroutine (ShowQuestionText (4));
 				}
 			}
 			else {
@@ -157,14 +159,14 @@ public class TouchVuforia : MonoBehaviour {
 
 		}
 
-		if (this.name == "Problema14") {
+		if (this.name == "Problema12") {
 
-			if (LevelStructure.completados [11]) {
+			if (LevelStructure.completados [10]) {
 				if (LevelStructure.completados [12]) {
-					ActivateProblema (3, this.gameObject, this.objCajoneraIn);
+					ActivateProblema (4, this.objCajoneraIn, this.gameObject);
 				}
 				else {
-					StartCoroutine (ShowQuestionText (4));
+					StartCoroutine (ShowQuestionText (5));
 				}
 			}
 			else {
@@ -227,7 +229,7 @@ public class TouchVuforia : MonoBehaviour {
 	}
 
 	IEnumerator ShowQuestionText(int n) {
-		string cadena = "Ve al buscar la\npregunta nº "  + n.ToString ();
+		string cadena = "Ve a buscar la\npregunta nº "  + n.ToString ();
 		textPregunta.GetComponentInChildren<Text> ().text = cadena;
 		textPregunta.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
@@ -292,18 +294,34 @@ public class TouchVuforia : MonoBehaviour {
 			ActivateProblema (2, this.gameObject, this.objCajoneraIn);
 		}
 
-		if (this.name == "Problema12" &&
-			LevelStructure.completados [12]) {
-			ActivateProblema (4, this.objCajoneraIn, this.gameObject);
-		}
-
 		if (this.name == "Problema14" &&
 			LevelStructure.completados [14]) {
 			ActivateProblema (3, this.gameObject, this.objCajoneraIn);
 		}
 
+		if (this.name == "Problema12" &&
+			LevelStructure.completados [12]) {
+			ActivateProblema (4, this.objCajoneraIn, this.gameObject);
+		}
+
 		if (this.name == "Laberinto" &&
 			LevelStructure.completados [10]) {
+			this.objCajoneraIn.SetActive (false);
+		}
+
+		if (this.name == "Cristales" &&
+			LevelStructure.completados [13]) {
+			this.objCajoneraIn.SetActive (false);
+		}
+
+		if (this.name == "Cerradura" &&
+			LevelStructure.completados [8]) {
+			obj8.SetActive (false);
+			this.objCajoneraIn.SetActive (true);
+		}
+
+		if (this.name == "Bateria" &&
+			LevelStructure.completados [4]) {
 			this.objCajoneraIn.SetActive (false);
 		}
 
