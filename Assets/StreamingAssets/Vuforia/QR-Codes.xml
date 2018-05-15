@@ -10,12 +10,12 @@
     <ImageTarget name="qr-code10" size="500.000000 500.000000" />
     <ImageTarget name="qr-code9" size="500.000000 500.000000" />
     <ImageTarget name="qr-code8" size="500.000000 500.000000" />
-    <ImageTarget name="qr-code7" size="500.000000 500.000000" />
     <ImageTarget name="qr-code6" size="500.000000 500.000000" />
     <ImageTarget name="qr-code5" size="500.000000 500.000000" />
     <ImageTarget name="qr-code4" size="500.000000 500.000000" />
     <ImageTarget name="qr-code3" size="500.000000 500.000000" />
     <ImageTarget name="qr-code2" size="500.000000 500.000000" />
     <ImageTarget name="qr-code1" size="500.000000 500.000000" />
+    <ImageTarget name="qr-code7" size="500.000000 500.000000" />
   </Tracking>
 </QCARConfig>

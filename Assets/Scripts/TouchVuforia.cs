@@ -248,12 +248,6 @@ public class TouchVuforia : MonoBehaviour {
 		objIn.SetActive (true);
 	}
 
-	/*void DisableProblema (int n, GameObject objIn, GameObject objOut){
-		objOut.SetActive (false);
-		objIn.SetActive (true);
-		Debug.Log ("Desactiva problema: " + n);
-	}*/
-
 	void DisableCompleted (){
 		if (this.name == "Cajonera2" &&
 			LevelStructure.completados [2]) {
