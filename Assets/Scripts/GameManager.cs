@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour {
 		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
-		//Timer.ChangeCanvas (false);
-		SceneManager.LoadScene ("PuzleIAWords");
+		Timer.ChangeCanvas (false, SceneManager.GetActiveScene().name, 1);
+		SceneManager.LoadScene ("Vuforia");
 	}
 }

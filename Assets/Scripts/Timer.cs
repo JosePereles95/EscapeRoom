@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Firebase;
 
 public class Timer : MonoBehaviour{
 
@@ -14,9 +15,31 @@ public class Timer : MonoBehaviour{
 	public static bool canvasActivado = false;
 	public static bool entraCanvas = false;
 
+	private int intentosLlaves = 0;
+	private int intentosTangram = 0;
+	private int intentosBaterias = 0;
+	private int intentosCerradura = 0;
+	private int intentosLaberinto = 0;
+	private int intentosCristales = 0;
+
+	private int intentosIAPlaca = 0;
+	private int intentosIAGirar = 0;
+	private int intentosIALoops = 0;
+	private int intentosIAWords = 0;
+
+	private float tiempoInicial = 0.0f;
+	private float tiempoFinal = 0.0f;
+
+	public static string sceneName = "";
+	public static string estado = "";
+
+	private Firebase.Database.DatabaseReference mDatabase;
+	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
+
 	void Start(){
 		textTiempo.gameObject.SetActive (false);
 		tiempoContador = GameObject.FindGameObjectWithTag ("tiempoContador");
+		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/TiemposPuzles");
 	}
 
 	void Update(){
@@ -24,11 +47,15 @@ public class Timer : MonoBehaviour{
 		if (canvasActivado && entraCanvas) {
 			textTiempo.gameObject.SetActive (true);
 			tiempoContador.SetActive (false);
+			tiempoInicial = tiempo;
 			entraCanvas = false;
 		}
 		else if(entraCanvas) {
 			textTiempo.gameObject.SetActive (false);
 			tiempoContador.SetActive (true);
+			int intento = CheckIntentos ();
+			tiempoFinal = tiempoInicial - tiempo;
+			mDatabase.Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
 			entraCanvas = false;
 		}
 
@@ -62,8 +89,60 @@ public class Timer : MonoBehaviour{
 		Debug.Log ("Se acabó el tiempo");
 	}
 
-	public static void ChangeCanvas(bool enabled){
+	int CheckIntentos () {
+		int numIntentos = 0;
+
+		if (sceneName == "PuzleLlaves") {
+			intentosLlaves++;
+			numIntentos = intentosLlaves;
+		}
+		else if (sceneName == "PuzleTangram") {
+			intentosTangram++;
+			numIntentos = intentosTangram;
+		}
+		else if (sceneName == "PuzleBaterias") {
+			intentosBaterias++;
+			numIntentos = intentosBaterias;
+		}
+		else if (sceneName == "PuzleCerradura") {
+			intentosCerradura++;
+			numIntentos = intentosCerradura;
+		}
+		else if (sceneName == "PuzleLaberinto") {
+			intentosLaberinto++;
+			numIntentos = intentosLaberinto;
+		}
+		else if (sceneName == "PuzleCristales") {
+			intentosCristales++;
+			numIntentos = intentosCristales;
+		}
+		else if (sceneName == "PuzleIAPlaca") {
+			intentosIAPlaca++;
+			numIntentos = intentosIAPlaca;
+		}
+		else if (sceneName == "PuzleIAGirar") {
+			intentosIAGirar++;
+			numIntentos = intentosIAGirar;
+		}
+		else if (sceneName == "PuzleIALoops") {
+			intentosIALoops++;
+			numIntentos = intentosIALoops;
+		}
+		else if (sceneName == "PuzleIAWords") {
+			intentosIAWords++;
+			numIntentos = intentosIAWords;
+		}
+
+		return numIntentos;
+	}
+
+	public static void ChangeCanvas(bool enabled, string nameScene, int conseguido){
 		canvasActivado = enabled;
+		sceneName = nameScene;
+		if (conseguido == 1)
+			estado = "Correcto";
+		else if (conseguido == -1)
+			estado = "Incorrecto";
 		entraCanvas = true;
 	}
 }

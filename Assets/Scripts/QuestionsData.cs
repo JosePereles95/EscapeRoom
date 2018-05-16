@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
+using UnityEngine.EventSystems;
 
 public class QuestionsData : MonoBehaviour {
 
@@ -13,7 +14,7 @@ public class QuestionsData : MonoBehaviour {
 	private bool questionChecked = false;
 	private int questions = 5;
 
-	[SerializeField]private List<InputField> questionsInput;
+	[SerializeField]private List<Button> questionsButton;
 
 	[SerializeField] private Sprite preguntaRojo;
 	[SerializeField] private Sprite preguntaVerde;
@@ -47,7 +48,7 @@ public class QuestionsData : MonoBehaviour {
 			if (mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true) != null) {
 				stateQuestion = mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true).ToString ();
 				if (stateQuestion == "False") {
-					questionsInput [i - 1].image.sprite = preguntaRojo;
+					questionsButton [i - 1].image.sprite = preguntaRojo;
 
 					if ((i - 1) == 0)
 						LevelStructure.completados [0] = false;
@@ -61,7 +62,7 @@ public class QuestionsData : MonoBehaviour {
 						LevelStructure.completados [12] = false;
 				}
 				else{
-					questionsInput [i - 1].image.sprite = preguntaVerde;
+					questionsButton [i - 1].image.sprite = preguntaVerde;
 
 					if ((i - 1) == 0)
 						LevelStructure.completados [0] = true;
@@ -77,17 +78,23 @@ public class QuestionsData : MonoBehaviour {
 			}
 		}
 
-		if (questionsInput [0].image.sprite == preguntaVerde &&
-		    questionsInput [1].image.sprite == preguntaVerde &&
-		    questionsInput [2].image.sprite == preguntaVerde &&
-		    questionsInput [3].image.sprite == preguntaVerde &&
-		    questionsInput [4].image.sprite == preguntaVerde) {
+		if (questionsButton [0].image.sprite == preguntaVerde &&
+		    questionsButton [1].image.sprite == preguntaVerde &&
+		    questionsButton [2].image.sprite == preguntaVerde &&
+		    questionsButton [3].image.sprite == preguntaVerde &&
+		    questionsButton [4].image.sprite == preguntaVerde) {
 			rombos.sprite = rombosVerde;
 		}
 		else {
 			rombos.sprite = rombosRojo;
 		}
 
+	}
+
+	public void AutoCheckQuestion(){
+		int numQuestion = int.Parse (EventSystem.current.currentSelectedGameObject.name [8].ToString ());
+
+		mDatabase.Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (true);
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){

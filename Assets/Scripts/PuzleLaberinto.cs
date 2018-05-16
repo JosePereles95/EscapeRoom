@@ -94,7 +94,7 @@ public class PuzleLaberinto : MonoBehaviour {
 		panel.SetActive (true);
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
-		Timer.ChangeCanvas (false);
+		Timer.ChangeCanvas (false, SceneManager.GetActiveScene().name, 1);
 		LevelStructure.completados [10] = true;
 		SceneManager.LoadScene ("Vuforia");
 	}
@@ -105,7 +105,7 @@ public class PuzleLaberinto : MonoBehaviour {
 		Handheld.Vibrate ();
 		yield return new WaitForSeconds (3.0f);
 		WindowsManager.penalized = true;
-		Timer.ChangeCanvas (false);
+		Timer.ChangeCanvas (false, SceneManager.GetActiveScene().name, -1);
 		SceneManager.LoadScene ("Vuforia");
 	}
 }
