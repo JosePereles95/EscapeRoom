@@ -19,6 +19,7 @@ public class WaitingTeacher : MonoBehaviour {
 	public static int actualSesion = 0;
 
 	void Start(){
+		Application.runInBackground = true;
 		VuforiaBehaviour.Instance.enabled = false;
 		//mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 	}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,6 +36,9 @@ public class Timer : MonoBehaviour{
 
 	private Firebase.Database.DatabaseReference mDatabase;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
+
+	private DateTime lastMinimize;
+	private double minimizedSeconds;
 
 	void Start(){
 		textTiempo.gameObject.SetActive (false);
@@ -145,5 +149,24 @@ public class Timer : MonoBehaviour{
 		else if (conseguido == -1)
 			estado = "Incorrecto";
 		entraCanvas = true;
+	}
+
+	void OnApplicationPause (bool isGamePause)	{
+		if (isGamePause)
+			GoToMinimize ();
+	}
+
+	void OnApplicationFocus (bool isGameFocus)	{
+		if (isGameFocus)
+			GoToMaximize ();
+	}
+
+	public void GoToMinimize ()	{
+		lastMinimize = DateTime.Now;
+	}
+
+	public void GoToMaximize ()	{
+			minimizedSeconds = (DateTime.Now - lastMinimize).TotalSeconds;
+			tiempo -= (float) minimizedSeconds;
 	}
 }
