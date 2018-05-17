@@ -166,7 +166,7 @@ public class Timer : MonoBehaviour{
 	}
 
 	public void GoToMaximize ()	{
-			minimizedSeconds = (DateTime.Now - lastMinimize).TotalSeconds;
-			tiempo -= (float) minimizedSeconds;
+		minimizedSeconds = (DateTime.Now - lastMinimize).TotalSeconds;
+		tiempo -= (float) minimizedSeconds;
 	}
 }
