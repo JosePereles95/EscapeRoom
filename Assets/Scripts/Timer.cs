@@ -55,7 +55,8 @@ public class Timer : MonoBehaviour{
 			tiempoContador.SetActive (true);
 			int intento = CheckIntentos ();
 			tiempoFinal = tiempoInicial - tiempo;
-			mDatabase.Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
+			string fecha = System.DateTime.Now.Month + "-" + System.DateTime.Now.Day + "-" + System.DateTime.Now.Year;
+			mDatabase.Child(fecha).Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
 			entraCanvas = false;
 		}
 

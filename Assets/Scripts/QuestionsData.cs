@@ -29,7 +29,7 @@ public class QuestionsData : MonoBehaviour {
 
 		if (LevelStructure.iniciado != true) {
 			for (int i = 1; i <= questions; i++) {
-				mDatabase.Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
+				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
 			}
 		}
 	}
@@ -45,8 +45,8 @@ public class QuestionsData : MonoBehaviour {
 	void CheckQuestion(){
 		string stateQuestion;
 		for (int i = 1; i <= questions; i++) {
-			if (mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true) != null) {
-				stateQuestion = mDataSnapshot.Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true).ToString ();
+			if (mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true) != null) {
+				stateQuestion = mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true).ToString ();
 				if (stateQuestion == "False") {
 					questionsButton [i - 1].image.sprite = preguntaRojo;
 
@@ -94,7 +94,10 @@ public class QuestionsData : MonoBehaviour {
 	public void AutoCheckQuestion(){
 		int numQuestion = int.Parse (EventSystem.current.currentSelectedGameObject.name [8].ToString ());
 
-		mDatabase.Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (true);
+		if(questionsButton [numQuestion - 1].image.sprite == preguntaRojo)
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (true);
+		else
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (false);
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){

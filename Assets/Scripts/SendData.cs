@@ -42,10 +42,10 @@ public class SendData : MonoBehaviour {
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
-			if (mDataSnapshot.Child ("All Confirmed").GetValue (true).ToString() == "True")
+			if (mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child ("All Confirmed").GetValue (true).ToString() == "True")
 				SceneManager.LoadScene ("Vuforia");
-			if(mDataSnapshot.Child ("Tiempo").GetValue (true) != null)
-				minsJuego = float.Parse(mDataSnapshot.Child ("Tiempo").GetValue (true).ToString ());
+			if(mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child ("Tiempo").GetValue (true) != null)
+				minsJuego = float.Parse(mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child ("Tiempo").GetValue (true).ToString ());
 		}
 
 		if (grupoElegido != "") {
@@ -65,10 +65,10 @@ public class SendData : MonoBehaviour {
 		if (grupoElegido == "") {
 			grupoElegido = EventSystem.current.currentSelectedGameObject.GetComponentInChildren<Text>().text;
 
-			if(mDataSnapshot.Child ("Grupos").Child (grupoElegido).GetValue(true) == null){
+			if(mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child ("Grupos").Child (grupoElegido).GetValue(true) == null){
 				grupoValido = true;
-				mDatabase.Child(userID).Child("mi Grupo").SetValueAsync (grupoElegido);
-				mDatabase.Child ("Grupos").Child (grupoElegido).Child ("userID").SetValueAsync (userID);
+				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child(userID).Child("mi Grupo").SetValueAsync (grupoElegido);
+				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child ("Grupos").Child (grupoElegido).Child ("userID").SetValueAsync (userID);
 			}
 		}
 	}

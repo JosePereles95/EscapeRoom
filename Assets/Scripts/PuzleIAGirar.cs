@@ -127,6 +127,7 @@ public class PuzleIAGirar : MonoBehaviour {
 		correctText.gameObject.SetActive (true);
 		yield return new WaitForSeconds (3.0f);
 		Timer.ChangeCanvas (false, SceneManager.GetActiveScene().name, 1);
+		LevelStructure.completados [16] = true;
 		SceneManager.LoadScene ("Vuforia");
 	}
 

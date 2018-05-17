@@ -98,8 +98,15 @@ public class TouchVuforia : MonoBehaviour {
 			    LevelStructure.completados [12] &&
 			    LevelStructure.completados [13] &&
 			    LevelStructure.completados [14]) {
-				if (LevelStructure.completados [15])
+
+				if (LevelStructure.completados [18])
 					StartCoroutine (ShowCompletedText ());
+				else if (LevelStructure.completados [17])
+					WindowsManager.IAWordsStatic ();
+				else if (LevelStructure.completados [16])
+					WindowsManager.IALoopsStatic ();
+				else if (LevelStructure.completados [15])
+					WindowsManager.IAGirarStatic ();
 				else
 					WindowsManager.IAPlacaStatic ();
 			}
@@ -300,6 +307,11 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.name == "Laberinto" &&
 			LevelStructure.completados [10]) {
+			this.objCajoneraIn.SetActive (false);
+		}
+
+		if (this.name == "Tangram" &&
+		    LevelStructure.completados [3]) {
 			this.objCajoneraIn.SetActive (false);
 		}
 

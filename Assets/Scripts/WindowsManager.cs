@@ -173,19 +173,33 @@ public class WindowsManager : MonoBehaviour {
 		SceneManager.LoadScene ("PuzleIAPlaca");
 	}
 	//
-
+	/*
 	public void IAGirar(){
 		Timer.ChangeCanvas (true, "PuzleIAGirar", 0);
 		SceneManager.LoadScene ("PuzleIAGirar");
 	}
-
+	*/
+	public static void IAGirarStatic(){
+		Timer.ChangeCanvas (true, "PuzleIAGirar", 0);
+		SceneManager.LoadScene ("PuzleIAGirar");
+	}
+	/*
 	public void IALoops(){
 		Timer.ChangeCanvas (true, "PuzleIALoops", 0);
 		SceneManager.LoadScene ("PuzleIALoops");
 	}
-
-
+*/
+	public static void IALoopsStatic(){
+		Timer.ChangeCanvas (true, "PuzleIALoops", 0);
+		SceneManager.LoadScene ("PuzleIALoops");
+	}
+	/*
 	public void IAWords(){
+		Timer.ChangeCanvas (true, "PuzleIAWords", 0);
+		SceneManager.LoadScene ("PuzleIAWords");
+	}
+*/
+	public static void IAWordsStatic(){
 		Timer.ChangeCanvas (true, "PuzleIAWords", 0);
 		SceneManager.LoadScene ("PuzleIAWords");
 	}

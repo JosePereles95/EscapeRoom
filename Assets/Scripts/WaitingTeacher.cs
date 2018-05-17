@@ -15,6 +15,9 @@ public class WaitingTeacher : MonoBehaviour {
 
 	[SerializeField] private Button okButton;
 
+	private bool sesionOK = false;
+	public static int actualSesion = 0;
+
 	void Start(){
 		VuforiaBehaviour.Instance.enabled = false;
 		//mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
@@ -24,8 +27,16 @@ public class WaitingTeacher : MonoBehaviour {
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
-			if(mDataSnapshot.Child ("Num Grupos").GetValue (true) != null)
-				numGrupos = int.Parse (mDataSnapshot.Child ("Num Grupos").GetValue (true).ToString ());
+
+			if (sesionOK) {
+
+				if (mDataSnapshot.Child("Sesion " + actualSesion).Child ("Num Grupos").GetValue (true) != null)
+					numGrupos = int.Parse (mDataSnapshot.Child("Sesion " + actualSesion).Child ("Num Grupos").GetValue (true).ToString ());
+			}
+			else if(mDataSnapshot.Child("Sesiones").GetValue(true) != null) {
+				actualSesion = int.Parse(mDataSnapshot.Child ("Sesiones").GetValue (true).ToString());
+				sesionOK = true;
+			}
 		}
 
 		if (numGrupos != 0) {
