@@ -84,7 +84,7 @@ public class InventarioBehaviour : MonoBehaviour {
 		if (LevelStructure.completados [10] == true) {
 			buttonsInventario [6].image.sprite = listObjects [6];
 			buttonsInventario [7].image.sprite = listObjects [7];
-			StartCoroutine (GetObject (10, "¡Has obtenido la Contraseña y los Datos!"));
+			StartCoroutine (GetObject (10, "¡Has obtenido la Clave y los Datos!"));
 		}
 
 		//Puzle 13 - Cristales

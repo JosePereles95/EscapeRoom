@@ -236,7 +236,7 @@ public class TouchVuforia : MonoBehaviour {
 	}
 
 	IEnumerator ShowQuestionText(int n) {
-		string cadena = "Ve a buscar la\npregunta nº "  + n.ToString ();
+		string cadena = "Ve a buscar\nla pregunta "  + n.ToString ();
 		textPregunta.GetComponentInChildren<Text> ().text = cadena;
 		textPregunta.SetActive (true);
 		yield return new WaitForSeconds (3.0f);

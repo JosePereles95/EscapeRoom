@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour{
 	private int intentosIAWords = 0;
 
 	private float tiempoInicial = 0.0f;
-	private float tiempoFinal = 0.0f;
+	private double tiempoFinal = 0.0f;
 
 	public static string sceneName = "";
 	public static string estado = "";
@@ -40,6 +40,8 @@ public class Timer : MonoBehaviour{
 	private DateTime lastMinimize;
 	private double minimizedSeconds;
 
+	[SerializeField] private GameObject panelBack;
+
 	void Start(){
 		textTiempo.gameObject.SetActive (false);
 		tiempoContador = GameObject.FindGameObjectWithTag ("tiempoContador");
@@ -47,6 +49,9 @@ public class Timer : MonoBehaviour{
 	}
 
 	void Update(){
+
+		if (Input.GetKey (KeyCode.Escape) && !tiempoContador.activeSelf)
+			StartCoroutine (ShowPanelBack ());
 
 		if (canvasActivado && entraCanvas) {
 			textTiempo.gameObject.SetActive (true);
@@ -58,7 +63,7 @@ public class Timer : MonoBehaviour{
 			textTiempo.gameObject.SetActive (false);
 			tiempoContador.SetActive (true);
 			int intento = CheckIntentos ();
-			tiempoFinal = tiempoInicial - tiempo;
+			tiempoFinal = Math.Round ((tiempoInicial - tiempo), 2);
 			string fecha = System.DateTime.Now.Month + "-" + System.DateTime.Now.Day + "-" + System.DateTime.Now.Year;
 			mDatabase.Child(fecha).Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
 			entraCanvas = false;
@@ -152,21 +157,19 @@ public class Timer : MonoBehaviour{
 	}
 
 	void OnApplicationPause (bool isGamePause)	{
-		if (isGamePause)
-			GoToMinimize ();
+		if (isGamePause) {
+			lastMinimize = DateTime.Now;
+		}
+		else {
+			minimizedSeconds = (DateTime.Now - lastMinimize).TotalSeconds;
+			tiempo -= (float) minimizedSeconds;
+		}
 	}
 
-	void OnApplicationFocus (bool isGameFocus)	{
-		if (isGameFocus)
-			GoToMaximize ();
-	}
-
-	public void GoToMinimize ()	{
-		lastMinimize = DateTime.Now;
-	}
-
-	public void GoToMaximize ()	{
-		minimizedSeconds = (DateTime.Now - lastMinimize).TotalSeconds;
-		tiempo -= (float) minimizedSeconds;
+	IEnumerator ShowPanelBack(){
+		panelBack.SetActive (true);
+		//Handheld.Vibrate ();
+		yield return new WaitForSeconds (3.0f);
+		panelBack.SetActive (false);
 	}
 }

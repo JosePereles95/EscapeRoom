@@ -7,7 +7,7 @@ public class LevelStructure : MonoBehaviour {
 	public static List<bool> completados;
 	public static List<bool> openQuestions;
 	public static List<bool> objMostrado;
-	private int numPuzles = 18;
+	private int numPuzles = 19;
 	private int numQuestions = 5;
 	public static bool iniciado = false;
 
