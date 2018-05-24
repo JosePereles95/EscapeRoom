@@ -25,6 +25,8 @@ public class SendData : MonoBehaviour {
 	public static string userID;
 	private bool grupoValido = false;
 
+	public static int miGrupo;
+
 
 	void Start(){
 		VuforiaBehaviour.Instance.enabled = false;
@@ -69,6 +71,7 @@ public class SendData : MonoBehaviour {
 				grupoValido = true;
 				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child(userID).Child("mi Grupo").SetValueAsync (grupoElegido);
 				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child ("Grupos").Child (grupoElegido).Child ("userID").SetValueAsync (userID);
+				miGrupo = int.Parse(grupoElegido[6].ToString());
 			}
 		}
 	}

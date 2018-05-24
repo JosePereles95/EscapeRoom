@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Firebase;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour{
 
@@ -49,7 +50,6 @@ public class Timer : MonoBehaviour{
 	}
 
 	void Update(){
-
 		if (Input.GetKey (KeyCode.Escape) && !tiempoContador.activeSelf)
 			StartCoroutine (ShowPanelBack ());
 
@@ -97,6 +97,13 @@ public class Timer : MonoBehaviour{
 
 	void TiempoAgotado(){
 		Debug.Log ("Se acabó el tiempo");
+		int resultado = 0;
+
+		for (int i = 0; i < LevelStructure.completados.Count; i++)
+			if (LevelStructure.completados [i])
+				resultado++;
+		
+		mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Resultado").SetValueAsync (resultado);
 	}
 
 	int CheckIntentos () {

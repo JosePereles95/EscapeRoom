@@ -90,9 +90,23 @@ public class PuzleIAWords : MonoBehaviour {
 				Debug.Log (AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[0]]);
 				Debug.Log (AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[1]]);
 				Debug.Log (AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[2]]);
-				word1.text = "";
-				word2.text = "";
-				word3.text = "";
+
+
+				if (!(word1.text == AleatorioIAWords.palabrasRandom [AleatorioIAWords.listPositions [0]]))
+					word1.text = "";
+				else
+					word1.DeactivateInputField ();
+
+				if(!(word2.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[1]]))
+					word2.text = "";
+				else
+					word2.DeactivateInputField ();
+
+				if(!(word3.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[2]]))
+					word3.text = "";
+				else
+					word3.DeactivateInputField ();
+
 
 				this.GetComponent<RestarVidas> ().Resta ();
 

@@ -14,7 +14,8 @@ using Vuforia;
 /// </summary>
 public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandler
 {
-	public bool detected = false;
+	private bool detected = false;
+	private bool enviado = false;
 
     #region PRIVATE_MEMBER_VARIABLES
 
@@ -30,6 +31,16 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         if (mTrackableBehaviour)
             mTrackableBehaviour.RegisterTrackableEventHandler(this);
     }
+
+	void Update(){
+		if (!this.enviado) {
+			if (this.detected) {
+				
+				QuestionsData.CheckDetected (int.Parse (this.gameObject.name.Substring(6,2)));
+				this.enviado = true;
+			}
+		}
+	}
 
     #endregion // UNTIY_MONOBEHAVIOUR_METHODS
 
@@ -47,14 +58,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             newStatus == TrackableBehaviour.Status.TRACKED ||
             newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
         {
-			detected = true;
+			this.detected = true;
             //Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             OnTrackingFound();
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
                  newStatus == TrackableBehaviour.Status.NOT_FOUND)
         {
-			detected = false;
+			//detected = false;
             //Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
             OnTrackingLost();
         }

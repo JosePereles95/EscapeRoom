@@ -22,6 +22,13 @@ public class QuestionsData : MonoBehaviour {
 	[SerializeField] private UnityEngine.UI.Image rombos;
 	[SerializeField] private Sprite rombosRojo;
 	[SerializeField] private Sprite rombosVerde;
+	[SerializeField] private Text myGroup;
+
+	public static bool q1Detected = false;
+	public static bool q2Detected = false;
+	public static bool q3Detected = false;
+	public static bool q4Detected = false;
+	public static bool q5Detected = false;
 
 	void Start () {
 
@@ -30,8 +37,11 @@ public class QuestionsData : MonoBehaviour {
 		if (LevelStructure.iniciado != true) {
 			for (int i = 1; i <= questions; i++) {
 				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
+				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question" + i).SetValueAsync (false);
 			}
 		}
+
+		myGroup.text = "Grupo " + SendData.miGrupo;
 	}
 
 	void Update () {
@@ -40,6 +50,8 @@ public class QuestionsData : MonoBehaviour {
 		if (mDataSnapshot != null) {
 			CheckQuestion ();
 		}
+
+		VerifyDetection ();
 	}
 
 	void CheckQuestion(){
@@ -98,6 +110,33 @@ public class QuestionsData : MonoBehaviour {
 			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (true);
 		else
 			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (false);
+	}
+
+	public static void CheckDetected(int n){
+		if (n == 0)
+			q1Detected = true;
+		else if (n == 5)
+			q2Detected = true;
+		else if (n == 6)
+			q3Detected = true;
+		else if (n == 14)
+			q4Detected = true;
+		else if (n == 12)
+			q5Detected = true;
+			
+	}
+
+	void VerifyDetection(){
+		if(q1Detected)
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question1").SetValueAsync (true);
+		if(q2Detected)
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question2").SetValueAsync (true);
+		if(q3Detected)
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question3").SetValueAsync (true);
+		if(q4Detected)
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question4").SetValueAsync (true);
+		if(q5Detected)
+			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question5").SetValueAsync (true);
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){

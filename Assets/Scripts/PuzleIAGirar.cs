@@ -61,22 +61,26 @@ public class PuzleIAGirar : MonoBehaviour {
 		string buttonCommandName = buttonCommand.GetComponentInChildren<Text> ().text;
 		int index = listComandos.FindIndex (a => a == buttonCommandName);
 
-		if (!(buttonCommand.GetComponent<Button> ().image.color == Color.green)) {
+		if (listUserOrder.Count < 10 &&
+			!(buttonCommand.GetComponent<Button> ().image.color == Color.green)) {
 			buttonCommand.GetComponent<Button> ().image.color = Color.green;
-
 			listUserOrder.Add (index);
+			buttonCommand.transform.GetChild (0).GetComponent<Text> ().text = listUserOrder.Count.ToString ();
 		}
-		else if(listUserOrder[listUserOrder.Count-1] == index){
+		else if (listUserOrder [listUserOrder.Count - 1] == index) {
 			buttonCommand.GetComponent<Button> ().image.color = Color.white;
 			listUserOrder.RemoveAt (listUserOrder.Count - 1);
+			buttonCommand.transform.GetChild (0).GetComponent<Text> ().text = "";
 		}
 	}
 
 	public void ResetList(){
 		listUserOrder.Clear ();
 
-		for (int i = 0; i < ButtonListComandos.listButtonComandos.Count; i++)
+		for (int i = 0; i < ButtonListComandos.listButtonComandos.Count; i++) {
 			ButtonListComandos.listButtonComandos [i].GetComponent<Button> ().image.color = Color.white;
+			ButtonListComandos.listButtonComandos [i].transform.GetChild (0).GetComponent<Text> ().text = "";
+		}
 	}
 
 	public void CheckAnswer(){

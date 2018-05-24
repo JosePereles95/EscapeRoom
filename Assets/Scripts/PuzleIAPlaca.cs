@@ -28,6 +28,7 @@ public class PuzleIAPlaca : MonoBehaviour {
 
 	[SerializeField] private GameObject canvasBotones;
 	[SerializeField] private Sprite correctObj;
+	[SerializeField] private Sprite wrongObj;
 
 	private bool finalIntro = false;
 
@@ -57,6 +58,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
 
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
+
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
 					}
@@ -72,6 +76,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				}
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
+
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
 
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
@@ -89,6 +96,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
 
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
+
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
 					}
@@ -104,6 +114,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				}
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
+
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
 
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
@@ -121,6 +134,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
 
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
+
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
 					}
@@ -136,6 +152,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				}
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
+
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
 
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
@@ -153,6 +172,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
 
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
+
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
 					}
@@ -169,6 +191,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
 
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
+
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
 					}
@@ -184,6 +209,9 @@ public class PuzleIAPlaca : MonoBehaviour {
 				}
 				else {
 					this.GetComponent<RestarVidas> ().Resta ();
+
+					buttonObject.GetComponent<Button> ().image.sprite = wrongObj;
+					buttonObject.GetComponent<Button> ().enabled = false;
 
 					if (this.GetComponent<RestarVidas> ().vidas > 0) {
 						StartCoroutine (ShowWrongText ());
@@ -252,7 +280,7 @@ public class PuzleIAPlaca : MonoBehaviour {
 		listaCajitas [AleatorioIAPlaca.randomCajita].SetActive (true);
 		listaCuadraditos [AleatorioIAPlaca.randomCuadradito].SetActive (true);
 
-		yield return new WaitForSeconds (5.0f);
+		yield return new WaitForSeconds (10.0f);
 
 		listaBases [AleatorioIAPlaca.randomBase].SetActive (false);
 		listaCilindros [AleatorioIAPlaca.randomCilindro].SetActive (false);
