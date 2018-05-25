@@ -44,3 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzleIAWords.unity
     guid: 4eb71bf21c947794dbb127cddab0af6b
+  - enabled: 1
+    path: Assets/Scenes/FinalScene.unity
+    guid: 9098b90033cb27e46a3a4752aa4c9d1b

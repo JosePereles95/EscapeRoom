@@ -35,18 +35,21 @@ public class Timer : MonoBehaviour{
 	public static string sceneName = "";
 	public static string estado = "";
 
-	private Firebase.Database.DatabaseReference mDatabase;
+	private Firebase.Database.DatabaseReference mDatabaseTiempo;
+	private Firebase.Database.DatabaseReference mDatabaseNormal;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 
 	private DateTime lastMinimize;
 	private double minimizedSeconds;
+	private bool llamado = false;
 
 	[SerializeField] private GameObject panelBack;
 
 	void Start(){
 		textTiempo.gameObject.SetActive (false);
 		tiempoContador = GameObject.FindGameObjectWithTag ("tiempoContador");
-		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/TiemposPuzles");
+		mDatabaseTiempo = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/TiemposPuzles");
+		mDatabaseNormal = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 	}
 
 	void Update(){
@@ -65,7 +68,7 @@ public class Timer : MonoBehaviour{
 			int intento = CheckIntentos ();
 			tiempoFinal = Math.Round ((tiempoInicial - tiempo), 2);
 			string fecha = System.DateTime.Now.Month + "-" + System.DateTime.Now.Day + "-" + System.DateTime.Now.Year;
-			mDatabase.Child(fecha).Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
+			mDatabaseTiempo.Child(fecha).Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
 			entraCanvas = false;
 		}
 
@@ -91,8 +94,10 @@ public class Timer : MonoBehaviour{
 
 		textTiempoMenu.text = horas.ToString () + ":" + minutos.ToString ("D2") + ":" + segundos.ToString ("D2");
 
-		if (horas == 0 && minutos == 0 && segundos == 0)
-			TiempoAgotado ();
+		if (horas == 0 && minutos == 0 && segundos == 0) {
+			if(!llamado)
+				TiempoAgotado ();
+		}
 	}
 
 	void TiempoAgotado(){
@@ -102,8 +107,11 @@ public class Timer : MonoBehaviour{
 		for (int i = 0; i < LevelStructure.completados.Count; i++)
 			if (LevelStructure.completados [i])
 				resultado++;
-		
-		mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Resultado").SetValueAsync (resultado);
+		Debug.Log ("A la DATA");
+		mDatabaseNormal.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Resultado").SetValueAsync (resultado);
+		llamado = true;
+		SceneManager.LoadScene ("FinalScene");
+		Destroy (transform.parent.gameObject);
 	}
 
 	int CheckIntentos () {

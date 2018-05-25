@@ -30,6 +30,12 @@ public class QuestionsData : MonoBehaviour {
 	public static bool q4Detected = false;
 	public static bool q5Detected = false;
 
+	private bool q1Verified = false;
+	private bool q2Verified = false;
+	private bool q3Verified = false;
+	private bool q4Verified = false;
+	private bool q5Verified = false;
+
 	void Start () {
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
@@ -51,7 +57,9 @@ public class QuestionsData : MonoBehaviour {
 			CheckQuestion ();
 		}
 
-		VerifyDetection ();
+		if(!q1Verified || !q2Verified || !q3Verified
+			|| !q4Verified || !q5Verified)
+			VerifyDetection ();
 	}
 
 	void CheckQuestion(){
@@ -127,16 +135,26 @@ public class QuestionsData : MonoBehaviour {
 	}
 
 	void VerifyDetection(){
-		if(q1Detected)
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question1").SetValueAsync (true);
-		if(q2Detected)
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question2").SetValueAsync (true);
-		if(q3Detected)
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question3").SetValueAsync (true);
-		if(q4Detected)
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question4").SetValueAsync (true);
-		if(q5Detected)
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question5").SetValueAsync (true);
+		if (q1Detected) {
+			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question1").SetValueAsync (true);
+			q1Verified = true;
+		}
+		if (q2Detected) {
+			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question2").SetValueAsync (true);
+			q2Verified = true;
+		}
+		if (q3Detected) {
+			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question3").SetValueAsync (true);
+			q3Verified = true;
+		}
+		if (q4Detected) {
+			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question4").SetValueAsync (true);
+			q4Verified = true;
+		}
+		if (q5Detected) {
+			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question5").SetValueAsync (true);
+			q5Verified = true;
+		}
 	}
 
 	void HandleValueChanged(object sender, Firebase.Database.ValueChangedEventArgs args){

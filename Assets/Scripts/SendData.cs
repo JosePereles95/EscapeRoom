@@ -27,14 +27,25 @@ public class SendData : MonoBehaviour {
 
 	public static int miGrupo;
 
+	private List<string> usuarios;
+
 
 	void Start(){
+		usuarios = new List<string> ();
+
 		VuforiaBehaviour.Instance.enabled = false;
 
-		int charAmount = Random.Range(20, 35); //set those to the minimum and maximum length of your string
+		int charAmount = Random.Range(25, 35); //set those to the minimum and maximum length of your string
 		for(int i=0; i<charAmount; i++)
 		{
-			userID += glyphs[Random.Range(0, glyphs.Length)];
+			bool ok = false;
+			while(!ok) {
+				userID += glyphs[Random.Range(0, glyphs.Length)];
+				if (!(usuarios.Contains (userID))) {
+					usuarios.Add (userID);
+					ok = true;
+				}
+			}
 		}
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
