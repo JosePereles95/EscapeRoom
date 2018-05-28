@@ -130,6 +130,7 @@ public class TouchVuforia : MonoBehaviour {
 				LevelStructure.completados [4]) {
 				if (LevelStructure.completados [5]) {
 					ActivateProblema (1, this.gameObject, this.objCajoneraIn);
+					this.GetComponent<MeshCollider> ().enabled = false;
 				}
 				else {
 					StartCoroutine (ShowQuestionText (2));
@@ -287,7 +288,7 @@ public class TouchVuforia : MonoBehaviour {
 
 		if (this.name == "Problema5" &&
 			LevelStructure.completados [5]) {
-			ActivateProblema (1, this.gameObject, this.objCajoneraIn);
+			ActivateProblema (1, this.objCajoneraIn, this.gameObject);
 		}
 
 		if (this.name == "Problema6" &&

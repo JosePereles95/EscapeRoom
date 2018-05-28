@@ -1,0 +1,225 @@
+fileFormatVersion: 2
+guid: 89748b75a30fa0a48b9c5951fbc2e3a4
+timeCreated: 1527502502
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: base
+    100002: base.001
+    100004: Camera
+    100006: cerrado
+    100008: comandos
+    100010: comandos.001
+    100012: //RootNode
+    100014: Cube
+    100016: Cube.001
+    100018: Cube.002
+    100020: Cube.003
+    100022: data
+    100024: Lamp
+    100026: mesa
+    100028: msa
+    100030: objeto
+    100032: objetos
+    100034: pantalla
+    100036: pantalla.001
+    100038: pantalla.002
+    100040: pas
+    100042: password
+    100044: Plane.001
+    100046: texto
+    100048: textoPantalla
+    100050: textoPantalla.001
+    100052: "textoPeque\xF1o"
+    100054: "textosPeque\xF1os"
+    400000: base
+    400002: base.001
+    400004: Camera
+    400006: cerrado
+    400008: comandos
+    400010: comandos.001
+    400012: //RootNode
+    400014: Cube
+    400016: Cube.001
+    400018: Cube.002
+    400020: Cube.003
+    400022: data
+    400024: Lamp
+    400026: mesa
+    400028: msa
+    400030: objeto
+    400032: objetos
+    400034: pantalla
+    400036: pantalla.001
+    400038: pantalla.002
+    400040: pas
+    400042: password
+    400044: Plane.001
+    400046: texto
+    400048: textoPantalla
+    400050: textoPantalla.001
+    400052: "textoPeque\xF1o"
+    400054: "textosPeque\xF1os"
+    2000000: Camera
+    2100000: Activar
+    2100002: desbloqueo
+    2100004: iniciar
+    2100006: pantalla
+    2100008: esperando
+    2100010: cortadora
+    2300000: base
+    2300002: base.001
+    2300004: cerrado
+    2300006: comandos
+    2300008: comandos.001
+    2300010: Cube
+    2300012: Cube.001
+    2300014: Cube.002
+    2300016: Cube.003
+    2300018: data
+    2300020: mesa
+    2300022: msa
+    2300024: objeto
+    2300026: objetos
+    2300028: pantalla
+    2300030: pantalla.001
+    2300032: pantalla.002
+    2300034: pas
+    2300036: password
+    2300038: Plane.001
+    2300040: texto
+    2300042: textoPantalla
+    2300044: textoPantalla.001
+    2300046: "textoPeque\xF1o"
+    2300048: "textosPeque\xF1os"
+    3300000: base
+    3300002: base.001
+    3300004: cerrado
+    3300006: comandos
+    3300008: comandos.001
+    3300010: Cube
+    3300012: Cube.001
+    3300014: Cube.002
+    3300016: Cube.003
+    3300018: data
+    3300020: mesa
+    3300022: msa
+    3300024: objeto
+    3300026: objetos
+    3300028: pantalla
+    3300030: pantalla.001
+    3300032: pantalla.002
+    3300034: pas
+    3300036: password
+    3300038: Plane.001
+    3300040: texto
+    3300042: textoPantalla
+    3300044: textoPantalla.001
+    3300046: "textoPeque\xF1o"
+    3300048: "textosPeque\xF1os"
+    4300000: textoPantalla
+    4300002: "textoPeque\xF1o"
+    4300004: pantalla
+    4300006: "textosPeque\xF1os"
+    4300008: textoPantalla.001
+    4300010: objeto
+    4300012: objetos
+    4300014: msa
+    4300016: mesa
+    4300018: pantalla.001
+    4300020: base.001
+    4300022: Cube.003
+    4300024: comandos.001
+    4300026: Cube.002
+    4300028: cerrado
+    4300030: Cube.001
+    4300032: password
+    4300034: pas
+    4300036: comandos
+    4300038: data
+    4300040: texto
+    4300042: base
+    4300044: pantalla.002
+    4300046: Plane.001
+    10800000: Lamp
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

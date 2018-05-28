@@ -7,8 +7,10 @@ public class LevelStructure : MonoBehaviour {
 	public static List<bool> completados;
 	public static List<bool> openQuestions;
 	public static List<bool> objMostrado;
+	public static List<bool> objCogidos;
 	private int numPuzles = 19;
 	private int numQuestions = 5;
+	private int numObjetos = 9;
 	public static bool iniciado = false;
 
 	void Start () {
@@ -26,6 +28,10 @@ public class LevelStructure : MonoBehaviour {
 
 		for (int k = 0; k < numPuzles; k++) {
 			objMostrado.Add (false);
+		}
+
+		for (int m = 0; m < numObjetos; m++) {
+			objCogidos.Add (false);
 		}
 
 		iniciado = true;

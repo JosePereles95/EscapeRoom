@@ -27,13 +27,13 @@ public class AleatorioIAGirar : MonoBehaviour {
 		listSoluciones [0].Add (12);
 		listSoluciones [0].Add (5);
 
-		listSoluciones [1].Add (19);
+		listSoluciones [1].Add (18);
 		listSoluciones [1].Add (8);
 		listSoluciones [1].Add (6);
 		listSoluciones [1].Add (16);
 		listSoluciones [1].Add (7);
 		listSoluciones [1].Add (9);
-		listSoluciones [1].Add (18);
+		listSoluciones [1].Add (19);
 		listSoluciones [1].Add (15);
 		listSoluciones [1].Add (2);
 		listSoluciones [1].Add (4);
