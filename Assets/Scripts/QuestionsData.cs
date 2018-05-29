@@ -47,10 +47,9 @@ public class QuestionsData : MonoBehaviour {
 	private string stringDetect = "Detection";
 	private string stringEscapeReference = "/EscapeRoom";
 
-
 	void Start () {
 
-		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
+		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference(stringEscapeReference);
 
 		if (LevelStructure.iniciado != true) {
 			for (int i = 1; i <= questions; i++) {
@@ -63,7 +62,7 @@ public class QuestionsData : MonoBehaviour {
 	}
 
 	void Update () {
-		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
+		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference(stringEscapeReference).ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
 			if (mDataSnapshot != OLDmDataSnapshot) {
