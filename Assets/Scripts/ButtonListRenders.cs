@@ -16,10 +16,6 @@ public class ButtonListRenders : MonoBehaviour {
 		CreateButtons ();
 	}
 
-	void Update() {
-		
-	}
-
 	void CreateButtons(){
 
 		for (int i = 0; i < numButtons; i++) {

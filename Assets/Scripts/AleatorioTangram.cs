@@ -25,6 +25,7 @@ public class AleatorioTangram : MonoBehaviour {
 	private List<GameObject> listaConjuntos;
 
 	void Start () {
+		//Base para mostrar la forma, invisible para saber si se ha colocado bien, y las piezas normales
 		randomTangram = Random.Range (0, 4);
 
 		listaConjuntos = new List<GameObject> ();
@@ -45,12 +46,9 @@ public class AleatorioTangram : MonoBehaviour {
 		listaConjuntos.Add (invisiblesLagartija);
 		listaConjuntos.Add (baseLagartija);
 
+		//Activamos los 3 conjuntos de la figura que haya tocado random
 		listaConjuntos [randomTangram * 3].SetActive (true);
 		listaConjuntos [randomTangram * 3 + 1].SetActive (true);
 		listaConjuntos [randomTangram * 3 + 2].SetActive (true);
-	}
-		
-	void Update () {
-		
 	}
 }

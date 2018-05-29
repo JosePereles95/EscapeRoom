@@ -35,10 +35,6 @@ public class PuzleLlaves : MonoBehaviour {
 		}
 	}
 
-	void Update(){
-			
-	}
-
 	IEnumerator ShowWrongText(){
 		panel.SetActive (true);
 		wrongText.gameObject.SetActive (true);
@@ -66,5 +62,4 @@ public class PuzleLlaves : MonoBehaviour {
 		Timer.ChangeCanvas (false, SceneManager.GetActiveScene().name, -1);
 		SceneManager.LoadScene ("Vuforia");
 	}
-
 }

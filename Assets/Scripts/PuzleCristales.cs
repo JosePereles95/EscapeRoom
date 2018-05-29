@@ -27,10 +27,6 @@ public class PuzleCristales : MonoBehaviour {
 		}
 	}
 
-	void Update () {
-		
-	}
-
 	public void CheckAnswer(){
 		if (!wrongText.gameObject.activeSelf &&
 			!correctText.gameObject.activeSelf &&

@@ -76,10 +76,6 @@ public class PuzleBaterias : MonoBehaviour {
 		porcentajeText.text = sumaActual + " %";
 	}
 
-	void Update () {
-
-	}
-
 	IEnumerator ShowWrongText(){
 		panel.SetActive (true);
 		wrongText.gameObject.SetActive (true);

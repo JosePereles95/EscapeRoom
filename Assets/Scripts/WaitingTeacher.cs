@@ -9,7 +9,6 @@ public class WaitingTeacher : MonoBehaviour {
 
 	public static int numGrupos = 0;
 
-	//private Firebase.Database.DatabaseReference mDatabase;
 	private Firebase.Database.DataSnapshot mDataSnapshot;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 
@@ -24,7 +23,6 @@ public class WaitingTeacher : MonoBehaviour {
 	void Start(){
 		Application.runInBackground = true;
 		VuforiaBehaviour.Instance.enabled = false;
-		//mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 	}
 		
 	void Update () {
@@ -50,8 +48,6 @@ public class WaitingTeacher : MonoBehaviour {
 				actualSesion = int.Parse (mDataSnapshot.Child ("Sesiones").GetValue (true).ToString ());
 				sesionOK = true;
 			}
-				
-
 		}
 
 		if (numGrupos != 0) {

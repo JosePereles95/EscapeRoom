@@ -7,19 +7,12 @@ public class AleatorioLlaves : MonoBehaviour {
 	[SerializeField] private List<GameObject> allCerraduras;
 	[SerializeField] private List<GameObject> allPositions;
 
-	// Use this for initialization
 	void Start () {
-
+		//Colocar las soluciones en posiciones random
 		for (int i = 0; i < allCerraduras.Count; i++) {
 			int j = Random.Range (0, allPositions.Count);
 			allCerraduras [i].transform.position = allPositions [j].transform.position;
 			allPositions.Remove (allPositions [j]);
 		}
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

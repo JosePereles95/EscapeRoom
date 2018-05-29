@@ -80,7 +80,7 @@ public class PuzleIAWords : MonoBehaviour {
 			word2.text != "" &&
 			word3.text != "") {
 
-			//Check if correct
+			//Comprobar si es correcto
 			if (word1.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[0]] &&
 				word2.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[1]] &&
 				word3.text == AleatorioIAWords.palabrasRandom[AleatorioIAWords.listPositions[2]]) {

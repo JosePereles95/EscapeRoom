@@ -16,6 +16,7 @@ public class AleatorioIAPlaca : MonoBehaviour {
 	public static int randomCuadradito;
 
 	void Start () {
+		//Se seleccione uno de los 5 colores random para cada objeto
 		randomBase = Random.Range (0, 5);
 		randomCilindro = Random.Range (0, 5);
 		randomChip = Random.Range (0, 5);

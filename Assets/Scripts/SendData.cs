@@ -29,15 +29,13 @@ public class SendData : MonoBehaviour {
 
 	private List<string> usuarios;
 
-
 	void Start(){
 		usuarios = new List<string> ();
 
 		VuforiaBehaviour.Instance.enabled = false;
 
 		int charAmount = Random.Range(25, 35); //set those to the minimum and maximum length of your string
-		for(int i=0; i<charAmount; i++)
-		{
+		for(int i=0; i<charAmount; i++){
 			bool ok = false;
 			while(!ok) {
 				userID += glyphs[Random.Range(0, glyphs.Length)];

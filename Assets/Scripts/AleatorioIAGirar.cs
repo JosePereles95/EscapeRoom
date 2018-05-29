@@ -16,6 +16,7 @@ public class AleatorioIAGirar : MonoBehaviour {
 		listSoluciones.Add (new List<int> ());
 		listSoluciones.Add (new List<int> ());
 
+		//Almacenamos las soluciones de cada opción, que luego comparamos con la respuesta del alumno
 		listSoluciones [0].Add (9);
 		listSoluciones [0].Add (13);
 		listSoluciones [0].Add (10);
@@ -71,6 +72,7 @@ public class AleatorioIAGirar : MonoBehaviour {
 		listSoluciones [4].Add (13);
 		listSoluciones [4].Add (2);
 
+		//Y se activa una de las 5 posibilidades
 		randomSolution = Random.Range (0, 5);
 
 		listIcosaedros [randomSolution].SetActive (true);

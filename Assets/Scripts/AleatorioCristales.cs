@@ -9,11 +9,11 @@ public class AleatorioCristales : MonoBehaviour {
 	[SerializeField] private List<GameObject> allPositions;
 	public static List<int> listPosColores;
 
-	// Use this for initialization
 	void Start () {
 
 		listPosColores = new List<int> ();
 
+		//Se colocan los colores en posiciones random y evitamos que se repitan
 		for (int i = 0; i < allPositions.Count; i++) {
 			int j = Random.Range (0, allNormalColores.Count);
 			int k = Random.Range (0, allShaderColores.Count);
@@ -24,11 +24,5 @@ public class AleatorioCristales : MonoBehaviour {
 			allNormalColores.Remove (allNormalColores [j]);
 			allShaderColores.Remove (allShaderColores [k]);
 		}
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

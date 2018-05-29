@@ -9,14 +9,11 @@ public class FinalResult : MonoBehaviour {
 	private Firebase.Database.DataSnapshot mDataSnapshot;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 	[SerializeField] private Text puesto;
-
-	void Start () {
-		
-	}
 	
 	void Update () {
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
+		//Mostrar el pueto el en que se ha quedado cuando la app del profesor lo haya calculado
 		if (mDataSnapshot != null) {
 			if (mDataSnapshot.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Puesto").GetValue (true) != null) {
 				puesto.text = mDataSnapshot.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Puesto").GetValue (true).ToString () + " / " + WaitingTeacher.numGrupos;

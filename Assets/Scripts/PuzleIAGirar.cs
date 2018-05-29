@@ -51,10 +51,6 @@ public class PuzleIAGirar : MonoBehaviour {
 		ButtonListComandos.ready = true;
 	}
 
-	void Update(){
-		
-	}
-
 	public void PressButton(){
 		GameObject buttonCommand = EventSystem.current.currentSelectedGameObject;
 

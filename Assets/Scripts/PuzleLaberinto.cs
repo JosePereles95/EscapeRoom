@@ -27,10 +27,6 @@ public class PuzleLaberinto : MonoBehaviour {
 		}
 	}
 
-	void Update () {
-		
-	}
-
 	public void LetrasGoUp(){
 		int numLetra = int.Parse (EventSystem.current.currentSelectedGameObject.name [2].ToString ()) - 1;
 

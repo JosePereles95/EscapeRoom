@@ -37,10 +37,6 @@ public class PuzleIAPlaca : MonoBehaviour {
 		StartCoroutine (IntroPuzle ());
 	}
 
-	void Update () {
-		
-	}
-
 	public void ButtonPulsado(){
 		if (finalIntro &&
 			!wrongText.gameObject.activeSelf &&

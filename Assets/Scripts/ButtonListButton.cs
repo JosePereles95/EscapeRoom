@@ -8,11 +8,11 @@ public class ButtonListButton : MonoBehaviour {
 
 	[SerializeField] private Text myText;
 
-	public void SetText(string textString){
+	public void SetText (string textString){
 		myText.text = textString;
 	}
 
-	public void SetImage(Sprite sprite){
+	public void SetImage (Sprite sprite){
 		this.GetComponent<UnityEngine.UI.Image> ().sprite = sprite;
 	}
 }

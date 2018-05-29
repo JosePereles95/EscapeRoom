@@ -22,8 +22,6 @@ public class InventarioBehaviour : MonoBehaviour {
 	[SerializeField] private GameObject panelGet;
 
 	void Start () {
-
-
 		sumasUSB = new List<bool> ();
 
 		sumasUSB.Add (false);

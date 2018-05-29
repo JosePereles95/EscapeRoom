@@ -108,7 +108,6 @@ public class QuestionsData : MonoBehaviour {
 		else {
 			rombos.sprite = rombosRojo;
 		}
-
 	}
 
 	public void AutoCheckQuestion(){

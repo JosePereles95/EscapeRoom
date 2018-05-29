@@ -8,8 +8,7 @@ public class MouseTangram : MonoBehaviour {
 	Vector3 mO;
 	private Vector3 defaultPosition;
 
-	Ray GenerateMouseRay()
-	{
+	Ray GenerateMouseRay(){
 		Vector3 mousePosFar = new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.farClipPlane);
 		Vector3 mousePosNear = new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane);
 		Vector3 mousePosF = Camera.main.ScreenToWorldPoint(mousePosFar);
@@ -20,29 +19,24 @@ public class MouseTangram : MonoBehaviour {
 
 	}
 
-	void Update()
-	{
-		if(Input.GetMouseButtonDown(0))
-		{
+	void Update()	{
+		if(Input.GetMouseButtonDown(0)){
 			Ray mouseRay = GenerateMouseRay();
 			RaycastHit hit;
 
-			if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit) && hit.collider.tag == "pieza")
-			{
+			if (Physics.Raycast(mouseRay.origin, mouseRay.direction, out hit) && hit.collider.tag == "pieza"){
 				gObj = hit.transform.gameObject;
 				defaultPosition = gObj.transform.position;
 				mO = hit.transform.position - hit.point;
 			}
 		}
 
-		else if(Input.GetMouseButton(0) && gObj)
-		{
+		else if(Input.GetMouseButton(0) && gObj){
 			Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			gObj.transform.position = new Vector3(newPos.x + mO.x,newPos.y + mO.y,gObj.transform.position.z);
 		}
 
-		else if(Input.GetMouseButtonUp(0) && gObj)
-		{
+		else if(Input.GetMouseButtonUp(0) && gObj){
 			PuzleTangram.CheckBounds (gObj, gObj.transform.position, defaultPosition);
 			gObj = null;
 		}

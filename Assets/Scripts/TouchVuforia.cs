@@ -15,16 +15,10 @@ public class TouchVuforia : MonoBehaviour {
 	private GameObject obj2;
 	private GameObject obj8;
 
-	//private bool checking = false;
-
 	void Start () {
 		obj2 = GameObject.FindGameObjectWithTag ("delete");
 		obj8 = GameObject.FindGameObjectWithTag ("delete2");
 		DisableCompleted ();
-	}
-
-	void Update () {
-		//CheckQuestionModels ();
 	}
 
 	void OnMouseDown(){
@@ -331,6 +325,5 @@ public class TouchVuforia : MonoBehaviour {
 			LevelStructure.completados [4]) {
 			this.objCajoneraIn.SetActive (false);
 		}
-
 	}
 }

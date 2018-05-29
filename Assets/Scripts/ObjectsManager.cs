@@ -30,14 +30,9 @@ public class ObjectsManager : MonoBehaviour {
 	[SerializeField] private GameObject objDesapareceFoto;
 	[SerializeField] private GameObject objDesapareceCristales;
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
+		//Quitar los objetos cogidos de Vuforia y evitar volver a mostrarlos (todo feedback visual)
+
 		if (LevelStructure.completados [3])
 			tangramText.SetActive (true);
 

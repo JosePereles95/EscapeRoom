@@ -19,6 +19,7 @@ public class AleatorioIAWords : MonoBehaviour {
 		listNums = new List<int> ();
 		listPositions = new List<int> ();
 
+		//Lista de todas las posibles palabras que pueden aparecer para codificar
 		palabrasRandom = new List<string> ();
 		palabrasRandom.Add ("ABILITY");
 		palabrasRandom.Add ("ACHIEVE");
@@ -93,13 +94,16 @@ public class AleatorioIAWords : MonoBehaviour {
 		palabrasRandom.Add ("WITHOUT");
 		palabrasRandom.Add ("UNKNOWN");
 
+		//Se crea un número random para la desviación del cifrado
 		for (int i = 0; i < numPalabras; i++) {
 			listPositions.Add (Random.Range (0, palabrasRandom.Count));
 			listNums.Add (Random.Range (3, 9));
 
 			int charAmount = 7;
+			//La desviación positiva del cifrado
 			if (i % 2 == 0) {
 				string cadena = "";
+				//Se crea el cifrado
 				for (int j = 0; j < charAmount; j++) {
 					int pos = letras.IndexOf(palabrasRandom[listPositions[i]][j]) - listNums[i];
 					if (pos < 0)
@@ -108,8 +112,10 @@ public class AleatorioIAWords : MonoBehaviour {
 				}
 				listWords.Add (cadena);
 			}
+			//La desviación negativa
 			else {
 				string cadena = "";
+				//Se crea el cifrado
 				for (int j = 0; j < charAmount; j++) {
 					int pos = letras.IndexOf(palabrasRandom[listPositions[i]][j]) + listNums[i];
 					if (pos > 26)
@@ -120,10 +126,7 @@ public class AleatorioIAWords : MonoBehaviour {
 			}
 		}
 
+		//Permitir al código del puzle continuar
 		ready = true;
-	}
-
-	void Update () {
-		
 	}
 }
