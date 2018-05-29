@@ -9,6 +9,7 @@ public class QuestionsData : MonoBehaviour {
 
 	private Firebase.Database.DatabaseReference mDatabase;
 	private Firebase.Database.DataSnapshot mDataSnapshot;
+	private Firebase.Database.DataSnapshot OLDmDataSnapshot;
 	private string urlDatabase = "https://escaperoom-b425b.firebaseio.com/";
 
 	private bool questionChecked = false;
@@ -36,25 +37,39 @@ public class QuestionsData : MonoBehaviour {
 	private bool q4Verified = false;
 	private bool q5Verified = false;
 
+	private string textGrupo = "Grupo ";
+	private int i;
+	private string stateQuestion;
+	private string stringSesion = "Sesion ";
+	private string stringFalse = "False";
+	private string stringQMayus = "Questions";
+	private string stringQMinus = "question";
+	private string stringDetect = "Detection";
+	private string stringEscapeReference = "/EscapeRoom";
+
+
 	void Start () {
 
 		mDatabase = Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom");
 
 		if (LevelStructure.iniciado != true) {
 			for (int i = 1; i <= questions; i++) {
-				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).SetValueAsync (questionChecked);
-				mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question" + i).SetValueAsync (false);
+				mDatabase.Child(stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringQMayus).Child (stringQMinus + i).SetValueAsync (questionChecked);
+				mDatabase.Child(stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child (stringQMinus + i).SetValueAsync (false);
 			}
 		}
 
-		myGroup.text = "Grupo " + SendData.miGrupo;
+		myGroup.text = textGrupo + SendData.miGrupo;
 	}
 
 	void Update () {
 		Firebase.Database.FirebaseDatabase.GetInstance (urlDatabase).GetReference("/EscapeRoom").ValueChanged += HandleValueChanged;
 
 		if (mDataSnapshot != null) {
-			CheckQuestion ();
+			if (mDataSnapshot != OLDmDataSnapshot) {
+				CheckQuestion ();
+				OLDmDataSnapshot = mDataSnapshot;
+			}
 		}
 
 		if(!q1Verified || !q2Verified || !q3Verified
@@ -63,11 +78,10 @@ public class QuestionsData : MonoBehaviour {
 	}
 
 	void CheckQuestion(){
-		string stateQuestion;
-		for (int i = 1; i <= questions; i++) {
-			if (mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true) != null) {
-				stateQuestion = mDataSnapshot.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + i).GetValue (true).ToString ();
-				if (stateQuestion == "False") {
+		for (i = 1; i <= questions; i++) {
+			if (mDataSnapshot.Child(stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringQMayus).Child (stringQMinus + i).GetValue (true) != null) {
+				stateQuestion = mDataSnapshot.Child(stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringQMayus).Child (stringQMinus + i).GetValue (true).ToString ();
+				if (stateQuestion == stringFalse) {
 					questionsButton [i - 1].image.sprite = preguntaRojo;
 
 					if ((i - 1) == 0)
@@ -114,9 +128,9 @@ public class QuestionsData : MonoBehaviour {
 		int numQuestion = int.Parse (EventSystem.current.currentSelectedGameObject.name [8].ToString ());
 
 		if(questionsButton [numQuestion - 1].image.sprite == preguntaRojo)
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (true);
+			mDatabase.Child(stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringQMayus).Child (stringQMinus + numQuestion).SetValueAsync (true);
 		else
-			mDatabase.Child("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Questions").Child ("question" + numQuestion).SetValueAsync (false);
+			mDatabase.Child(stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringQMayus).Child (stringQMinus + numQuestion).SetValueAsync (false);
 	}
 
 	public static void CheckDetected(int n){
@@ -135,23 +149,23 @@ public class QuestionsData : MonoBehaviour {
 
 	void VerifyDetection(){
 		if (q1Detected) {
-			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question1").SetValueAsync (true);
+			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question1").SetValueAsync (true);
 			q1Verified = true;
 		}
 		if (q2Detected) {
-			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question2").SetValueAsync (true);
+			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question2").SetValueAsync (true);
 			q2Verified = true;
 		}
 		if (q3Detected) {
-			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question3").SetValueAsync (true);
+			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question3").SetValueAsync (true);
 			q3Verified = true;
 		}
 		if (q4Detected) {
-			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question4").SetValueAsync (true);
+			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question4").SetValueAsync (true);
 			q4Verified = true;
 		}
 		if (q5Detected) {
-			mDatabase.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Detection").Child ("question5").SetValueAsync (true);
+			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question5").SetValueAsync (true);
 			q5Verified = true;
 		}
 	}

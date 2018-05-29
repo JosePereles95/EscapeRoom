@@ -45,6 +45,16 @@ public class Timer : MonoBehaviour{
 
 	[SerializeField] private GameObject panelBack;
 
+	private int intento;
+	private string fecha;
+	private int horas;
+	private int minutos;
+	private int segundos;
+	private int resultado;
+	private int numIntentos;
+
+	private string dosPuntos = ":";
+
 	void Start(){
 		textTiempo.gameObject.SetActive (false);
 		tiempoContador = GameObject.FindGameObjectWithTag ("tiempoContador");
@@ -65,9 +75,9 @@ public class Timer : MonoBehaviour{
 		else if(entraCanvas) {
 			textTiempo.gameObject.SetActive (false);
 			tiempoContador.SetActive (true);
-			int intento = CheckIntentos ();
+			intento = CheckIntentos ();
 			tiempoFinal = Math.Round ((tiempoInicial - tiempo), 2);
-			string fecha = System.DateTime.Now.Month + "-" + System.DateTime.Now.Day + "-" + System.DateTime.Now.Year;
+			fecha = System.DateTime.Now.Month + "-" + System.DateTime.Now.Day + "-" + System.DateTime.Now.Year;
 			mDatabaseTiempo.Child(fecha).Child(SendData.userID).Child(sceneName).Child("Intento " + intento).Child(estado).SetValueAsync (tiempoFinal);
 			entraCanvas = false;
 		}
@@ -79,20 +89,20 @@ public class Timer : MonoBehaviour{
 
 		tiempo -= Time.deltaTime;
 
-		int horas = ((int) tiempo / 3600);
-		int minutos = (((int) tiempo - horas * 3600) / 60);
-		int segundos = (int) tiempo - (horas * 3600 + minutos * 60);
+		horas = ((int) tiempo / 3600);
+		minutos = (((int) tiempo - horas * 3600) / 60);
+		segundos = (int) tiempo - (horas * 3600 + minutos * 60);
 
 		if (horas > 0)
-			textTiempo.text = horas.ToString () + ":" + minutos.ToString ("D2");
+			textTiempo.text = horas.ToString () + dosPuntos + minutos.ToString ("D2");
 		else {
 			if(minutos > 0)
-				textTiempo.text = minutos.ToString () + ":" + segundos.ToString ("D2");
+				textTiempo.text = minutos.ToString () + dosPuntos + segundos.ToString ("D2");
 			else
 				textTiempo.text = segundos.ToString ();
 		}
 
-		textTiempoMenu.text = horas.ToString () + ":" + minutos.ToString ("D2") + ":" + segundos.ToString ("D2");
+		textTiempoMenu.text = horas.ToString () + dosPuntos + minutos.ToString ("D2") + dosPuntos + segundos.ToString ("D2");
 
 		if (horas == 0 && minutos == 0 && segundos == 0) {
 			if(!llamado)
@@ -102,12 +112,12 @@ public class Timer : MonoBehaviour{
 
 	void TiempoAgotado(){
 		Debug.Log ("Se acabó el tiempo");
-		int resultado = 0;
+		resultado = 0;
 
 		for (int i = 0; i < LevelStructure.completados.Count; i++)
 			if (LevelStructure.completados [i])
 				resultado++;
-		Debug.Log ("A la DATA");
+		
 		mDatabaseNormal.Child ("Sesion " + WaitingTeacher.actualSesion).Child (SendData.userID).Child ("Resultado").SetValueAsync (resultado);
 		llamado = true;
 		SceneManager.LoadScene ("FinalScene");
@@ -115,7 +125,7 @@ public class Timer : MonoBehaviour{
 	}
 
 	int CheckIntentos () {
-		int numIntentos = 0;
+		numIntentos = 0;
 
 		if (sceneName == "PuzleLlaves") {
 			intentosLlaves++;

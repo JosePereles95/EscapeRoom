@@ -19,6 +19,21 @@ public class InventarioBehaviour : MonoBehaviour {
 	private int num = 0;
 	private List<bool> sumasUSB;
 
+	private string barraCuatro = "/4";
+
+	private string obtenidoUpdate = "¡Has obtenido una Update!";
+	private string obtenidoBateria = "¡Has obtenido las Baterías!";
+	private string obtenidoUsuario = "¡Has obtenido el Usuario!";
+	private string obtenidoCortadora = "¡Has obtenido la Cortadora!";
+	private string obtenidoClaveDatos = "¡Has obtenido la Clave y los Datos!";
+	private string obtenidoComandos = "¡Has obtenido los Comandos!";
+	private string obtenidoLlaves = "¡Has obtenido la Llave 1 y la Llave 2!";
+	private string obtenidoDestornillador = "¡Has obtenido el Destornillador!";
+	private string obtenidoTarjeta = "¡Has obtenido la Tarjeta!";
+	private string obtenidoNotaClip = "¡Has obtenido la Nota y el Clip!";
+	private string obtenidoFoto = "¡Has obtenido la Foto!";
+	private string obtenidoCristales = "¡Has obtenido el Cristal 1 y el Cristal 2!";
+
 	[SerializeField] private GameObject panelGet;
 
 	void Start () {
@@ -53,42 +68,42 @@ public class InventarioBehaviour : MonoBehaviour {
 		//Puzle 1 - Llave
 		if (LevelStructure.completados [1] == true) {
 			buttonsInventario [15].image.sprite = listObjects [15];
-			StartCoroutine (GetObject (1, "¡Has obtenido una Update!"));
+			StartCoroutine (GetObject (1, obtenidoUpdate));
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (0));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 		}
 
 		//Puzle 3 - Tangram
 		if (LevelStructure.completados [3] == true) {
 			buttonsInventario [2].image.sprite = listObjects [2];
-			StartCoroutine (GetObject (3, "¡Has obtenido las Baterías!"));
+			StartCoroutine (GetObject (3, obtenidoBateria));
 		}
 
 		//Puzle 4 - Baterías
 		if (LevelStructure.completados [4] == true) {
 			buttonsInventario [9].image.sprite = listObjects [9];
-			StartCoroutine (GetObject (4, "¡Has obtenido el Usuario!"));
+			StartCoroutine (GetObject (4, obtenidoUsuario));
 		}
 
 		//Puzle 8 - Cerradura
 		if (LevelStructure.completados [8] == true) {
 			buttonsInventario [10].image.sprite = listObjects [10];
-			StartCoroutine (GetObject (8, "¡Has obtenido la Cortadora!"));
+			StartCoroutine (GetObject (8, obtenidoCortadora));
 		}
 
 		//Puzle 10 - Laberinto
 		if (LevelStructure.completados [10] == true) {
 			buttonsInventario [6].image.sprite = listObjects [6];
 			buttonsInventario [7].image.sprite = listObjects [7];
-			StartCoroutine (GetObject (10, "¡Has obtenido la Clave y los Datos!"));
+			StartCoroutine (GetObject (10, obtenidoClaveDatos));
 		}
 
 		//Puzle 13 - Cristales
 		if (LevelStructure.completados [13] == true) {
 			buttonsInventario [14].image.sprite = listObjects [14];
-			StartCoroutine (GetObject (13, "¡Has obtenido los Comandos!"));
+			StartCoroutine (GetObject (13, obtenidoComandos));
 		}
 
 		//Question 0 - Pregunta 1
@@ -96,7 +111,7 @@ public class InventarioBehaviour : MonoBehaviour {
 			LevelStructure.openQuestions[0]) {
 			buttonsInventario [0].image.sprite = listObjects [0];
 			buttonsInventario [1].image.sprite = listObjects [1];
-			StartCoroutine (GetObject (0, "¡Has obtenido la Llave 1 y la Llave 2!"));
+			StartCoroutine (GetObject (0, obtenidoLlaves));
 		}
 		else {
 			LevelStructure.objMostrado [0] = false;
@@ -108,17 +123,17 @@ public class InventarioBehaviour : MonoBehaviour {
 		if (LevelStructure.completados [5] &&
 			LevelStructure.openQuestions[1]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
-			StartCoroutine (GetObject (5, "¡Has obtenido una Update!"));
+			StartCoroutine (GetObject (5, obtenidoUpdate));
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (1));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 		}
 		else {
 			LevelStructure.objMostrado [5] = false;
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (RestaUSB (1));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 			if(num == 0)
 				buttonsInventario [15].image.sprite = cuadradoNormal;
@@ -128,7 +143,7 @@ public class InventarioBehaviour : MonoBehaviour {
 		if (LevelStructure.completados [6] &&
 			LevelStructure.openQuestions[2]) {
 			buttonsInventario [3].image.sprite = listObjects [3];
-			StartCoroutine (GetObject (6, "¡Has obtenido el Destornillador!"));
+			StartCoroutine (GetObject (6, obtenidoDestornillador));
 		}
 		else {
 			LevelStructure.objMostrado [6] = false;
@@ -139,17 +154,17 @@ public class InventarioBehaviour : MonoBehaviour {
 		if (LevelStructure.completados [14] &&
 			LevelStructure.openQuestions[3]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
-			StartCoroutine (GetObject (14, "¡Has obtenido una Update!"));
+			StartCoroutine (GetObject (14, obtenidoUpdate));
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (2));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 		}
 		else {
 			LevelStructure.objMostrado [14] = false;
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (RestaUSB (2));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 			if(num == 0)
 				buttonsInventario [15].image.sprite = cuadradoNormal;
@@ -159,17 +174,17 @@ public class InventarioBehaviour : MonoBehaviour {
 		if (LevelStructure.completados [12] &&
 			LevelStructure.openQuestions[4]) {
 			buttonsInventario [15].image.sprite = listObjects [15];
-			StartCoroutine (GetObject (12, "¡Has obtenido una Update!"));
+			StartCoroutine (GetObject (12, obtenidoUpdate));
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (SumaUSB (3));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 		}
 		else {
 			LevelStructure.objMostrado [12] = false;
 			num = int.Parse(buttonsInventario [15].GetComponentInChildren<Text> ().text [0].ToString());
 			StartCoroutine (RestaUSB (3));
-			string texto = num.ToString () + "/4";
+			string texto = num.ToString () + barraCuatro;
 			buttonsInventario [15].GetComponentInChildren<Text> ().text = texto;
 			if(num == 0)
 				buttonsInventario [15].image.sprite = cuadradoNormal;
@@ -178,28 +193,28 @@ public class InventarioBehaviour : MonoBehaviour {
 		//Cajón 2
 		if (LevelStructure.completados [2] == true) {
 			buttonsInventario [8].image.sprite = listObjects [8];
-			StartCoroutine (GetObject (2, "¡Has obtenido la Tarjeta!"));
+			StartCoroutine (GetObject (2, obtenidoTarjeta));
 		}
 
 		//Cajón 7
 		if (LevelStructure.completados [7] == true){
 			buttonsInventario [4].image.sprite = listObjects [4];
 			buttonsInventario [5].image.sprite = listObjects [5];
-			StartCoroutine (GetObject (7, "¡Has obtenido la Nota y el Clip!"));
+			StartCoroutine (GetObject (7, obtenidoNotaClip));
 
 		}
 
 		//Cajón 9
 		if (LevelStructure.completados [9] == true) {
 			buttonsInventario [13].image.sprite = listObjects [13];
-			StartCoroutine (GetObject (9, "¡Has obtenido la Foto!"));
+			StartCoroutine (GetObject (9, obtenidoFoto));
 		}
 
 		//Cajón 11
 		if (LevelStructure.completados [11] == true){
 			buttonsInventario [11].image.sprite = listObjects [11];
 			buttonsInventario [12].image.sprite = listObjects [12];
-			StartCoroutine (GetObject (11, "¡Has obtenido el Cristal 1 y el Cristal 2!"));
+			StartCoroutine (GetObject (11, obtenidoCristales));
 		}
 	}
 

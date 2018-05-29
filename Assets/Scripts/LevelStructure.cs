@@ -17,6 +17,7 @@ public class LevelStructure : MonoBehaviour {
 		completados = new List<bool> ();
 		openQuestions = new List<bool> ();
 		objMostrado = new List<bool> ();
+		objCogidos = new List<bool> ();
 
 		//Se ha cpmpletado cada parte del juego (puzles, preguntas, cajones)
 		for (int i = 0; i < numPuzles; i++) {
