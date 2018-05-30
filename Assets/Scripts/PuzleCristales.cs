@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Vuforia;
 
+//Calcula la solución según los números que hayan salido en el random, luego comprueba que la respuesta
+//del alumno es la correcta
+
 public class PuzleCristales : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

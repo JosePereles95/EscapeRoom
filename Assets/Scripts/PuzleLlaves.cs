@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//Comprueba que se ha tocado en la posición de la cerradura que es la correcta
+
 public class PuzleLlaves : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

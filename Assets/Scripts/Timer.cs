@@ -6,6 +6,9 @@ using UnityEngine.UI;
 using Firebase;
 using UnityEngine.SceneManagement;
 
+//Maneja todo lo relativo al tiempo, a cambiar la UI del tiempo
+//No se destruye entre escenas
+
 public class Timer : MonoBehaviour{
 
 	[SerializeField] private float tiempo = 0.0f;

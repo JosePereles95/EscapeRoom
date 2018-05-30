@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using Vuforia;
 using UnityEngine.EventSystems;
 
+//Manega todo lo relatvo a las preguntas del profesor comprobando en Firebase
+
 public class QuestionsData : MonoBehaviour {
 
 	private Firebase.Database.DatabaseReference mDatabase;
@@ -147,23 +149,24 @@ public class QuestionsData : MonoBehaviour {
 	}
 
 	void VerifyDetection(){
-		if (q1Detected) {
+		//Comprobar que el alumno ha escaneado el código QR
+		if (q1Detected && !q1Verified) {
 			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question1").SetValueAsync (true);
 			q1Verified = true;
 		}
-		if (q2Detected) {
+		if (q2Detected && !q2Verified) {
 			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question2").SetValueAsync (true);
 			q2Verified = true;
 		}
-		if (q3Detected) {
+		if (q3Detected && !q3Verified) {
 			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question3").SetValueAsync (true);
 			q3Verified = true;
 		}
-		if (q4Detected) {
+		if (q4Detected && !q4Verified) {
 			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question4").SetValueAsync (true);
 			q4Verified = true;
 		}
-		if (q5Detected) {
+		if (q5Detected && !q5Verified) {
 			mDatabase.Child (stringSesion + WaitingTeacher.actualSesion).Child (SendData.userID).Child (stringDetect).Child ("question5").SetValueAsync (true);
 			q5Verified = true;
 		}

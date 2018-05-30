@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+//Administra el inventario por completo, activando los objetos que se van consiguiendo
+//según el script de LevelStructure
+
 public class InventarioBehaviour : MonoBehaviour {
 
 	[SerializeField] Canvas UICanvas;

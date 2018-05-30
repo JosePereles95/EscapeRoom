@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//Se cogen varios números random y luego se calcula una solución posible que sea menor a 100
+//luego se va comprobando la solución con la suma que va poniendo el alumno apilando baterías
+
 public class PuzleBaterias : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

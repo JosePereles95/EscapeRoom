@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+//Controla la partida de IA Loops y va realizando los giros que el alumno haga hasta
+//que se haya creado un bucle correcto
+
 public class Piece : MonoBehaviour {
 
 	public int[] values;

@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//La encriptación se realiza el AleatorioIAWords, aquí solo se muestran las letras random generadas
+//y se comprueba que la respuesta del alumno es la correcta
+
 public class PuzleIAWords : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

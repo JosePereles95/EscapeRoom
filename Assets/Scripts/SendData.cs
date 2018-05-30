@@ -7,6 +7,8 @@ using Firebase;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//Crea un id para el alumno y lo almacena en Firebase con los datos del grupo
+
 public class SendData : MonoBehaviour {
 
 	public static float minsJuego;

@@ -6,12 +6,19 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//El icosaedro se puede girar libremente, el alumno va indicando el orden a través de los botones
+//luego se comprueba si el orden introducido (que se va guardando en la lista listUserOrder es el correcto
+
 public class PuzleIAGirar : MonoBehaviour {
 
 	[SerializeField] private Text correctText;
 	[SerializeField] private Text wrongText;
 	[SerializeField] private Text noVidasText;
 	[SerializeField] private GameObject panel;
+
+	[SerializeField] private Button abrirButton;
+	[SerializeField] private Sprite abrirNormal;
+	[SerializeField] private Sprite abrirPulsado;
 
 	public static List<string> listComandos;
 	private List<int> listUserOrder;
@@ -52,7 +59,7 @@ public class PuzleIAGirar : MonoBehaviour {
 	}
 
 	public void PressButton(){
-		GameObject buttonCommand = EventSystem.current.currentSelectedGameObject;
+		Button buttonCommand = EventSystem.current.currentSelectedGameObject.GetComponent<Button>();
 
 		string buttonCommandName = buttonCommand.GetComponentInChildren<Text> ().text;
 		int index = listComandos.FindIndex (a => a == buttonCommandName);
@@ -60,6 +67,7 @@ public class PuzleIAGirar : MonoBehaviour {
 		if (listUserOrder.Count < 10 &&
 			!(buttonCommand.GetComponent<Button> ().image.color == Color.green)) {
 			buttonCommand.GetComponent<Button> ().image.color = Color.green;
+
 			listUserOrder.Add (index);
 			buttonCommand.transform.GetChild (0).GetComponent<Text> ().text = listUserOrder.Count.ToString ();
 		}
@@ -109,6 +117,12 @@ public class PuzleIAGirar : MonoBehaviour {
 
 	public void OpenComands(){
 		commandsScroll.SetActive (!commandsScroll.activeSelf);
+
+		if (commandsScroll.activeSelf)
+			abrirButton.image.sprite = abrirPulsado;
+		else
+			abrirButton.image.sprite = abrirNormal;
+
 		checkButton.gameObject.SetActive (!checkButton.gameObject.activeSelf);
 		resetButton.gameObject.SetActive (!resetButton.gameObject.activeSelf);
 	}

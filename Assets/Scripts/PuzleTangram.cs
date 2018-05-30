@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Vuforia;
 
+//Comprobar que la pieza se ha soltado en el lugar correcto, que lo determina la lista de
+//piezas invisibles, si no es correcto, se devuelve a su lugar
+
 public class PuzleTangram : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

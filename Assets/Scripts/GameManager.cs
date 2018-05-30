@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Vuforia;
 
+//Crea una solución random para el puzle de las tuberías y luego desordena los objetos
+
 public class GameManager : MonoBehaviour {
 
 	public bool GenerateRandom;

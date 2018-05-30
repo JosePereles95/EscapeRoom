@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Vuforia;
 
+//Comprueba que la solución introducida por el alumno mediando los botones de
+//arriba y abajo es el que corresponde al objeto activo
+
 public class PuzleLaberinto : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

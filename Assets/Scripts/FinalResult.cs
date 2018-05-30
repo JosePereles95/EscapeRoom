@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Firebase;
 
+//Se encarga de mostrar por pantalla el puesto en que se ha quedado cuando se acabe el tiempo
+
 public class FinalResult : MonoBehaviour {
 
 	private Firebase.Database.DataSnapshot mDataSnapshot;

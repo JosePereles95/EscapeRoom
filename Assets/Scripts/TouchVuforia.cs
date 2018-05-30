@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using Vuforia;
 using UnityEngine.SceneManagement;
 
+//Comprueba la interacción con partes en concreto de los modelados de Vuforia
+//para ir activando los puzles, las cuestiones, los cajones, etc
+
 public class TouchVuforia : MonoBehaviour {
 
 	[SerializeField] private GameObject textFalta;

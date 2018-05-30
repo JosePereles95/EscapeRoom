@@ -6,6 +6,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//Activa la placa con todos los objetos y luego desaparecen, para luego volver a mostrar la placa
+//sin los objetos y el alumno indica cuáles estaban en la placa
+
 public class PuzleIAPlaca : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

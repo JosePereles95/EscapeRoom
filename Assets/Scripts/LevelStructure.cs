@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LevelStructure : MonoBehaviour {
 
+	//Booleanos para indicar el progreso del alumno en el juego que van
+	//cambiando los distintos scripts de los puzles y los objetos que se van completando
+
 	public static List<bool> completados;
 	public static List<bool> openQuestions;
 	public static List<bool> objMostrado;

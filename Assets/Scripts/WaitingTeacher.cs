@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 using Vuforia;
 using UnityEngine.UI;
 
+//Si hay una partida activa y lista, muestra el botón de Go! y te lleva a la selección de grupo
+//Si no hay partida, no pasa nada
+
 public class WaitingTeacher : MonoBehaviour {
 
 	public static int numGrupos = 0;

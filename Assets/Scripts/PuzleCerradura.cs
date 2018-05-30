@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Vuforia;
 
+//Se mueven los sliders del clip y el destornillador para ir girándolos
+//si el clip está en la posición correcta, la cerradura va hasta el final
+//si no, avanza mucho o poco dependiendo de cómo de lejos esté el clip de la solución correcta
+
 public class PuzleCerradura : MonoBehaviour {
 
 	[SerializeField] private Text correctText;

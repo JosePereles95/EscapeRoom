@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ObjectsManager : MonoBehaviour {
 
-	/*[SerializeField] private GameObject */
+	//Todo visual.
+	//Va cambiando texturas y objetos para darle una sesación más
+	//dinámica al juego a medida que se van realizando acciones
 
 	[SerializeField] private GameObject tangramText;
 	[SerializeField] private GameObject bateriasText;

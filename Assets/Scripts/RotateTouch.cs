@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Permite rotar los objetos en Vuforia
+
 public class RotateTouch : MonoBehaviour 
 {
 	private float rotSpeed = 100;

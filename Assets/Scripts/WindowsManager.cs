@@ -6,6 +6,9 @@ using Vuforia;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
+//Administra los botones de la escena de Vuforia para que se puedan cambiar de uno a tro fácilmente
+//También están las llamadas al inicio de los puzles, cambiando el tiempo para ponerlo en la esquina
+
 public class WindowsManager : MonoBehaviour {
 
 	public static bool penalized = false;
@@ -15,6 +18,9 @@ public class WindowsManager : MonoBehaviour {
 	[SerializeField] private GameObject vuforiaCanvas;
 	[SerializeField] private GameObject questionCanvas;
 	[SerializeField] private GameObject inventarioCanvas;
+	[SerializeField] private GameObject opcionesCanvas;
+	[SerializeField] private GameObject instruccionesCanvas;
+	[SerializeField] private GameObject creditosCanvas;
 	[SerializeField] private GameObject fondo;
 	private GameObject tiempoContador;
 
@@ -39,6 +45,10 @@ public class WindowsManager : MonoBehaviour {
 	[SerializeField] private Button inventarioButton;
 	[SerializeField] private Sprite inventarioNormal;
 	[SerializeField] private Sprite inventarioPulsado;
+
+	[SerializeField] private Button opcionesButton;
+	[SerializeField] private Sprite opcionesNormal;
+	[SerializeField] private Sprite opcionesPulsado;
 
 	void Start () {
 		VuforiaBehaviour.Instance.enabled = false;
@@ -211,7 +221,10 @@ public class WindowsManager : MonoBehaviour {
 	public void OpenQuestions(){
 		camaraButton.image.sprite = camaraNormal;
 		inventarioButton.image.sprite = inventarioNormal;
+		opcionesButton.image.sprite = opcionesNormal;
 		inventarioCanvas.SetActive (false);
+		opcionesCanvas.SetActive (false);
+		CloseItself ();
 		fondo.SetActive (true);
 		questionCanvas.SetActive (!questionCanvas.activeSelf);
 
@@ -232,7 +245,10 @@ public class WindowsManager : MonoBehaviour {
 	public void OpenCamera(){
 		progresoButton.image.sprite = progresoNormal;
 		inventarioButton.image.sprite = inventarioNormal;
+		opcionesButton.image.sprite = opcionesNormal;
 		questionCanvas.SetActive (false);
+		opcionesCanvas.SetActive (false);
+		CloseItself ();
 		inventarioCanvas.SetActive (false);
 
 		if (vuforiaCanvas.activeSelf || textTiempoPenalized.gameObject.activeSelf) {
@@ -265,7 +281,10 @@ public class WindowsManager : MonoBehaviour {
 
 	public void OpenInventario(){
 		progresoButton.image.sprite = progresoNormal;
+		opcionesButton.image.sprite = opcionesNormal;
 		questionCanvas.SetActive (false);
+		opcionesCanvas.SetActive (false);
+		CloseItself ();
 		inventarioCanvas.SetActive (!inventarioCanvas.activeSelf);
 
 		if (!inventarioCanvas.activeSelf) {
@@ -277,5 +296,44 @@ public class WindowsManager : MonoBehaviour {
 			tiempoContador.SetActive (false);
 			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = inventarioPulsado;
 		}
+	}
+
+	public void OpenOpciones(){
+		camaraButton.image.sprite = camaraNormal;
+		inventarioButton.image.sprite = inventarioNormal;
+		progresoButton.image.sprite = progresoNormal;
+
+		inventarioCanvas.SetActive (false);
+		fondo.SetActive (true);
+		questionCanvas.SetActive (false);
+
+		opcionesCanvas.SetActive (!opcionesCanvas.activeSelf);
+
+		if (!opcionesCanvas.activeSelf) {
+			tiempoContador.SetActive (true);
+			CloseItself ();
+			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = opcionesNormal;
+		}
+		else {
+			tiempoContador.SetActive (false);
+			EventSystem.current.currentSelectedGameObject.GetComponent<Button> ().image.sprite = opcionesPulsado;
+		}
+
+		textTiempoPenalized.gameObject.SetActive (false);
+		vuforiaCanvas.SetActive (false);
+		VuforiaBehaviour.Instance.enabled = false;
+	}
+
+	public void OpenInstrucciones(){
+		instruccionesCanvas.SetActive (true);
+	}
+
+	public void OpenCreditos(){
+		creditosCanvas.SetActive (true);
+	}
+
+	public void CloseItself(){
+		instruccionesCanvas.SetActive (false);
+		creditosCanvas.SetActive (false);
 	}
 }
